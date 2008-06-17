@@ -42,3 +42,15 @@
 {% endfor %}
 
 {% endblock %}
+
+{% block sidebarrel %}
+{% if split_index %}
+   <h4>Index</h4>
+   <p>{% for key, dummy in genindexentries -%}
+   <a href="{{ pathto('genindex-' + key) }}"><strong>{{ key }}</strong></a>
+     {% if not loop.last %}| {% endif %}
+   {%- endfor %}</p>
+
+   <p><a href="{{ pathto('genindex-all') }}"><strong>Full index on one page</strong></a></p>
+{% endif %} 
+{% endblock %}
