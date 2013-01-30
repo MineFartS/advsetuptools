@@ -20,13 +20,16 @@ msgid "i18n with glossary terms"
 msgstr "I18N WITH GLOSSARY TERMS"
 
 msgid "Some term"
-msgstr "SOME TERM"
+msgstr "SOME NEW TERM"
 
 msgid "The corresponding glossary"
 msgstr "THE CORRESPONDING GLOSSARY"
 
 msgid "Some other term"
-msgstr "SOME OTHER TERM"
+msgstr "SOME OTHER NEW TERM"
 
 msgid "The corresponding glossary #2"
 msgstr "THE CORRESPONDING GLOSSARY #2"
+
+msgid "link to :term:`Some term`."
+msgstr "LINK TO :term:`SOME NEW TERM`."
