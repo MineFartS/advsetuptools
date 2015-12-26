@@ -5,3 +5,4 @@ Bar
    :glob:
 
    *
+   bar_4/index
