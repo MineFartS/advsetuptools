@@ -20,10 +20,9 @@ from typing import Any, Generator, IO, Optional, Sequence, Set, Tuple
 
 
 ARGS = argparse.ArgumentParser(description="Web crawler")
-if sys.platform == 'win32':
-    ARGS.add_argument(
-        '--iocp', action='store_true', dest='iocp',
-        default=False, help='Use IOCP event loop (Windows only)')
+ARGS.add_argument(
+    '--iocp', action='store_true', dest='iocp',
+    default=False, help='Use IOCP event loop (Windows only)')
 ARGS.add_argument(
     '--select', action='store_true', dest='select',
     default=False, help='Use Select event loop instead of default')
@@ -592,11 +591,12 @@ class Fetcher:
             stats.add('html')
             size = len(self.body or b'')
             stats.add('html_bytes', size)
-            print(self.url, self.response.status,
-                  self.ctype, self.encoding,
-                  size,
-                  '%d/%d' % (len(self.new_urls or ()), len(self.urls or ())),
-                  file=file)
+            if self.log.level:
+                print(self.url, self.response.status,
+                      self.ctype, self.encoding,
+                      size,
+                      '%d/%d' % (len(self.new_urls or ()), len(self.urls or ())),
+                      file=file)
         elif self.response is None:
             print(self.url, 'no response object')
         else:
