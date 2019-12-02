@@ -10,6 +10,7 @@
 # Lenville Leo <lenville@gmail.com>, 2013
 # Nomaka <nomakacyx@gmail.com>, 2018
 # Ryekee Zhong <ryekee@gmail.com>, 2013
+# Takeshi KOMIYA <i.tkomiya@gmail.com>, 2019
 # Tower Joo<zhutao.iscas@gmail.com>, 2009
 # Yinian Chin <yinian1992@live.com>, 2013,2018
 # Yinian Chin <yinian1992@live.com>, 2013
@@ -18,7 +19,7 @@ msgstr ""
 "Project-Id-Version: Sphinx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-29 01:05+0900\n"
-"PO-Revision-Date: 2019-11-14 15:35+0000\n"
+"PO-Revision-Date: 2019-12-01 16:31+0000\n"
 "Last-Translator: Takeshi KOMIYA <i.tkomiya@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/sphinx-doc/sphinx-1/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -403,7 +404,7 @@ msgstr "公式渲染器 %s 已注册"
 msgid ""
 "the extension %r was already merged with Sphinx since version %s; this "
 "extension is ignored."
-msgstr "自版本 %s 开始，扩展 %r 已合并至 Sphinx；该扩展被忽略。"
+msgstr "扩展 %r 已合并至 Sphinx (自版本 %s 开始)；该扩展被忽略。"
 
 #: sphinx/registry.py:475
 msgid "Original exception:\n"
