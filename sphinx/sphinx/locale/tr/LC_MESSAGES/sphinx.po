@@ -6,7 +6,7 @@
 # BouRock, 2020
 # Fırat Özgül <ozgulfirat@gmail.com>, 2013-2016
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011
-# tamer ba <tamerb2050@gmail.com>, 2020
+# tamerb2050 <tamerb2050@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Sphinx\n"
