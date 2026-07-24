@@ -177,6 +177,17 @@ if(PYBIND11_MASTER_PROJECT)
       set(Python_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.venv")
     endif()
   endif()
+
+  # Python_ROOT_DIR is only a search hint, so FindPython may select a newer
+  # Python elsewhere. Set Python_EXECUTABLE to the venv's interpreter path
+  # to bypass interpreter discovery.
+  if(DEFINED Python_ROOT_DIR AND NOT DEFINED Python_EXECUTABLE)
+    if(WIN32 AND EXISTS "${Python_ROOT_DIR}/Scripts/python.exe")
+      set(Python_EXECUTABLE "${Python_ROOT_DIR}/Scripts/python.exe")
+    elseif(EXISTS "${Python_ROOT_DIR}/bin/python")
+      set(Python_EXECUTABLE "${Python_ROOT_DIR}/bin/python")
+    endif()
+  endif()
 endif()
 
 set(PYBIND11_HEADERS
