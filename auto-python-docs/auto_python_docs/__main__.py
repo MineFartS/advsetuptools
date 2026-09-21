@@ -9,4 +9,5 @@ if args.install:
     from . import install
 elif args.build:
     from . import build
+    from .build import ghp_import
 
