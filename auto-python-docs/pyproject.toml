@@ -1,0 +1,14 @@
+[build-system]
+requires = [ "setuptools>=74.1" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auto-python-docs"
+version = "v0"
+requires-python = ">=3.12"
+dependencies = [
+    "sphinx",
+    "ghp-import",
+    "sphinx-autodoc2 @ git+https://github.com/minefarts/sphinx-autodoc2",
+]
+
