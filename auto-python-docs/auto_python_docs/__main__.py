@@ -7,6 +7,7 @@ args = parser.parse_args()
 
 if args.install:
     from .install import gitignore
+    from .install import sphinx
 elif args.build:
     from .build import sphinx
     from .build import ghp_import
