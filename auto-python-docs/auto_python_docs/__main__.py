@@ -6,7 +6,7 @@ parser.add_argument('build', action='store_true')
 args = parser.parse_args()
 
 if args.install:
-    from . import install
+    from .install import gitignore
 elif args.build:
     from .build import sphinx
     from .build import ghp_import
