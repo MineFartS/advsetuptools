@@ -5,10 +5,10 @@ from os.path import abspath
 from pathlib import Path
 import sys
 
-def _read(confdir, overrides=None):
+def _read(*args, **kwargs):
 
     # Properly invoke the parent classmethod to load conf.py
-    config = _orig_read(confdir, overrides)
+    config = _orig_read(*args, **kwargs)
     
     # Safely modify the runtime sys.path
     sys.path.insert(0, abspath("."))
@@ -42,6 +42,5 @@ Sphinx(
     doctreedir = "_build/doctrees",
     buildername = "html",
     freshenv = True,
-    force_all = True,
 ).build()
 
