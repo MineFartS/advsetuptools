@@ -1,4 +1,4 @@
-name: Upload nightly wheels to Anaconda Cloud
+name: Upload wheels to PyPI
 
 on:
   # Run daily at 2:34 UTC to upload nightly wheels to Anaconda Cloud
@@ -9,6 +9,7 @@ on:
 
 permissions:
   actions: read
+  id-token: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -39,21 +40,22 @@ jobs:
           path: dist/*
 
   upload_nightly_wheels:
-    name: Upload nightly wheels to Anaconda Cloud
+    name: Upload wheels to PyPI
     if: github.repository_owner == 'pybind'
     needs: [build_wheel]
     runs-on: ubuntu-latest
+    environment:
+      name: pypi
     steps:
       - uses: actions/download-artifact@v8
         with:
           name: Packages
           path: dist
 
-      - name: List wheel to be deployed
-        run: ls -lha dist/*.whl
+      - name: List files to be deployed
+        run: ls -lha dist/
 
-      - name: Upload wheel to Anaconda Cloud as nightly
-        uses: scientific-python/upload-nightly-action@e76cfec8a4611fd02808a801b0ff5a7d7c1b2d99 # 0.6.4
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          artifacts_path: dist
-          anaconda_nightly_upload_token: ${{ secrets.ANACONDA_ORG_UPLOAD_TOKEN }}
+          packages-dir: dist
