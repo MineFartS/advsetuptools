@@ -83,6 +83,11 @@ def test_pass_unique_ptr():
         "Passing `std::unique_ptr<T>` from Python to C++ requires `py::class_<T, py::smart_holder>` (with T = "
     )
     assert "ToBeHeldByUniquePtr" in str(execinfo.value)
+def test_classmethod(num_instances=10):
+    assert not hasattr(m.NoConstructor, "seq_id")
+    for i in range(num_instances):
+        m.NoConstructor.new_instance_seq_id()
+        assert m.NoConstructor.seq_id == i + 1
 
 
 def test_type():
