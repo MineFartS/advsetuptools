@@ -11,7 +11,7 @@ from sphinx.application import Sphinx
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.environment import BuildEnvironment
 
-from mypy.main import define_options
+from mypy_stubgen.main import define_options
 
 
 class MypyHTMLBuilder(StandaloneHTMLBuilder):
@@ -43,7 +43,7 @@ class MypyHTMLBuilder(StandaloneHTMLBuilder):
         )
 
     def _verify_error_codes(self) -> None:
-        from mypy.errorcodes import error_codes
+        from mypy_stubgen.errorcodes import error_codes
 
         missing_error_codes = {c for c in error_codes if f"code-{c}" not in self._ref_to_doc}
         if missing_error_codes:

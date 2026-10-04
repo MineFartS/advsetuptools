@@ -8,10 +8,10 @@ from __future__ import annotations
 import argparse
 import sys
 
-from mypy import defaults
-from mypy.errors import CompileError, Errors
-from mypy.options import Options
-from mypy.parse import parse
+from mypy_stubgen import defaults
+from mypy_stubgen.errors import CompileError, Errors
+from mypy_stubgen.options import Options
+from mypy_stubgen.parse import parse
 
 
 def dump(fname: str, python_version: tuple[int, int], quiet: bool = False) -> None:

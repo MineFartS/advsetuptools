@@ -9,9 +9,9 @@ from collections.abc import Callable, Iterator, Sequence
 from contextlib import contextmanager
 from typing import Any, Final, overload
 
-from mypy.build import Graph
-from mypy.maptype import map_instance_to_supertype
-from mypy.nodes import (
+from mypy_stubgen.build import Graph
+from mypy_stubgen.maptype import map_instance_to_supertype
+from mypy_stubgen.nodes import (
     ARG_NAMED,
     ARG_POS,
     GDEF,
@@ -50,8 +50,8 @@ from mypy.nodes import (
     YieldExpr,
     YieldFromExpr,
 )
-from mypy.traverser import TraverserVisitor
-from mypy.types import (
+from mypy_stubgen.traverser import TraverserVisitor
+from mypy_stubgen.types import (
     AnyType,
     DeletedType,
     Instance,
@@ -65,8 +65,8 @@ from mypy.types import (
     UnionType,
     get_proper_type,
 )
-from mypy.util import module_prefix, split_target
-from mypy.visitor import ExpressionVisitor, StatementVisitor
+from mypy_stubgen.util import module_prefix, split_target
+from mypy_stubgen.visitor import ExpressionVisitor, StatementVisitor
 from mypyc.common import (
     BITMAP_BITS,
     EXT_SUFFIX,
@@ -1211,7 +1211,7 @@ class IRBuilder:
         echk = self.graph[self.module_name].type_checker().expr_checker
         iterator = echk.check_method_call_by_name("__iter__", iterable, [], [], expr)[0]
 
-        from mypy.join import join_types
+        from mypy_stubgen.join import join_types
 
         if isinstance(iterable, TupleType):
             joined: Type = UninhabitedType()

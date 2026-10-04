@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.nodes import GDEF, MDEF, Block, ClassDef, SymbolTable, SymbolTableNode, TypeInfo, Var
-from mypy.plugin import ClassDefContext, DynamicClassDefContext, Plugin
+from mypy_stubgen.nodes import GDEF, MDEF, Block, ClassDef, SymbolTable, SymbolTableNode, TypeInfo, Var
+from mypy_stubgen.plugin import ClassDefContext, DynamicClassDefContext, Plugin
 
 
 class DynPlugin(Plugin):

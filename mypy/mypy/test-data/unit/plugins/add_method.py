@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.plugin import ClassDefContext, Plugin
-from mypy.plugins.common import add_method
-from mypy.types import NoneType
+from mypy_stubgen.plugin import ClassDefContext, Plugin
+from mypy_stubgen.plugins.common import add_method
+from mypy_stubgen.types import NoneType
 
 
 class AddOverrideMethodPlugin(Plugin):

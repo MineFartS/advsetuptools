@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from mypy.test.helpers import assert_string_arrays_equal
+from mypy_stubgen.test.helpers import assert_string_arrays_equal
 from mypyc.codegen.emit import Emitter, EmitterContext
 from mypyc.codegen.emitfunc import FunctionEmitterVisitor, generate_native_function
 from mypyc.common import HAVE_IMMORTAL, IS_FREE_THREADED, PLATFORM_SIZE

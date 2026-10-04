@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from mypy import build
-from mypy.options import Options
+from mypy_stubgen import build
+from mypy_stubgen.options import Options
 from mypyc.build import construct_groups
 from mypyc.codegen import emitmodule
 from mypyc.errors import Errors

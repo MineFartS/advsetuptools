@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.errorcodes import ErrorCode
-from mypy.plugin import FunctionContext, Plugin
-from mypy.types import AnyType, Type, TypeOfAny
+from mypy_stubgen.errorcodes import ErrorCode
+from mypy_stubgen.plugin import FunctionContext, Plugin
+from mypy_stubgen.types import AnyType, Type, TypeOfAny
 
 CUSTOM_ERROR = ErrorCode(code="custom", description="", category="Custom")
 

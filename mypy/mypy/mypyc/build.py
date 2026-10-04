@@ -32,12 +32,12 @@ import time
 from collections.abc import Iterable
 from typing import TYPE_CHECKING, Any, NamedTuple, NoReturn, cast
 
-from mypy.build import BuildSource
-from mypy.errors import CompileError
-from mypy.fscache import FileSystemCache
-from mypy.main import process_options
-from mypy.options import Options
-from mypy.util import write_junit_xml
+from mypy_stubgen.build import BuildSource
+from mypy_stubgen.errors import CompileError
+from mypy_stubgen.fscache import FileSystemCache
+from mypy_stubgen.main import process_options
+from mypy_stubgen.options import Options
+from mypy_stubgen.util import write_junit_xml
 from mypyc.annotate import generate_annotated_html
 from mypyc.codegen import emitmodule
 from mypyc.common import IS_FREE_THREADED, RUNTIME_C_FILES, shared_lib_name

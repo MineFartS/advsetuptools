@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.plugin import FunctionSigContext, Plugin
-from mypy.types import CallableType
+from mypy_stubgen.plugin import FunctionSigContext, Plugin
+from mypy_stubgen.types import CallableType
 
 
 class FunctionSigPlugin(Plugin):

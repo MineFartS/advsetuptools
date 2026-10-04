@@ -18,10 +18,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from librt import base64
 from librt.internal import ReadBuffer
 
-from mypy.cache import CacheMeta
-from mypy.defaults import SQLITE_NUM_SHARDS
-from mypy.metastore import FilesystemMetadataStore, MetadataStore, SqliteMetadataStore
-from mypy.util import json_dumps, json_loads
+from mypy_stubgen.cache import CacheMeta
+from mypy_stubgen.defaults import SQLITE_NUM_SHARDS
+from mypy_stubgen.metastore import FilesystemMetadataStore, MetadataStore, SqliteMetadataStore
+from mypy_stubgen.util import json_dumps, json_loads
 
 
 def make_cache(input_dir: str, sqlite: bool, num_shards: int = SQLITE_NUM_SHARDS) -> MetadataStore:

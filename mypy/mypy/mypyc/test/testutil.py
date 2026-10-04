@@ -9,15 +9,15 @@ import re
 import shutil
 from collections.abc import Callable, Iterator
 
-from mypy import build
-from mypy.errors import CompileError
-from mypy.main import process_options
-from mypy.nodes import Expression, MypyFile
-from mypy.options import Options
-from mypy.test.config import test_temp_dir
-from mypy.test.data import DataDrivenTestCase, DataSuite
-from mypy.test.helpers import assert_string_arrays_equal
-from mypy.types import Type
+from mypy_stubgen import build
+from mypy_stubgen.errors import CompileError
+from mypy_stubgen.main import process_options
+from mypy_stubgen.nodes import Expression, MypyFile
+from mypy_stubgen.options import Options
+from mypy_stubgen.test.config import test_temp_dir
+from mypy_stubgen.test.data import DataDrivenTestCase, DataSuite
+from mypy_stubgen.test.helpers import assert_string_arrays_equal
+from mypy_stubgen.types import Type
 from mypyc.analysis.ircheck import assert_func_ir_valid
 from mypyc.common import IS_32_BIT_PLATFORM, PLATFORM_SIZE
 from mypyc.errors import Errors

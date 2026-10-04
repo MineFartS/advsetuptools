@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from mypy.nodes import ARG_STAR, ARG_STAR2, GDEF, ArgKind, FuncDef, RefExpr, SymbolNode, TypeInfo
-from mypy.types import (
+from mypy_stubgen.nodes import ARG_STAR, ARG_STAR2, GDEF, ArgKind, FuncDef, RefExpr, SymbolNode, TypeInfo
+from mypy_stubgen.types import (
     AnyType,
     CallableType,
     Instance,

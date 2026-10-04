@@ -9,7 +9,7 @@ from __future__ import annotations
 import math
 from collections.abc import Callable, Sequence
 
-from mypy.nodes import (
+from mypy_stubgen.nodes import (
     ARG_NAMED,
     ARG_POS,
     LDEF,
@@ -49,7 +49,7 @@ from mypy.nodes import (
     UnaryExpr,
     Var,
 )
-from mypy.types import (
+from mypy_stubgen.types import (
     AnyType,
     Instance,
     ProperType,

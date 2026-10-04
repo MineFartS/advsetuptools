@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 from setuptools import Extension, setup
 from setuptools.command.build_py import build_py
 
-from mypy.version import __version__ as version
+from mypy_stubgen.version import __version__ as version
 
 if TYPE_CHECKING:
     from typing import TypeGuard

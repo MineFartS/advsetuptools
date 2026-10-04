@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.nodes import (
+from mypy_stubgen.nodes import (
     GDEF,
     Block,
     ClassDef,
@@ -15,8 +15,8 @@ from mypy.nodes import (
     TypeApplication,
     TypeInfo,
 )
-from mypy.plugin import DynamicClassDefContext, Plugin
-from mypy.types import Instance
+from mypy_stubgen.plugin import DynamicClassDefContext, Plugin
+from mypy_stubgen.types import Instance
 
 
 class DynPlugin(Plugin):

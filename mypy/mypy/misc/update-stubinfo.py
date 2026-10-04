@@ -28,12 +28,12 @@ def main() -> None:
                 continue
             typeshed_p_to_d[p.stem] = d
 
-    import mypy.stubinfo
+    import mypy_stubgen.stubinfo
 
-    mypy_p = set(mypy.stubinfo.non_bundled_packages_flat)
+    mypy_p = set(mypy_stubgen.stubinfo.non_bundled_packages_flat)
 
     for p in typeshed_p_to_d.keys() & mypy_p:
-        mypy_d = mypy.stubinfo.non_bundled_packages_flat.get(p)
+        mypy_d = mypy_stubgen.stubinfo.non_bundled_packages_flat.get(p)
         if mypy_d != typeshed_p_to_d[p]:
             raise ValueError(
                 f"stub_distribution mismatch for {p}: {mypy_d} != {typeshed_p_to_d[p]}"

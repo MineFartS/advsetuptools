@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from mypy.nodes import (
+from mypy_stubgen.nodes import (
     AssignmentStmt,
     Block,
     Decorator,
@@ -22,8 +22,8 @@ from mypy.nodes import (
     TupleExpr,
     Var,
 )
-from mypy.traverser import ExtendedTraverserVisitor, TraverserVisitor
-from mypy.types import Type
+from mypy_stubgen.traverser import ExtendedTraverserVisitor, TraverserVisitor
+from mypy_stubgen.types import Type
 from mypyc.errors import Errors
 from mypyc.irbuild.missingtypevisitor import MissingTypesVisitor
 

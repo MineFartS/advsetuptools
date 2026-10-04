@@ -3,9 +3,9 @@ from __future__ import annotations
 import unittest
 from typing import cast
 
-from mypy.build import Graph
-from mypy.nodes import Import, MypyFile
-from mypy.options import Options
+from mypy_stubgen.build import Graph
+from mypy_stubgen.nodes import Import, MypyFile
+from mypy_stubgen.options import Options
 from mypyc.errors import Errors
 from mypyc.irbuild.builder import IRBuilder
 from mypyc.irbuild.mapper import Mapper

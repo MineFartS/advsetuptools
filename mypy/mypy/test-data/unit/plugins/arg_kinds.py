@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.plugin import FunctionContext, MethodContext, Plugin
-from mypy.types import Type
+from mypy_stubgen.plugin import FunctionContext, MethodContext, Plugin
+from mypy_stubgen.types import Type
 
 
 class ArgKindsPlugin(Plugin):

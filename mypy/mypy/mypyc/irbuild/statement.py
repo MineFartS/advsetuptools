@@ -12,8 +12,8 @@ import importlib.util
 from collections.abc import Callable, Sequence
 from typing import Final
 
-import mypy.nodes
-from mypy.nodes import (
+import mypy_stubgen.nodes
+from mypy_stubgen.nodes import (
     ARG_NAMED,
     ARG_POS,
     AssertStmt,
@@ -1050,12 +1050,12 @@ def transform_try_finally_stmt_async(
 
 
 # A simple visitor to detect await expressions
-class AwaitDetector(mypy.traverser.TraverserVisitor):
+class AwaitDetector(mypy_stubgen.traverser.TraverserVisitor):
     def __init__(self) -> None:
         super().__init__()
         self.has_await = False
 
-    def visit_await_expr(self, o: mypy.nodes.AwaitExpr) -> None:
+    def visit_await_expr(self, o: mypy_stubgen.nodes.AwaitExpr) -> None:
         self.has_await = True
         super().visit_await_expr(o)
 

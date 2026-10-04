@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.plugin import MethodContext, MethodSigContext, Plugin
-from mypy.types import CallableType, NoneType, Type, get_proper_type
+from mypy_stubgen.plugin import MethodContext, MethodSigContext, Plugin
+from mypy_stubgen.types import CallableType, NoneType, Type, get_proper_type
 
 
 class DescriptorPlugin(Plugin):

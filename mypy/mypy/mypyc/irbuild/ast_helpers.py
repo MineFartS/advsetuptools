@@ -6,7 +6,7 @@ making mypyc.irbuild.builder larger.
 
 from __future__ import annotations
 
-from mypy.nodes import (
+from mypy_stubgen.nodes import (
     LDEF,
     BytesExpr,
     ComparisonExpr,

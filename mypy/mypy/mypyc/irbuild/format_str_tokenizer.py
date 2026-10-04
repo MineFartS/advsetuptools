@@ -5,15 +5,15 @@ from __future__ import annotations
 from enum import Enum, unique
 from typing import Final
 
-from mypy.checkstrformat import (
+from mypy_stubgen.checkstrformat import (
     ConversionSpecifier,
     parse_conversion_specifiers,
     parse_format_value,
 )
-from mypy.errors import Errors
-from mypy.messages import MessageBuilder
-from mypy.nodes import Context, Expression
-from mypy.options import Options
+from mypy_stubgen.errors import Errors
+from mypy_stubgen.messages import MessageBuilder
+from mypy_stubgen.nodes import Context, Expression
+from mypy_stubgen.options import Options
 from mypyc.ir.ops import Integer, Value
 from mypyc.ir.rtypes import (
     c_pyssize_t_rprimitive,

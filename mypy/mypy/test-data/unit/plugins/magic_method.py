@@ -1,5 +1,5 @@
-from mypy.types import LiteralType, AnyType, TypeOfAny, Type
-from mypy.plugin import Plugin, MethodContext
+from mypy_stubgen.types import LiteralType, AnyType, TypeOfAny, Type
+from mypy_stubgen.plugin import Plugin, MethodContext
 from typing import Callable, Optional
 
 # If radd exists, there shouldn't be an error. If it doesn't exist, then there will be an error

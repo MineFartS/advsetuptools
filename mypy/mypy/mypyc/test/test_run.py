@@ -16,12 +16,12 @@ from typing import Any
 
 import pytest
 
-from mypy import build
-from mypy.errors import CompileError
-from mypy.options import Options
-from mypy.test.config import mypyc_output_dir, test_temp_dir
-from mypy.test.data import DataDrivenTestCase
-from mypy.test.helpers import assert_module_equivalence, perform_file_operations
+from mypy_stubgen import build
+from mypy_stubgen.errors import CompileError
+from mypy_stubgen.options import Options
+from mypy_stubgen.test.config import mypyc_output_dir, test_temp_dir
+from mypy_stubgen.test.data import DataDrivenTestCase
+from mypy_stubgen.test.helpers import assert_module_equivalence, perform_file_operations
 from mypyc.build import construct_groups
 from mypyc.codegen import emitmodule
 from mypyc.codegen.emitmodule import collect_source_dependencies

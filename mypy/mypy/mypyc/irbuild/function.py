@@ -16,7 +16,7 @@ from collections import defaultdict
 from collections.abc import Sequence
 from typing import NamedTuple
 
-from mypy.nodes import (
+from mypy_stubgen.nodes import (
     ArgKind,
     ClassDef,
     Decorator,
@@ -28,7 +28,7 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.types import CallableType, Type, UnboundType, get_proper_type
+from mypy_stubgen.types import CallableType, Type, UnboundType, get_proper_type
 from mypyc.common import FAST_PREFIX, LAMBDA_NAME, PROPSET_PREFIX, SELF_NAME
 from mypyc.ir.class_ir import ClassIR, NonExtClassInfo
 from mypyc.ir.func_ir import (

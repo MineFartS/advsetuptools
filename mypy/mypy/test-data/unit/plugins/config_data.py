@@ -4,7 +4,7 @@ import json
 import os
 from typing import Any
 
-from mypy.plugin import Plugin, ReportConfigContext
+from mypy_stubgen.plugin import Plugin, ReportConfigContext
 
 
 class ConfigDataPlugin(Plugin):

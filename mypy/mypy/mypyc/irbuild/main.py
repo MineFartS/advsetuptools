@@ -25,10 +25,10 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import Any, TypeVar, cast
 
-from mypy.build import Graph
-from mypy.nodes import ClassDef, Expression, FuncDef, MypyFile
-from mypy.state import state
-from mypy.types import Type
+from mypy_stubgen.build import Graph
+from mypy_stubgen.nodes import ClassDef, Expression, FuncDef, MypyFile
+from mypy_stubgen.state import state
+from mypy_stubgen.types import Type
 from mypyc.analysis.attrdefined import analyze_always_defined_attrs
 from mypyc.common import TOP_LEVEL_NAME
 from mypyc.errors import Errors

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.plugin import MethodContext, Plugin
-from mypy.types import CallableType, Type, get_proper_type
+from mypy_stubgen.plugin import MethodContext, Plugin
+from mypy_stubgen.types import CallableType, Type, get_proper_type
 
 
 class MethodDecoratorPlugin(Plugin):

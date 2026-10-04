@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import os.path
 
-from mypy.errors import CompileError
-from mypy.test.config import test_temp_dir
-from mypy.test.data import DataDrivenTestCase
+from mypy_stubgen.errors import CompileError
+from mypy_stubgen.test.config import test_temp_dir
+from mypy_stubgen.test.data import DataDrivenTestCase
 from mypyc.analysis import dataflow
 from mypyc.common import TOP_LEVEL_NAME
 from mypyc.ir.func_ir import all_values

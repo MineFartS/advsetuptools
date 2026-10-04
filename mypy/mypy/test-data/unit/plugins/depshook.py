@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from mypy.nodes import MypyFile
-from mypy.plugin import Plugin
+from mypy_stubgen.nodes import MypyFile
+from mypy_stubgen.plugin import Plugin
 
 
 class DepsPlugin(Plugin):

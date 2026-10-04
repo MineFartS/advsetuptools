@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-import mypy.errors
-from mypy.options import Options
+import mypy_stubgen.errors
+from mypy_stubgen.options import Options
 
 
 class Errors:
     def __init__(self, options: Options) -> None:
         self.num_errors = 0
         self.num_warnings = 0
-        self._errors = mypy.errors.Errors(options, hide_error_codes=True)
+        self._errors = mypy_stubgen.errors.Errors(options, hide_error_codes=True)
 
     def error(self, msg: str, path: str, line: int) -> None:
         self._errors.set_file(path, None, self._errors.options)

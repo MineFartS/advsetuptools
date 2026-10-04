@@ -5,7 +5,7 @@ import sys
 import sysconfig
 from typing import Any, Final
 
-from mypy.util import unnamed_function
+from mypy_stubgen.util import unnamed_function
 from mypyc.namegen import exported_name
 
 PREFIX: Final = "CPyPy_"  # Python wrappers

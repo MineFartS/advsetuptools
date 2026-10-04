@@ -11,8 +11,8 @@ import sys
 from html import escape
 from typing import Final
 
-from mypy.build import BuildResult
-from mypy.nodes import (
+from mypy_stubgen.build import BuildResult
+from mypy_stubgen.nodes import (
     AssignmentStmt,
     CallExpr,
     ClassDef,
@@ -39,9 +39,9 @@ from mypy.nodes import (
     Var,
     WithStmt,
 )
-from mypy.traverser import TraverserVisitor
-from mypy.types import AnyType, Instance, ProperType, Type, TypeOfAny, get_proper_type
-from mypy.util import FancyFormatter
+from mypy_stubgen.traverser import TraverserVisitor
+from mypy_stubgen.types import AnyType, Instance, ProperType, Type, TypeOfAny, get_proper_type
+from mypy_stubgen.util import FancyFormatter
 from mypyc.ir.func_ir import FuncIR
 from mypyc.ir.module_ir import ModuleIR
 from mypyc.ir.ops import CallC, LoadLiteral, LoadStatic, Value

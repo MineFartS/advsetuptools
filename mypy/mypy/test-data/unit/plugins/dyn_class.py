@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.nodes import GDEF, Block, ClassDef, SymbolTable, SymbolTableNode, TypeInfo, Var
-from mypy.plugin import ClassDefContext, DynamicClassDefContext, Plugin
-from mypy.types import Instance, get_proper_type
+from mypy_stubgen.nodes import GDEF, Block, ClassDef, SymbolTable, SymbolTableNode, TypeInfo, Var
+from mypy_stubgen.plugin import ClassDefContext, DynamicClassDefContext, Plugin
+from mypy_stubgen.types import Instance, get_proper_type
 
 DECL_BASES: set[str] = set()
 

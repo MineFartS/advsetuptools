@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.nodes import ARG_POS, Argument, Var
-from mypy.plugin import ClassDefContext, Plugin
-from mypy.plugins.common import add_method
-from mypy.types import NoneType
+from mypy_stubgen.nodes import ARG_POS, Argument, Var
+from mypy_stubgen.plugin import ClassDefContext, Plugin
+from mypy_stubgen.plugins.common import add_method
+from mypy_stubgen.types import NoneType
 
 
 class ClassMethodPlugin(Plugin):

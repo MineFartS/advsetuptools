@@ -12,9 +12,9 @@ import re
 import subprocess
 import sys
 
-from mypy.test.config import test_temp_dir
-from mypy.test.data import DataDrivenTestCase
-from mypy.test.helpers import normalize_error_messages
+from mypy_stubgen.test.config import test_temp_dir
+from mypy_stubgen.test.data import DataDrivenTestCase
+from mypy_stubgen.test.helpers import normalize_error_messages
 from mypyc.test.testutil import MypycDataSuite, assert_test_output
 
 files = ["commandline.test"]

@@ -17,8 +17,8 @@ from collections import defaultdict
 from collections.abc import Iterable
 from typing import NamedTuple
 
-from mypy.build import Graph
-from mypy.nodes import (
+from mypy_stubgen.build import Graph
+from mypy_stubgen.nodes import (
     ARG_STAR,
     ARG_STAR2,
     AssignmentStmt,
@@ -37,9 +37,9 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.semanal import refers_to_fullname
-from mypy.traverser import TraverserVisitor
-from mypy.types import Instance, Type, get_proper_type
+from mypy_stubgen.semanal import refers_to_fullname
+from mypy_stubgen.traverser import TraverserVisitor
+from mypy_stubgen.types import Instance, Type, get_proper_type
 from mypyc.common import (
     FAST_PREFIX,
     GENERATOR_HELPER_NAME,

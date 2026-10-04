@@ -7,7 +7,7 @@ import tempfile
 import textwrap
 import unittest
 
-from mypy.options import Options
+from mypy_stubgen.options import Options
 from mypyc.build import emit_messages, get_header_deps, resolve_cfile_deps
 from mypyc.ir.ops import BasicBlock
 from mypyc.ir.pprint import format_blocks, generate_names_for_ir

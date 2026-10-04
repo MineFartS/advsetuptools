@@ -15,8 +15,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import argparse
 
-from mypy.defaults import SQLITE_NUM_SHARDS
-from mypy.metastore import FilesystemMetadataStore, MetadataStore, SqliteMetadataStore
+from mypy_stubgen.defaults import SQLITE_NUM_SHARDS
+from mypy_stubgen.metastore import FilesystemMetadataStore, MetadataStore, SqliteMetadataStore
 
 
 def main() -> None:

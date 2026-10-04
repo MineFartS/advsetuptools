@@ -14,8 +14,8 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
-from mypy.nodes import ARG_NAMED, ARG_NAMED_OPT, ARG_OPT, ARG_POS, ARG_STAR, ARG_STAR2, ArgKind
-from mypy.operators import op_methods_to_symbols, reverse_op_method_names, reverse_op_methods
+from mypy_stubgen.nodes import ARG_NAMED, ARG_NAMED_OPT, ARG_OPT, ARG_POS, ARG_STAR, ARG_STAR2, ArgKind
+from mypy_stubgen.operators import op_methods_to_symbols, reverse_op_method_names, reverse_op_methods
 from mypyc.codegen.emit import AssignHandler, Emitter, ErrorHandler, GotoHandler, ReturnHandler
 from mypyc.common import (
     BITMAP_BITS,

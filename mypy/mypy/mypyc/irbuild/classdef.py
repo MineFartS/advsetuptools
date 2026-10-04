@@ -6,7 +6,7 @@ from abc import abstractmethod
 from collections.abc import Callable
 from typing import Final
 
-from mypy.nodes import (
+from mypy_stubgen.nodes import (
     ARG_POS,
     EXCLUDED_ENUM_ATTRIBUTES,
     TYPE_VAR_TUPLE_KIND,
@@ -29,7 +29,7 @@ from mypy.nodes import (
     Var,
     is_class_var,
 )
-from mypy.types import Instance, UnboundType, get_proper_type
+from mypy_stubgen.types import Instance, UnboundType, get_proper_type
 from mypyc.common import GENERATOR_HELPER_NAME, MYPYC_DEFAULTS_SETUP, PROPSET_PREFIX
 from mypyc.ir.class_ir import ClassIR, NonExtClassInfo
 from mypyc.ir.func_ir import FuncDecl, FuncSignature

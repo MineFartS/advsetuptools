@@ -7,9 +7,9 @@ from __future__ import annotations
 
 import os.path
 
-from mypy.errors import CompileError
-from mypy.test.config import test_temp_dir
-from mypy.test.data import DataDrivenTestCase
+from mypy_stubgen.errors import CompileError
+from mypy_stubgen.test.config import test_temp_dir
+from mypy_stubgen.test.data import DataDrivenTestCase
 from mypyc.analysis.blockfreq import frequently_executed_blocks
 from mypyc.common import IS_FREE_THREADED, TOP_LEVEL_NAME
 from mypyc.ir.pprint import format_func

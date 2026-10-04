@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.plugin import ClassDefContext, Plugin
+from mypy_stubgen.plugin import ClassDefContext, Plugin
 
 
 class DummyPlugin(Plugin):

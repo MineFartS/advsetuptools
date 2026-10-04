@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.nodes import ARG_POS, Argument, Var
-from mypy.plugin import ClassDefContext, Plugin
-from mypy.plugins.common import MethodSpec, add_overloaded_method_to_class
+from mypy_stubgen.nodes import ARG_POS, Argument, Var
+from mypy_stubgen.plugin import ClassDefContext, Plugin
+from mypy_stubgen.plugins.common import MethodSpec, add_overloaded_method_to_class
 
 
 class OverloadedMethodPlugin(Plugin):

@@ -12,8 +12,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Final
 
-from mypy.constant_fold import constant_fold_binary_op, constant_fold_unary_op
-from mypy.nodes import (
+from mypy_stubgen.constant_fold import constant_fold_binary_op, constant_fold_unary_op
+from mypy_stubgen.nodes import (
     BytesExpr,
     ComplexExpr,
     Expression,

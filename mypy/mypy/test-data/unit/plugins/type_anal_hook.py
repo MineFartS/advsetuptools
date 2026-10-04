@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.plugin import AnalyzeTypeContext, Plugin
+from mypy_stubgen.plugin import AnalyzeTypeContext, Plugin
 
 # The official name changed to NoneType but we have an alias for plugin compat reasons
 # so we'll keep testing that here.
-from mypy.types import AnyType, CallableType, NoneTyp, Type, TypeList, TypeOfAny
+from mypy_stubgen.types import AnyType, CallableType, NoneTyp, Type, TypeList, TypeOfAny
 
 
 class TypeAnalyzePlugin(Plugin):

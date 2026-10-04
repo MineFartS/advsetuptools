@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy.nodes import NameExpr
-from mypy.plugin import FunctionContext, Plugin
-from mypy.types import Instance, NoneType, Type, UnionType, get_proper_type
+from mypy_stubgen.nodes import NameExpr
+from mypy_stubgen.plugin import FunctionContext, Plugin
+from mypy_stubgen.types import Instance, NoneType, Type, UnionType, get_proper_type
 
 
 class AttrPlugin(Plugin):

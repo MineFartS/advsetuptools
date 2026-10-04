@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from mypy.nodes import Expression, Node
-from mypy.traverser import ExtendedTraverserVisitor
-from mypy.types import AnyType, Type, TypeOfAny
+from mypy_stubgen.nodes import Expression, Node
+from mypy_stubgen.traverser import ExtendedTraverserVisitor
+from mypy_stubgen.types import AnyType, Type, TypeOfAny
 
 
 class MissingTypesVisitor(ExtendedTraverserVisitor):

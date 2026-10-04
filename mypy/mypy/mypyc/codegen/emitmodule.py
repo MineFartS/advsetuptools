@@ -11,7 +11,7 @@ import sys
 from collections.abc import Iterable
 from typing import TypeVar
 
-from mypy.build import (
+from mypy_stubgen.build import (
     BuildResult,
     BuildSource,
     State,
@@ -21,12 +21,12 @@ from mypy.build import (
     get_cache_names,
     sorted_components,
 )
-from mypy.errors import CompileError
-from mypy.fscache import FileSystemCache
-from mypy.nodes import MypyFile, TypeInfo
-from mypy.options import Options
-from mypy.plugin import Plugin, ReportConfigContext
-from mypy.util import hash_digest, json_dumps
+from mypy_stubgen.errors import CompileError
+from mypy_stubgen.fscache import FileSystemCache
+from mypy_stubgen.nodes import MypyFile, TypeInfo
+from mypy_stubgen.options import Options
+from mypy_stubgen.plugin import Plugin, ReportConfigContext
+from mypy_stubgen.util import hash_digest, json_dumps
 from mypyc.analysis.capsule_deps import find_class_dependencies, find_implicit_op_dependencies
 from mypyc.codegen.cstring import c_string_initializer
 from mypyc.codegen.emit import (

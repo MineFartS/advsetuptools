@@ -10,7 +10,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import ClassVar, cast
 
-from mypy.nodes import (
+from mypy_stubgen.nodes import (
     ARG_POS,
     CallExpr,
     DictionaryComprehension,
@@ -27,7 +27,7 @@ from mypy.nodes import (
     TypeAlias,
     Var,
 )
-from mypy.types import LiteralType, TupleType, get_proper_type, get_proper_types
+from mypy_stubgen.types import LiteralType, TupleType, get_proper_type, get_proper_types
 from mypyc.common import GENERATOR_HELPER_NAME, IS_FREE_THREADED
 from mypyc.ir.ops import (
     ERR_NEVER,

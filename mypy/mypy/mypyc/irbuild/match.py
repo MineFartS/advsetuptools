@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections.abc import Generator
 from contextlib import contextmanager
 
-from mypy.nodes import MatchStmt, NameExpr, TypeInfo
-from mypy.patterns import (
+from mypy_stubgen.nodes import MatchStmt, NameExpr, TypeInfo
+from mypy_stubgen.patterns import (
     AsPattern,
     ClassPattern,
     MappingPattern,
@@ -15,8 +15,8 @@ from mypy.patterns import (
     StarredPattern,
     ValuePattern,
 )
-from mypy.traverser import TraverserVisitor
-from mypy.types import Instance, LiteralType, TupleType, get_proper_type
+from mypy_stubgen.traverser import TraverserVisitor
+from mypy_stubgen.types import Instance, LiteralType, TupleType, get_proper_type
 from mypyc.ir.ops import BasicBlock, Value
 from mypyc.ir.rtypes import object_rprimitive
 from mypyc.irbuild.builder import IRBuilder
