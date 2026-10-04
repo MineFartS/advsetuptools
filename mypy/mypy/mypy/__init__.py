@@ -1841,7 +1841,10 @@ def generate_stub_for_py_module(
         file.write(output)
 
 
-def generate_stubs(options: Options) -> None:
+def generate_stubs(*args: str) -> None:
+
+    options: Options = parse_options(args)
+
     """Main entry point for the program."""
     mypy_opts = mypy_options(options)
     py_modules, pyc_modules, c_modules = collect_build_targets(options, mypy_opts)
@@ -2056,8 +2059,8 @@ def main(args: list[str] | None = None) -> None:
     if not ("" in sys.path or "." in sys.path):
         sys.path.insert(0, "")
 
-    options = parse_options(sys.argv[1:] if args is None else args)
-    generate_stubs(options)
+    _args = sys.argv[1:] if args is None else args
+    generate_stubs(*_args)
 
 
 if __name__ == "__main__":
