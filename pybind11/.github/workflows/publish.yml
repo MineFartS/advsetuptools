@@ -14,7 +14,6 @@ concurrency:
 jobs:
   build_wheel:
     name: Build and upload wheel
-    if: github.repository_owner == 'pybind'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -37,7 +36,6 @@ jobs:
 
   upload_nightly_wheels:
     name: Upload wheels to PyPI
-    if: github.repository_owner == 'pybind'
     needs: [build_wheel]
     runs-on: ubuntu-latest
     environment:
