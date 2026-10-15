@@ -72,6 +72,7 @@ sdist.exclude = [
 ]
 wheel.install-dir = "pybind11"
 wheel.platlib = false
+cmake.build-type = "RelWithDebInfo"
 
 [tool.scikit-build.cmake.define]
 BUILD_TESTING = false

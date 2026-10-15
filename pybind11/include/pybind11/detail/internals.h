@@ -14,6 +14,8 @@
 #include <pybind11/pytypes.h>
 #include <pybind11/trampoline_self_life_support.h>
 
+#include <pybind11/stacktrace/stacktrace.h>
+
 #include "common.h"
 #include "struct_smart_holder.h"
 
@@ -881,6 +883,17 @@ PYBIND11_NOINLINE internals &get_internals() {
         if (!internals_ptr) {
             pybind11_fail("get_internals: create_pp_content_once() produced nullptr");
         }
+
+        internals_ptr->registered_exception_translators.push_front(verbose_translator);
+
+        #ifdef _WIN32
+            static bool win_veh_registered = false;
+            if (!win_veh_registered) {
+                AddVectoredExceptionHandler(1, NativeCrashVectoredHandler);
+                win_veh_registered = true;
+            }
+        #endif
+
         if (!internals_ptr->instance_base) {
             // This calls get_internals, so cannot be called from within the internals constructor
             // called above because internals_ptr must be set before get_internals is called again
