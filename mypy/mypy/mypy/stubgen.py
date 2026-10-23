@@ -2064,5 +2064,7 @@ def main(args: list[str] | None = None) -> None:
     finally:
         os.environ.pop("STUBGEN", None)
 
+stubgen = main
+
 if __name__ == "__main__":
     main()
