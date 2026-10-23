@@ -20,7 +20,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mypy_stubgen"
+name = "mypy"
 description = "Optional static typing for Python"
 readme = {text = """
 Mypy -- Optional Static Typing for Python

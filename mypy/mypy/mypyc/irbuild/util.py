@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Any, Final, Literal, TypedDict
 from typing_extensions import NotRequired
 
-from mypy_stubgen.nodes import (
+from mypy.nodes import (
     ARG_NAMED,
     ARG_NAMED_OPT,
     ARG_OPT,
@@ -31,8 +31,8 @@ from mypy_stubgen.nodes import (
     Var,
     is_class_var,
 )
-from mypy_stubgen.semanal import refers_to_fullname
-from mypy_stubgen.types import FINAL_DECORATOR_NAMES
+from mypy.semanal import refers_to_fullname
+from mypy.types import FINAL_DECORATOR_NAMES
 from mypyc.errors import Errors
 from mypyc.ir.class_ir import ClassIR
 from mypyc.ir.rtypes import RType, is_none_rprimitive, is_object_rprimitive, is_optional_type

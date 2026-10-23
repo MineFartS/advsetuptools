@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Callable
 
-from mypy_stubgen.plugin import AttributeContext, Plugin
-from mypy_stubgen.types import Type as MypyType
+from mypy.plugin import AttributeContext, Plugin
+from mypy.types import Type as MypyType
 
 
 class ClassAttrPlugin(Plugin):

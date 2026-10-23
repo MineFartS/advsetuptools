@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import NoReturn
 
-from mypy_stubgen.nodes import (
+from mypy.nodes import (
     AssertStmt,
     AssertTypeExpr,
     AssignmentExpr,

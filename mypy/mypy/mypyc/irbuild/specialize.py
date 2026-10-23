@@ -17,7 +17,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import Final, cast
 
-from mypy_stubgen.nodes import (
+from mypy.nodes import (
     ARG_NAMED,
     ARG_POS,
     CallExpr,
@@ -36,7 +36,7 @@ from mypy_stubgen.nodes import (
     TupleExpr,
     Var,
 )
-from mypy_stubgen.types import AnyType, TypeOfAny
+from mypy.types import AnyType, TypeOfAny
 from mypyc.ir.ops import (
     BasicBlock,
     Call,
