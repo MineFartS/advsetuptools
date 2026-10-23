@@ -2057,8 +2057,12 @@ def main(args: list[str] | None = None) -> None:
         sys.path.insert(0, "")
 
     options = parse_options(sys.argv[1:] if args is None else args)
-    generate_stubs(options)
 
+    os.environ["STUBGEN"] = "1"
+    try:
+        generate_stubs(options)
+    finally:
+        os.environ.pop("STUBGEN", None)
 
 if __name__ == "__main__":
     main()
