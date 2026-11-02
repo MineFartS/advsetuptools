@@ -2657,6 +2657,29 @@ public:
         return def_property_static(name, fget, nullptr, extra...);
     }
 
+    template <typename Func, typename... Extra>
+    class_ &def_cached_property(const char *name_, Func &&f, const Extra &...extra) {
+        
+        static object cached_property = module_::import("functools").attr("cached_property");
+
+        // Wrap the C++ callable in a standard pybind11 cpp_function wrapper.
+        cpp_function cf(
+            std::forward<Func>(f), 
+            name(name_),
+            is_method(*this),
+            scope(*this),
+            extra...
+        );
+
+        object inst = cached_property(cf);
+
+        inst.attr("__set_name__")(*this, name_);
+
+        this->attr(name_) = inst;
+
+        return *this;
+    }
+
     /// Uses return_value_policy::reference_internal by default
     template <typename Getter, typename Setter, typename... Extra>
     class_ &
