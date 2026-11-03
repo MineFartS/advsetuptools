@@ -1,0 +1,17 @@
+name: Nightly Build
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  main:
+    uses: minefarts/nightly-pypi-publisher/.github/workflows/run.yml@v3
+    secrets:
+      PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+
