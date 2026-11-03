@@ -2371,6 +2371,7 @@ public:
         record.type_align = alignof(conditional_t<has_alias, type_alias, type> &);
         record.holder_size = sizeof(holder_type);
         record.init_instance = init_instance;
+        record.dynamic_attr = true;
 
         if (detail::is_instantiation<std::unique_ptr, holder_type>::value) {
             record.holder_enum_v = detail::holder_enum_t::std_unique_ptr;
