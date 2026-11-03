@@ -3,14 +3,6 @@ from mypy.stubgen import stubgen
 from os.path import abspath
 import sys
 
-def gen_stubs(m:str, o:str) -> None:
-    stubgen([
-        '-m', m,
-        '-o', abspath(o), 
-        '--inspect-mode',
-        '--include-private',
-    ])
-
 class build_ext(__build_ext):
     def run(self) -> None:
         
@@ -20,7 +12,7 @@ class build_ext(__build_ext):
 
         for ext in self.extensions:
 
-            gen_stubs(m=ext.name, o=self.build_lib)
+            stubgen(m=ext.name, o=self.build_lib)
 
-            gen_stubs(m=ext.name, o='.')
+            stubgen(m=ext.name, o='.')
 
