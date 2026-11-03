@@ -2064,7 +2064,13 @@ def main(args: list[str] | None = None) -> None:
     finally:
         os.environ.pop("STUBGEN", None)
 
-stubgen = main
+def stubgen(m:str, o:str) -> None:
+    main([
+        '-m', m,
+        '-o', os.path.abspath(o),
+        '--inspect-mode',
+        '--include-private',
+    ])
 
 if __name__ == "__main__":
     main()
