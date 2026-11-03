@@ -21,6 +21,8 @@ sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 from setuptools import Extension, setup
 from setuptools.command.build_py import build_py
 
+from mypy.version import __version__ as version
+
 if TYPE_CHECKING:
     from typing import TypeGuard
 
@@ -47,6 +49,21 @@ def find_package_data(base: str, globs: list[str], root: str = "mypy") -> list[s
             continue
         rv.extend([os.path.relpath(f, root) for f in files])
     return rv
+
+
+class CustomPythonBuild(build_py):
+    def pin_version(self) -> None:
+        path = os.path.join(self.build_lib, "mypy")
+        self.mkpath(path)
+        with open(os.path.join(path, "version.py"), "w") as stream:
+            stream.write(f'__version__ = "{version}"\n')
+
+    def run(self) -> None:
+        self.execute(self.pin_version, ())
+        build_py.run(self)
+
+
+cmdclass = {"build_py": CustomPythonBuild}
 
 USE_MYPYC = False
 # To compile with mypyc, a mypyc checkout must be present on the PYTHONPATH
@@ -126,6 +143,7 @@ if USE_MYPYC:
         # remove the modules that we've imported already, which will
         # let the right versions be imported by mypyc.
         del sys.modules["mypy"]
+        del sys.modules["mypy.version"]
         del sys.modules["mypy.git"]
         sys.path.insert(0, use_other_mypyc)
 
@@ -154,4 +172,4 @@ else:
 
 assert is_list_of_setuptools_extension(ext_modules), "Expected mypycify to use setuptools"
 
-setup(ext_modules=ext_modules)
+setup(version=version, ext_modules=ext_modules, cmdclass=cmdclass)

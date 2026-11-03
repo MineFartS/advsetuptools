@@ -21,7 +21,6 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mypy"
-version = "v2026.11.03"
 description = "Optional static typing for Python"
 readme = {text = """
 Mypy -- Optional Static Typing for Python
@@ -62,6 +61,7 @@ dependencies = [
   "librt>=0.16.0; platform_python_implementation != 'PyPy'",
   "ast-serialize>=0.12.1,<1.0.0",
 ]
+dynamic = ["version"]
 
 [project.optional-dependencies]
 dmypy = ["psutil>=4.0"]
