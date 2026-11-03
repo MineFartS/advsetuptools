@@ -1,5 +1,5 @@
 from setuptools.command.build_ext import build_ext as __build_ext
-from mypy.stubgen import stubgen
+from mypy.stubgen import generate_stubs
 from os.path import abspath
 import sys
 
@@ -12,7 +12,7 @@ class build_ext(__build_ext):
 
         for ext in self.extensions:
 
-            stubgen(m=ext.name, o=self.build_lib)
+            generate_stubs(self.build_lib, [ext.name])
 
-            stubgen(m=ext.name, o='.')
+            generate_stubs('.', [ext.name])
 

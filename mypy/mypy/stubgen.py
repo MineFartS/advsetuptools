@@ -201,7 +201,6 @@ class Options:
         output_dir: str,
         modules: list[str],
     ) -> None:        
-        # See parse_options for descriptions of the flags.
         self.pyversion = sys.version_info[:2]
         self.no_import = False
         self.doc_dir = ""
@@ -1802,7 +1801,10 @@ def generate_stub_for_py_module(
         file.write(output)
 
 
-def generate_stubs(*args:str) -> None:
+def generate_stubs(
+    output_dir: str, 
+    modules: list[str]
+) -> None:
     """Main entry point for the program."""
 
     # Make sure that the current directory is in sys.path so that
@@ -1810,7 +1812,13 @@ def generate_stubs(*args:str) -> None:
     if not ("" in sys.path or "." in sys.path):
         sys.path.insert(0, "")
 
-    options = parse_options(args)
+    # Create the output folder if it doesn't already exist.
+    os.makedirs(output_dir, exist_ok=True)
+
+    options = Options(
+        output_dir = output_dir,
+        modules = modules,
+    )
 
     os.environ["STUBGEN"] = "1"
     try:
@@ -1877,42 +1885,4 @@ Generate draft stubs for modules.
 Stubs are generated in directory ./out, to avoid overriding files with
 manual changes.  This directory is assumed to exist.
 """
-
-
-def parse_options(args: list[str]) -> Options:
-
-    parser = argparse.ArgumentParser(
-        prog="stubgen", usage=HEADER, description=DESCRIPTION, fromfile_prefix_chars="@"
-    )
-
-    parser.add_argument(
-        "-o",
-        metavar="PATH",
-        dest="output_dir",
-        default="out",
-    )
-
-    parser.add_argument(
-        "-m",
-        action="append",
-        metavar="MODULE",
-        dest="modules",
-    )
-
-    ns = parser.parse_args(args)
-
-    # Create the output folder if it doesn't already exist.
-    os.makedirs(ns.output_dir, exist_ok=True)
-
-    return Options(
-        output_dir = ns.output_dir,
-        modules = ns.modules,
-    )
-
-
-def stubgen(m:str, o:str) -> None:
-    generate_stubs(
-        '-m', m,
-        '-o', os.path.abspath(o),
-    )
 
