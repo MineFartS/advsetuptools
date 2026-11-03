@@ -104,37 +104,6 @@ messages_control.disable = [
   "consider-using-f-string", # triggers in _version.py incorrectly
 ]
 
-[tool.ruff.lint]
-extend-select = [
-  "B",           # flake8-bugbear
-  "I",           # isort
-  "N",           # pep8-naming
-  "ARG",         # flake8-unused-arguments
-  "C4",          # flake8-comprehensions
-  "EM",          # flake8-errmsg
-  "ICN",         # flake8-import-conventions
-  "ISC",         # flake8-implicit-str-concat
-  "PERF",        # Perflint
-  "PGH",         # pygrep-hooks
-  "PIE",         # flake8-pie
-  "PL",          # pylint
-  "PT",          # flake8-pytest-style
-  "RET",         # flake8-return
-  "RUF100",      # Ruff-specific
-  "SIM",         # flake8-simplify
-  "UP",          # pyupgrade
-  "YTT",         # flake8-2020
-]
-ignore = [
-  "PLR",     # Design related pylint
-  "PT011",   # Too broad with raises in pytest
-  "SIM118",  # iter(x) is not always the same as iter(x.keys())
-  "PLC0415", # We import in functions for various reasons
-]
-isort.known-first-party = ["env", "pybind11_cross_module_tests", "pybind11_tests"]
-isort.required-imports = ["from __future__ import annotations"]
-
-
 [tool.repo-review]
 ignore = ["PP"]
 
