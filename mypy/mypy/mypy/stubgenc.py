@@ -40,6 +40,8 @@ from mypy.stubutil import (
 )
 from mypy.util import quote_docstring
 
+def is_cached_property(obj: Any) -> bool:
+    return type(obj).__name__ == "cached_property"
 
 class ExternalSignatureGenerator(SignatureGenerator):
     def __init__(
@@ -268,6 +270,10 @@ class InspectionStubGenerator(BaseStubGenerator):
             )
 
     def get_default_function_sig(self, func: object, ctx: FunctionContext) -> FunctionSig:
+        
+        if is_cached_property(func):
+            func = func.func
+        
         argspec = None
         if not self.is_c_module:
             # Get the full argument specification of the function
@@ -518,7 +524,10 @@ class InspectionStubGenerator(BaseStubGenerator):
                 continue
             # Try to get the value via getattr
             try:
-                value = getattr(obj, name)
+                if is_cached_property(obj_dict[name]):
+                    value = obj_dict[name]
+                else:
+                    value = getattr(obj, name)
             except AttributeError:
                 continue
             else:
@@ -583,10 +592,16 @@ class InspectionStubGenerator(BaseStubGenerator):
 
     @staticmethod
     def is_property(class_info: ClassInfo, name: str, obj: object) -> bool:
-        return inspect.isdatadescriptor(obj) or hasattr(obj, "fget")
+        return (
+            inspect.isdatadescriptor(obj) 
+            or hasattr(obj, "fget")
+            or is_cached_property(obj)
+        )
 
     @staticmethod
     def is_property_readonly(prop: Any) -> bool:
+        if is_cached_property(prop):
+            return True
         return hasattr(prop, "fset") and prop.fset is None
 
     def is_static_property(self, obj: object) -> bool:
@@ -716,7 +731,13 @@ class InspectionStubGenerator(BaseStubGenerator):
         obj : object after evaluation of descriptor
         """
 
+        is_cached_prop = is_cached_property(raw_obj)
+
         docstring = getattr(raw_obj, "__doc__", None)
+        
+        if is_cached_prop and not docstring:
+            docstring = getattr(raw_obj.func, "__doc__", None)
+        
         fget = getattr(raw_obj, "fget", None)
         if fget:
             alt_docstr = getattr(fget, "__doc__", None)
@@ -757,7 +778,13 @@ class InspectionStubGenerator(BaseStubGenerator):
         else:  # regular property
             if readonly:
                 docstring = self._indent_docstring(ctx.docstring) if ctx.docstring else None
-                ro_properties.append(f"{self._indent}@property")
+
+                if is_cached_prop:
+                    self.import_tracker.add_import_from("functools", [("cached_property", None)])
+                    ro_properties.append(f"{self._indent}@cached_property")
+                else:
+                    ro_properties.append(f"{self._indent}@property")
+                
                 sig = FunctionSig(name, [ArgSig("self")], inferred_type, docstring=docstring)
                 ro_properties.append(
                     sig.format_sig(
