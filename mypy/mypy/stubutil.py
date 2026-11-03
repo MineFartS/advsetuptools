@@ -615,13 +615,11 @@ class BaseStubGenerator:
     def __init__(
         self,
         _all_: list[str] | None = None,
-        include_private: bool = False,
         export_less: bool = False,
         include_docstrings: bool = False,
     ) -> None:
         # Best known value of __all__.
         self._all_ = _all_
-        self._include_private = include_private
         self._include_docstrings = include_docstrings
         # Disable implicit exports of package-internal imports?
         self.export_less = export_less
@@ -850,22 +848,8 @@ class BaseStubGenerator:
             return self.is_top_level() and name not in self._all_
         return False
 
-    def is_private_name(self, name: str, fullname: str | None = None) -> bool:
-        if "__mypy-" in name:
-            return True  # Never include mypy generated symbols
-        if self._include_private:
-            return False
-        if fullname in self.EXTRA_EXPORTED:
-            return False
-        if name == "_":
-            return False
-        if not name.startswith("_"):
-            return False
-        if self._all_ and name in self._all_:
-            return False
-        if name.startswith("__") and name.endswith("__"):
-            return name in self.IGNORED_DUNDERS
-        return True
+    def is_private_name(self, name: str) -> bool:
+        return ("__mypy-" in name)
 
     def should_reexport(self, name: str, full_module: str, name_is_alias: bool) -> bool:
         if (
@@ -881,7 +865,7 @@ class BaseStubGenerator:
             return False
         if not self.module_name:
             return False
-        is_private = self.is_private_name(name, full_module + "." + name)
+        is_private = self.is_private_name(name)
         if is_private:
             return False
         top_level = full_module.split(".")[0]

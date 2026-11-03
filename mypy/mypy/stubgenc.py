@@ -152,7 +152,6 @@ def generate_stub_for_c_module(
     known_modules: list[str],
     doc_dir: str = "",
     *,
-    include_private: bool = False,
     export_less: bool = False,
     include_docstrings: bool = False,
 ) -> None:
@@ -176,7 +175,6 @@ def generate_stub_for_c_module(
         module_name,
         known_modules,
         doc_dir,
-        include_private=include_private,
         export_less=export_less,
         include_docstrings=include_docstrings,
     )
@@ -232,7 +230,6 @@ class InspectionStubGenerator(BaseStubGenerator):
         known_modules: list[str],
         doc_dir: str = "",
         _all_: list[str] | None = None,
-        include_private: bool = False,
         export_less: bool = False,
         include_docstrings: bool = False,
         module: ModuleType | None = None,
@@ -245,7 +242,7 @@ class InspectionStubGenerator(BaseStubGenerator):
         self.is_c_module = is_c_module(self.module)
         self.known_modules = known_modules
         self.resort_members = self.is_c_module
-        super().__init__(_all_, include_private, export_less, include_docstrings)
+        super().__init__(_all_, export_less, include_docstrings)
         self.module_name = module_name
         if self.is_c_module:
             # Add additional implicit imports.
@@ -641,7 +638,7 @@ class InspectionStubGenerator(BaseStubGenerator):
             is_abstract=self.is_abstract_method(obj),
             class_info=class_info,
         )
-        if self.is_private_name(name, ctx.fullname) or self.is_not_in_all(name):
+        if self.is_private_name(name) or self.is_not_in_all(name):
             return
 
         self.record_name(ctx.name)
@@ -750,7 +747,7 @@ class InspectionStubGenerator(BaseStubGenerator):
             self.module_name, name, docstring=docstring, is_abstract=False, class_info=class_info
         )
 
-        if self.is_private_name(name, ctx.fullname) or self.is_not_in_all(name):
+        if self.is_private_name(name) or self.is_not_in_all(name):
             return
 
         self.record_name(ctx.name)
@@ -942,7 +939,7 @@ class InspectionStubGenerator(BaseStubGenerator):
         The result lines will be appended to 'output'. If necessary, any
         required names will be added to 'imports'.
         """
-        if self.is_private_name(name, f"{self.module_name}.{name}") or self.is_not_in_all(name):
+        if self.is_private_name(name) or self.is_not_in_all(name):
             return
         self.record_name(name)
         type_str = self.strip_or_import(self.get_type_annotation(obj))
