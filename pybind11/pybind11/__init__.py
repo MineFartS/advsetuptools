@@ -1,19 +1,21 @@
 from __future__ import annotations
 
-import sys
-
-if sys.version_info < (3, 9):  # noqa: UP036
-    msg = "pybind11 does not support Python < 3.9. v3.0 was the last release supporting Python 3.8."
-    raise ImportError(msg)
-
+from os.path import abspath, dirname, join, exists
 
 from ._version import __version__, version_info
-from .commands import get_cmake_dir, get_include, get_pkgconfig_dir
+
+DIR = abspath(dirname(__file__))
+
+def get_include() -> str:
+    """Return the path to the pybind11 include directory."""
+    installed_path = join(DIR, "include")
+    source_path = join(dirname(DIR), "include")
+    return installed_path if exists(installed_path) else source_path
 
 __all__ = (
     "__version__",
-    "get_cmake_dir",
     "get_include",
-    "get_pkgconfig_dir",
     "version_info",
+    "DIR"
 )
+
