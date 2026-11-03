@@ -9,10 +9,11 @@ requires-python = ">=3.12"
 dependencies = [
     "setuptools>=74.1",
     "pybind11 @ file:pybind11",
-    "mypy @ git+https://github.com/MineFartS/mypy"
+    "mypy @ file:mypy",
 ]
 
 [tool.setuptools.packages.find]
 include = ["pybind_setup_ext*"]
 exclude = ["pybind11*"]
+exclude = ["mypy*"]
 
