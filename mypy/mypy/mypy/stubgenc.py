@@ -502,6 +502,8 @@ class InspectionStubGenerator(BaseStubGenerator):
                 "__firstlineno__",
                 "__static_attributes__",
                 "__annotate__",
+                "_pybind11_conduit_v1_",
+                "__pybind11_native_enum__",
             )
             or attr in self.IGNORED_DUNDERS
             or is_pybind_skipped_attribute(attr)  # For pickling
