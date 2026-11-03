@@ -198,37 +198,25 @@ class Options:
 
     def __init__(
         self,
-        pyversion: tuple[int, int],
-        no_import: bool,
-        doc_dir: str,
-        search_path: list[str],
-        interpreter: str,
-        ignore_errors: bool,
         output_dir: str,
         modules: list[str],
-        packages: list[str],
-        files: list[str],
-        verbose: bool,
-        quiet: bool,
-        export_less: bool,
-        include_docstrings: bool,
-    ) -> None:
+    ) -> None:        
         # See parse_options for descriptions of the flags.
-        self.pyversion = pyversion
-        self.no_import = no_import
-        self.doc_dir = doc_dir
-        self.search_path = search_path
-        self.interpreter = interpreter
-        self.decointerpreter = interpreter
-        self.ignore_errors = ignore_errors
+        self.pyversion = sys.version_info[:2]
+        self.no_import = False
+        self.doc_dir = ""
+        self.search_path = ""
+        self.interpreter = sys.executable
+        self.decointerpreter = sys.executable
+        self.ignore_errors = False
         self.output_dir = output_dir
         self.modules = modules
-        self.packages = packages
-        self.files = files
-        self.verbose = verbose
-        self.quiet = quiet
-        self.export_less = export_less
-        self.include_docstrings = include_docstrings
+        self.packages = []
+        self.files = []
+        self.verbose = False
+        self.quiet = False
+        self.export_less = False
+        self.include_docstrings = False
 
 
 class StubSource:
@@ -1892,113 +1880,33 @@ manual changes.  This directory is assumed to exist.
 
 
 def parse_options(args: list[str]) -> Options:
+
     parser = argparse.ArgumentParser(
         prog="stubgen", usage=HEADER, description=DESCRIPTION, fromfile_prefix_chars="@"
     )
 
     parser.add_argument(
-        "--ignore-errors",
-        action="store_true",
-        help="ignore errors when trying to generate stubs for modules",
-    )
-    parser.add_argument(
-        "--no-import",
-        action="store_true",
-        help="don't import the modules, just parse and analyze them "
-        "(doesn't work with C extension modules and might not "
-        "respect __all__)",
-    )
-    parser.add_argument(
-        "--export-less",
-        action="store_true",
-        help="don't implicitly export all names imported from other modules in the same package",
-    )
-    parser.add_argument(
-        "--include-docstrings",
-        action="store_true",
-        help="include existing docstrings with the stubs",
-    )
-    parser.add_argument("-v", "--verbose", action="store_true", help="show more verbose messages")
-    parser.add_argument("-q", "--quiet", action="store_true", help="show fewer messages")
-    parser.add_argument(
-        "--doc-dir",
-        metavar="PATH",
-        default="",
-        help="use .rst documentation in PATH (this may result in "
-        "better stubs in some cases; consider setting this to "
-        "DIR/Python-X.Y.Z/Doc/library)",
-    )
-    parser.add_argument(
-        "--search-path",
-        metavar="PATH",
-        default="",
-        help="specify module search directories, separated by ':' "
-        "(currently only used if --no-import is given)",
-    )
-    parser.add_argument(
         "-o",
-        "--output",
         metavar="PATH",
         dest="output_dir",
         default="out",
-        help="change the output directory [default: %(default)s]",
     )
+
     parser.add_argument(
         "-m",
-        "--module",
         action="append",
         metavar="MODULE",
         dest="modules",
-        default=[],
-        help="generate stub for module; can repeat for more modules",
-    )
-    parser.add_argument(
-        "-p",
-        "--package",
-        action="append",
-        metavar="PACKAGE",
-        dest="packages",
-        default=[],
-        help="generate stubs for package recursively; can be repeated",
-    )
-    parser.add_argument(
-        metavar="files",
-        nargs="*",
-        dest="files",
-        help="generate stubs for given files or directories",
-    )
-    parser.add_argument(
-        "--version", action="version", version="%(prog)s " + mypy.version.__version__
     )
 
     ns = parser.parse_args(args)
-
-    pyversion = sys.version_info[:2]
-    ns.interpreter = sys.executable
-
-    if ns.modules + ns.packages and ns.files:
-        parser.error("May only specify one of: modules/packages or files.")
-    if ns.quiet and ns.verbose:
-        parser.error("Cannot specify both quiet and verbose messages")
 
     # Create the output folder if it doesn't already exist.
     os.makedirs(ns.output_dir, exist_ok=True)
 
     return Options(
-        pyversion=pyversion,
-        no_import=ns.no_import,
-        doc_dir=ns.doc_dir,
-        search_path=ns.search_path.split(":"),
-        interpreter=ns.interpreter,
-        ignore_errors=ns.ignore_errors,
-        output_dir=ns.output_dir,
-        modules=ns.modules,
-        packages=ns.packages,
-        files=ns.files,
-        verbose=ns.verbose,
-        quiet=ns.quiet,
-        export_less=ns.export_less,
-        include_docstrings=ns.include_docstrings,
+        output_dir = ns.output_dir,
+        modules = ns.modules,
     )
 
 
