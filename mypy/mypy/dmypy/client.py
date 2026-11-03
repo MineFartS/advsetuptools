@@ -22,7 +22,7 @@ from mypy.defaults import RECURSION_LIMIT
 from mypy.dmypy_os import alive, kill
 from mypy.dmypy_util import DEFAULT_STATUS_FILE, receive, send
 from mypy.ipc import BadStatus, IPCClient, IPCException, read_status
-from mypy.util import check_python_version, get_terminal_width, should_force_color
+from mypy.util import get_terminal_width, should_force_color
 from mypy.version import __version__
 
 # Argument parser.  Subparsers are tied to action functions by the
@@ -259,7 +259,6 @@ del p
 
 def main(argv: list[str]) -> None:
     """The code is top-down."""
-    check_python_version("dmypy")
 
     # set recursion limit consistent with mypy/main.py
     sys.setrecursionlimit(RECURSION_LIMIT)

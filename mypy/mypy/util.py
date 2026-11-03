@@ -489,16 +489,6 @@ def get_unique_redefinition_name(name: str, existing: Container[str]) -> str:
     return r_name + str(i)
 
 
-def check_python_version(program: str) -> None:
-    """Report issues with the Python used to run mypy, dmypy, or stubgen"""
-    # Check for known bad Python versions.
-    if sys.version_info[:2] < (3, 10):  # noqa: UP036, RUF100
-        sys.exit(
-            "Running {name} with Python 3.9 or lower is not supported; "
-            "please upgrade to 3.10 or newer".format(name=program)
-        )
-
-
 def count_stats(messages: list[str]) -> tuple[int, int, int]:
     """Count total number of errors, notes and error_files in message list."""
     errors = [e for e in messages if ": error:" in e]

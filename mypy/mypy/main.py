@@ -82,7 +82,7 @@ def main(
         clean_exit: Don't hard kill the process on exit. This allows catching
             SystemExit.
     """
-    util.check_python_version("mypy")
+
     t0 = time.time()
     # To log stat() calls: os.stat = stat_proxy
     sys.setrecursionlimit(RECURSION_LIMIT)
