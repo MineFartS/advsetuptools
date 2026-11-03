@@ -200,11 +200,9 @@ class Options:
         self,
         pyversion: tuple[int, int],
         no_import: bool,
-        inspect: bool,
         doc_dir: str,
         search_path: list[str],
         interpreter: str,
-        parse_only: bool,
         ignore_errors: bool,
         include_private: bool,
         output_dir: str,
@@ -219,12 +217,10 @@ class Options:
         # See parse_options for descriptions of the flags.
         self.pyversion = pyversion
         self.no_import = no_import
-        self.inspect = inspect
         self.doc_dir = doc_dir
         self.search_path = search_path
         self.interpreter = interpreter
         self.decointerpreter = interpreter
-        self.parse_only = parse_only
         self.ignore_errors = ignore_errors
         self.include_private = include_private
         self.output_dir = output_dir
@@ -1765,17 +1761,13 @@ def parse_source_file(mod: StubSource, mypy_options: MypyOptions) -> None:
 
 
 def generate_asts_for_modules(
-    py_modules: list[StubSource], parse_only: bool, mypy_options: MypyOptions, verbose: bool
+    py_modules: list[StubSource], mypy_options: MypyOptions, verbose: bool
 ) -> None:
     """Use mypy to parse (and optionally analyze) source files."""
     if not py_modules:
         return  # Nothing to do here, but there may be C modules
     if verbose:
         print(f"Processing {len(py_modules)} files...")
-    if parse_only:
-        for mod in py_modules:
-            parse_source_file(mod, mypy_options)
-        return
     # Perform full semantic analysis of the source set.
     try:
         res = build([module.source for module in py_modules], mypy_options)
@@ -1795,8 +1787,6 @@ def generate_stub_for_py_module(
     mod: StubSource,
     target: str,
     *,
-    parse_only: bool = False,
-    inspect: bool = False,
     include_private: bool = False,
     export_less: bool = False,
     include_docstrings: bool = False,
@@ -1808,30 +1798,18 @@ def generate_stub_for_py_module(
     If directory for target doesn't exist it will created. Existing stub
     will be overwritten.
     """
-    if inspect:
-        ngen = InspectionStubGenerator(
-            module_name=mod.module,
-            known_modules=all_modules,
-            _all_=mod.runtime_all,
-            doc_dir=doc_dir,
-            include_private=include_private,
-            export_less=export_less,
-            include_docstrings=include_docstrings,
-        )
-        ngen.generate_module()
-        output = ngen.output()
 
-    else:
-        gen = ASTStubGenerator(
-            mod.runtime_all,
-            include_private=include_private,
-            analyzed=not parse_only,
-            export_less=export_less,
-            include_docstrings=include_docstrings,
-        )
-        assert mod.ast is not None, "This function must be used only with analyzed modules"
-        mod.ast.accept(gen)
-        output = gen.output()
+    ngen = InspectionStubGenerator(
+        module_name=mod.module,
+        known_modules=all_modules,
+        _all_=mod.runtime_all,
+        doc_dir=doc_dir,
+        include_private=include_private,
+        export_less=export_less,
+        include_docstrings=include_docstrings,
+    )
+    ngen.generate_module()
+    output = ngen.output()
 
     # Write output to file.
     subdir = os.path.dirname(target)
@@ -1848,7 +1826,7 @@ def generate_stubs(options: Options) -> None:
     all_modules = py_modules + pyc_modules + c_modules
     all_module_names = sorted(m.module for m in all_modules)
     # Use parsed sources to generate stubs for Python modules.
-    generate_asts_for_modules(py_modules, options.parse_only, mypy_opts, options.verbose)
+    generate_asts_for_modules(py_modules, mypy_opts, options.verbose)
     files = []
     for mod in py_modules + pyc_modules:
         assert mod.path is not None, "Not found module was not skipped"
@@ -1863,8 +1841,6 @@ def generate_stubs(options: Options) -> None:
             generate_stub_for_py_module(
                 mod,
                 target,
-                parse_only=options.parse_only,
-                inspect=options.inspect or mod in pyc_modules,
                 include_private=options.include_private,
                 export_less=options.export_less,
                 include_docstrings=options.include_docstrings,
@@ -1926,23 +1902,6 @@ def parse_options(args: list[str]) -> Options:
         help="don't import the modules, just parse and analyze them "
         "(doesn't work with C extension modules and might not "
         "respect __all__)",
-    )
-    parser.add_argument(
-        "--no-analysis",
-        "--parse-only",
-        dest="parse_only",
-        action="store_true",
-        help="don't perform semantic analysis of sources, just parse them "
-        "(only applies to Python modules, might affect quality of stubs. "
-        "Not compatible with --inspect-mode)",
-    )
-    parser.add_argument(
-        "--inspect-mode",
-        dest="inspect",
-        action="store_true",
-        help="import and inspect modules instead of parsing source code."
-        "This is the default behavior for c modules and pyc-only packages, but "
-        "it is also useful for pure python modules with dynamically generated members.",
     )
     parser.add_argument(
         "--include-private",
@@ -2022,8 +1981,6 @@ def parse_options(args: list[str]) -> Options:
         parser.error("May only specify one of: modules/packages or files.")
     if ns.quiet and ns.verbose:
         parser.error("Cannot specify both quiet and verbose messages")
-    if ns.inspect and ns.parse_only:
-        parser.error("Cannot specify both --parse-only/--no-analysis and --inspect-mode")
 
     # Create the output folder if it doesn't already exist.
     os.makedirs(ns.output_dir, exist_ok=True)
@@ -2031,12 +1988,10 @@ def parse_options(args: list[str]) -> Options:
     return Options(
         pyversion=pyversion,
         no_import=ns.no_import,
-        inspect=ns.inspect,
         doc_dir=ns.doc_dir,
         search_path=ns.search_path.split(":"),
         interpreter=ns.interpreter,
         ignore_errors=ns.ignore_errors,
-        parse_only=ns.parse_only,
         include_private=ns.include_private,
         output_dir=ns.output_dir,
         modules=ns.modules,
@@ -2068,7 +2023,6 @@ def stubgen(m:str, o:str) -> None:
     main([
         '-m', m,
         '-o', os.path.abspath(o),
-        '--inspect-mode',
         '--include-private',
     ])
 
