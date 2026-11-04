@@ -1,5 +1,3 @@
-from pybind11 import get_include
-from itertools import chain
 from typing import Literal
 from sys import platform
 from pathlib import Path
@@ -31,7 +29,7 @@ if platform == "win32":
 #========================================================
 
 _include_dirs: list[str] = [
-    get_include(),
+    (Path(__file__).parent / "include").as_posix(),
     st.find_packages('.')[0],
 ]
 
