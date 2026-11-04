@@ -5,9 +5,9 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from typing import Final, Literal, TypeAlias as _TypeAlias
 
-from mypy.erasetype import remove_instance_last_known_values
-from mypy.literals import Key, extract_var_from_literal_hash, literal, literal_hash, subkeys
-from mypy.nodes import (
+from .erasetype import remove_instance_last_known_values
+from .literals import Key, extract_var_from_literal_hash, literal, literal_hash, subkeys
+from .nodes import (
     LITERAL_NO,
     Expression,
     IndexExpr,
@@ -17,10 +17,10 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.options import Options
-from mypy.subtypes import is_same_type, is_subtype
-from mypy.typeops import make_simplified_union
-from mypy.types import (
+from .options import Options
+from .subtypes import is_same_type, is_subtype
+from .typeops import make_simplified_union
+from .types import (
     IMPRECISE_ANYS,
     AnyType,
     Instance,
@@ -38,7 +38,7 @@ from mypy.types import (
     flatten_nested_unions,
     get_proper_type,
 )
-from mypy.typevars import fill_typevars_with_any
+from .typevars import fill_typevars_with_any
 
 BindableExpression: _TypeAlias = IndexExpr | MemberExpr | NameExpr
 

@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import Any, Final, TypeAlias as _TypeAlias
 
-from mypy.nodes import (
+from .nodes import (
     LITERAL_NO,
     LITERAL_TYPE,
     LITERAL_YES,
@@ -56,7 +56,7 @@ from mypy.nodes import (
     YieldExpr,
     YieldFromExpr,
 )
-from mypy.visitor import ExpressionVisitor
+from .visitor import ExpressionVisitor
 
 # [Note Literals and literal_hash]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

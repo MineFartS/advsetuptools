@@ -21,9 +21,9 @@ from typing import Any, Final, cast
 
 import mypy.typeops
 from mypy import errorcodes as codes, message_registry
-from mypy.erasetype import erase_type
-from mypy.errorcodes import ErrorCode
-from mypy.errors import (
+from .erasetype import erase_type
+from .errorcodes import ErrorCode
+from .errors import (
     ErrorInfo,
     Errors,
     ErrorWatcher,
@@ -31,7 +31,7 @@ from mypy.errors import (
     IterationErrorWatcher,
     NonOverlapErrorInfo,
 )
-from mypy.nodes import (
+from .nodes import (
     ARG_NAMED,
     ARG_NAMED_OPT,
     ARG_OPT,
@@ -58,9 +58,9 @@ from mypy.nodes import (
     get_func_def,
     reverse_builtin_aliases,
 )
-from mypy.operators import op_methods, op_methods_to_symbols
-from mypy.options import Options
-from mypy.subtypes import (
+from .operators import op_methods, op_methods_to_symbols
+from .options import Options
+from .subtypes import (
     IS_CLASS_OR_STATIC,
     IS_CLASSVAR,
     IS_EXPLICIT_SETTER,
@@ -72,8 +72,8 @@ from mypy.subtypes import (
     is_same_type,
     is_subtype,
 )
-from mypy.typeops import separate_union_literals
-from mypy.types import (
+from .typeops import separate_union_literals
+from .types import (
     AnyType,
     CallableType,
     DeletedType,
@@ -104,8 +104,8 @@ from mypy.types import (
     get_proper_type,
     get_proper_types,
 )
-from mypy.typetraverser import TypeTraverserVisitor
-from mypy.util import plural_s, unmangle
+from .typetraverser import TypeTraverserVisitor
+from .util import plural_s, unmangle
 
 TYPES_FOR_UNIMPORTED_HINTS: Final = {
     "typing.Any",

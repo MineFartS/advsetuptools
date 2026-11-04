@@ -4,7 +4,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from typing import Final
 
-from mypy.checker_shared import TypeCheckerSharedApi
+from .checker_shared import TypeCheckerSharedApi
 
 # This is global mutable state. Don't add anything here unless there's a very
 # good reason.

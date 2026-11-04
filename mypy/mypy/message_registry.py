@@ -11,7 +11,7 @@ from __future__ import annotations
 from typing import Final
 
 from mypy import errorcodes as codes
-from mypy.errorcodes import ErrorCode
+from .errorcodes import ErrorCode
 
 
 class ErrorMessage:

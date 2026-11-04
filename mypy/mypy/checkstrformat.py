@@ -19,11 +19,11 @@ from typing import Final, TypeAlias as _TypeAlias, cast
 
 import mypy.errorcodes as codes
 from mypy import message_registry
-from mypy.checker_shared import TypeCheckerSharedApi
-from mypy.errors import Errors
-from mypy.maptype import map_instance_to_supertype
-from mypy.messages import MessageBuilder
-from mypy.nodes import (
+from .checker_shared import TypeCheckerSharedApi
+from .errors import Errors
+from .maptype import map_instance_to_supertype
+from .messages import MessageBuilder
+from .nodes import (
     ARG_NAMED,
     ARG_POS,
     ARG_STAR,
@@ -44,10 +44,10 @@ from mypy.nodes import (
     TempNode,
     TupleExpr,
 )
-from mypy.parse import parse
-from mypy.subtypes import is_subtype
-from mypy.typeops import custom_special_method
-from mypy.types import (
+from .parse import parse
+from .subtypes import is_subtype
+from .typeops import custom_special_method
+from .types import (
     AnyType,
     Instance,
     LiteralType,

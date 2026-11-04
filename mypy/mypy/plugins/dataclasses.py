@@ -6,10 +6,10 @@ from collections.abc import Iterator
 from typing import TYPE_CHECKING, Final, Literal
 
 from mypy import errorcodes, message_registry
-from mypy.expandtype import expand_type, expand_type_by_instance
-from mypy.meet import meet_types
-from mypy.messages import format_type_bare
-from mypy.nodes import (
+from ..expandtype import expand_type, expand_type_by_instance
+from ..meet import meet_types
+from ..messages import format_type_bare
+from ..nodes import (
     ARG_NAMED,
     ARG_NAMED_OPT,
     ARG_OPT,
@@ -43,19 +43,19 @@ from mypy.nodes import (
     TypeVarExpr,
     Var,
 )
-from mypy.plugin import ClassDefContext, FunctionSigContext, SemanticAnalyzerPluginInterface
-from mypy.plugins.common import (
+from ..plugin import ClassDefContext, FunctionSigContext, SemanticAnalyzerPluginInterface
+from .common import (
     _get_callee_type,
     _get_decorator_bool_argument,
     add_attribute_to_class,
     add_method_to_class,
     deserialize_and_fixup_type,
 )
-from mypy.semanal_shared import find_dataclass_transform_spec, require_bool_literal_argument
-from mypy.server.trigger import make_wildcard_trigger
-from mypy.state import state
-from mypy.typeops import map_type_from_supertype, try_getting_literals_from_type
-from mypy.types import (
+from ..semanal_shared import find_dataclass_transform_spec, require_bool_literal_argument
+from ..server.trigger import make_wildcard_trigger
+from ..state import state
+from ..typeops import map_type_from_supertype, try_getting_literals_from_type
+from ..types import (
     AnyType,
     CallableType,
     FunctionLike,
@@ -73,10 +73,10 @@ from mypy.types import (
     UnionType,
     get_proper_type,
 )
-from mypy.typevars import fill_typevars
+from ..typevars import fill_typevars
 
 if TYPE_CHECKING:
-    from mypy.checker import TypeChecker
+    from ..checker import TypeChecker
 
 # The set of decorators that generate dataclasses.
 dataclass_makers: Final = {"dataclass", "dataclasses.dataclass"}

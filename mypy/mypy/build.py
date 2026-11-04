@@ -57,7 +57,7 @@ from librt.internal import (
 )
 
 import mypy.semanal_main
-from mypy.cache import (
+from .cache import (
     CACHE_VERSION,
     DICT_STR_GEN,
     LIST_GEN,
@@ -83,20 +83,20 @@ from mypy.cache import (
     write_str_list,
     write_str_opt,
 )
-from mypy.checker import DeferredNode, TypeChecker
-from mypy.defaults import (
+from .checker import DeferredNode, TypeChecker
+from .defaults import (
     WORKER_CONNECTION_TIMEOUT,
     WORKER_DONE_TIMEOUT,
     WORKER_SHUTDOWN_TIMEOUT,
     WORKER_START_INTERVAL,
     WORKER_START_TIMEOUT,
 )
-from mypy.error_formatter import OUTPUT_CHOICES, ErrorFormatter
-from mypy.errorcodes import ErrorCode
-from mypy.errors import CompileError, ErrorInfo, Errors, report_internal_error
-from mypy.graph_utils import prepare_sccs, strongly_connected_components, topsort
-from mypy.indirection import TypeIndirectionVisitor
-from mypy.ipc import (
+from .error_formatter import OUTPUT_CHOICES, ErrorFormatter
+from .errorcodes import ErrorCode
+from .errors import CompileError, ErrorInfo, Errors, report_internal_error
+from .graph_utils import prepare_sccs, strongly_connected_components, topsort
+from .indirection import TypeIndirectionVisitor
+from .ipc import (
     BadStatus,
     IPCClient,
     IPCException,
@@ -106,8 +106,8 @@ from mypy.ipc import (
     receive,
     send,
 )
-from mypy.messages import MessageBuilder
-from mypy.nodes import (
+from .messages import MessageBuilder
+from .nodes import (
     Decorator,
     FileRawData,
     FuncDef,
@@ -119,11 +119,11 @@ from mypy.nodes import (
     OverloadedFuncDef,
     SymbolTable,
 )
-from mypy.options import OPTIONS_AFFECTING_CACHE_NO_PLATFORM
-from mypy.partially_defined import PossiblyUndefinedVariableVisitor
-from mypy.semanal import SemanticAnalyzer
-from mypy.semanal_pass1 import SemanticAnalyzerPreAnalysis
-from mypy.util import (
+from .options import OPTIONS_AFFECTING_CACHE_NO_PLATFORM
+from .partially_defined import PossiblyUndefinedVariableVisitor
+from .semanal import SemanticAnalyzer
+from .semanal_pass1 import SemanticAnalyzerPreAnalysis
+from .util import (
     DecodeError,
     can_start_threads,
     decode_python_encoding,
@@ -145,14 +145,14 @@ if TYPE_CHECKING:
     from mypy.report import Reports  # Avoid unconditional slow import
 
 from mypy import errorcodes as codes
-from mypy.config_parser import get_config_module_names, parse_mypy_comments
-from mypy.fixup import NodeFixer
-from mypy.freetree import free_tree
-from mypy.fscache import FileSystemCache
-from mypy.known_modules import get_known_modules, reset_known_modules_cache
-from mypy.messages import best_matches, pretty_seq
-from mypy.metastore import FilesystemMetadataStore, MetadataStore, SqliteMetadataStore
-from mypy.modulefinder import (
+from .config_parser import get_config_module_names, parse_mypy_comments
+from .fixup import NodeFixer
+from .freetree import free_tree
+from .fscache import FileSystemCache
+from .known_modules import get_known_modules, reset_known_modules_cache
+from .messages import best_matches, pretty_seq
+from .metastore import FilesystemMetadataStore, MetadataStore, SqliteMetadataStore
+from .modulefinder import (
     BuildSource as BuildSource,
     BuildSourceSet as BuildSourceSet,
     FindModuleCache,
@@ -161,19 +161,19 @@ from mypy.modulefinder import (
     SearchPaths,
     compute_search_paths,
 )
-from mypy.modules_state import modules_state
-from mypy.nodes import Expression
-from mypy.options import Options
-from mypy.parse import load_from_raw, parse
-from mypy.plugin import ChainedPlugin, Plugin, ReportConfigContext
-from mypy.plugins.default import DefaultPlugin
-from mypy.renaming import LimitedVariableRenameVisitor, VariableRenameVisitor
-from mypy.stats import dump_type_stats
-from mypy.stubinfo import stub_distribution_name
-from mypy.types import Type, instance_cache
-from mypy.typestate import reset_global_state, type_state
-from mypy.util import json_dumps, json_loads
-from mypy.version import __version__
+from .modules_state import modules_state
+from .nodes import Expression
+from .options import Options
+from .parse import load_from_raw, parse
+from .plugin import ChainedPlugin, Plugin, ReportConfigContext
+from .plugins.default import DefaultPlugin
+from .renaming import LimitedVariableRenameVisitor, VariableRenameVisitor
+from .stats import dump_type_stats
+from .stubinfo import stub_distribution_name
+from .types import Type, instance_cache
+from .typestate import reset_global_state, type_state
+from .util import json_dumps, json_loads
+from .version import __version__
 
 # Switch to True to produce debug output related to fine-grained incremental
 # mode only that is useful during development. This produces only a subset of

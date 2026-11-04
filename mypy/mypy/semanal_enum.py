@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Final
 
-from mypy.nodes import (
+from .nodes import (
     ARG_NAMED,
     ARG_POS,
     EXCLUDED_ENUM_ATTRIBUTES,
@@ -29,9 +29,9 @@ from mypy.nodes import (
     Var,
     is_StrExpr_list,
 )
-from mypy.options import Options
-from mypy.semanal_shared import SemanticAnalyzerInterface
-from mypy.types import LiteralType, get_proper_type
+from .options import Options
+from .semanal_shared import SemanticAnalyzerInterface
+from .types import LiteralType, get_proper_type
 
 # Note: 'enum.EnumMeta' is deliberately excluded from this list. Classes that directly use
 # enum.EnumMeta do not necessarily automatically have the 'name' and 'value' attributes.

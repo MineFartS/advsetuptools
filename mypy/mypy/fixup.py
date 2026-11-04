@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any, Final
 
-from mypy.lookup import lookup_fully_qualified
-from mypy.nodes import (
+from .lookup import lookup_fully_qualified
+from .nodes import (
     Block,
     ClassDef,
     Decorator,
@@ -21,7 +21,7 @@ from mypy.nodes import (
     TypeVarTupleExpr,
     Var,
 )
-from mypy.types import (
+from .types import (
     NOT_READY,
     AnyType,
     CallableType,
@@ -43,7 +43,7 @@ from mypy.types import (
     UnionType,
     UnpackType,
 )
-from mypy.visitor import NodeVisitor
+from .visitor import NodeVisitor
 
 
 class NodeFixer(NodeVisitor[None]):

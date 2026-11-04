@@ -3,14 +3,14 @@ from __future__ import annotations
 from collections.abc import Sequence
 from typing import NamedTuple, TypeAlias as _TypeAlias, TypeVar
 
-from mypy.messages import format_type
-from mypy.nodes import ARG_POS, Argument, Block, ClassDef, Context, SymbolTable, TypeInfo, Var
-from mypy.options import Options
-from mypy.plugin import CheckerPluginInterface, FunctionContext, MethodContext, MethodSigContext
-from mypy.plugins.common import add_method_to_class
-from mypy.plugins.constants import SINGLEDISPATCH_REGISTER_RETURN_CLASS
-from mypy.subtypes import is_subtype
-from mypy.types import (
+from ..messages import format_type
+from ..nodes import ARG_POS, Argument, Block, ClassDef, Context, SymbolTable, TypeInfo, Var
+from ..options import Options
+from ..plugin import CheckerPluginInterface, FunctionContext, MethodContext, MethodSigContext
+from .common import add_method_to_class
+from .constants import SINGLEDISPATCH_REGISTER_RETURN_CLASS
+from ..subtypes import is_subtype
+from ..types import (
     AnyType,
     CallableType,
     Instance,

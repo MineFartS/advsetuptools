@@ -7,9 +7,9 @@ from typing import Final
 import mypy.checker
 import mypy.plugin
 import mypy.semanal
-from mypy.argmap import map_actuals_to_formals
-from mypy.erasetype import erase_typevars
-from mypy.nodes import (
+from ..argmap import map_actuals_to_formals
+from ..erasetype import erase_typevars
+from ..nodes import (
     ARG_POS,
     ARG_STAR2,
     SYMBOL_FUNCBASE_TYPES,
@@ -19,9 +19,9 @@ from mypy.nodes import (
     NameExpr,
     Var,
 )
-from mypy.plugins.common import add_method_to_class
-from mypy.typeops import get_all_type_vars
-from mypy.types import (
+from .common import add_method_to_class
+from ..typeops import get_all_type_vars
+from ..types import (
     AnyType,
     CallableType,
     Instance,

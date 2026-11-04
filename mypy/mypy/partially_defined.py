@@ -3,8 +3,8 @@ from __future__ import annotations
 from enum import Enum
 
 from mypy import checker, errorcodes
-from mypy.messages import MessageBuilder
-from mypy.nodes import (
+from .messages import MessageBuilder
+from .nodes import (
     AssertStmt,
     AssignmentExpr,
     AssignmentStmt,
@@ -41,11 +41,11 @@ from mypy.nodes import (
     WithStmt,
     implicit_module_attrs,
 )
-from mypy.options import Options
-from mypy.patterns import AsPattern, StarredPattern
-from mypy.reachability import ALWAYS_TRUE, infer_pattern_value
-from mypy.traverser import ExtendedTraverserVisitor
-from mypy.types import Type, UninhabitedType, get_proper_type
+from .options import Options
+from .patterns import AsPattern, StarredPattern
+from .reachability import ALWAYS_TRUE, infer_pattern_value
+from .traverser import ExtendedTraverserVisitor
+from .types import Type, UninhabitedType, get_proper_type
 
 
 class BranchState:

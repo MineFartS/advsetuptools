@@ -7,9 +7,9 @@ from collections.abc import Callable, Sequence
 from typing import Any, Final, Literal, TypeVar, cast, overload
 
 from mypy import defaults, errorcodes as codes, message_registry
-from mypy.errors import Errors
-from mypy.message_registry import ErrorMessage
-from mypy.nodes import (
+from .errors import Errors
+from .message_registry import ErrorMessage
+from .nodes import (
     ARG_NAMED,
     ARG_NAMED_OPT,
     ARG_OPT,
@@ -92,8 +92,8 @@ from mypy.nodes import (
     YieldFromExpr,
     check_param_names,
 )
-from mypy.options import Options
-from mypy.patterns import (
+from .options import Options
+from .patterns import (
     AsPattern,
     ClassPattern,
     MappingPattern,
@@ -103,10 +103,10 @@ from mypy.patterns import (
     StarredPattern,
     ValuePattern,
 )
-from mypy.reachability import infer_reachability_of_if_statement, mark_block_unreachable
-from mypy.sharedparse import argument_elide_name, special_function_elide_names
-from mypy.traverser import TraverserVisitor
-from mypy.types import (
+from .reachability import infer_reachability_of_if_statement, mark_block_unreachable
+from .sharedparse import argument_elide_name, special_function_elide_names
+from .traverser import TraverserVisitor
+from .types import (
     AnyType,
     CallableArgument,
     CallableType,
@@ -123,7 +123,7 @@ from mypy.types import (
     UnionType,
     UnpackType,
 )
-from mypy.util import bytes_to_human_readable_repr, unnamed_function
+from .util import bytes_to_human_readable_repr, unnamed_function
 
 # pull this into a final variable to make mypyc be quiet about the
 # the default argument warning

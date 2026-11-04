@@ -9,10 +9,10 @@ from typing import Final, overload
 
 from mypy_extensions import trait
 
-from mypy.errorcodes import ErrorCode
-from mypy.errors import ErrorWatcher
-from mypy.message_registry import ErrorMessage
-from mypy.nodes import (
+from .errorcodes import ErrorCode
+from .errors import ErrorWatcher
+from .message_registry import ErrorMessage
+from .nodes import (
     ArgKind,
     Context,
     Expression,
@@ -26,8 +26,8 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.plugin import CheckerPluginInterface, Plugin
-from mypy.types import (
+from .plugin import CheckerPluginInterface, Plugin
+from .types import (
     CallableType,
     FunctionLike,
     Instance,
@@ -39,7 +39,7 @@ from mypy.types import (
     TypedDictType,
     TypeType,
 )
-from mypy.typevars import fill_typevars
+from .typevars import fill_typevars
 
 
 # An object that represents either a precise type or a type with an upper bound;

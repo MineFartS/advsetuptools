@@ -17,7 +17,7 @@ from abc import abstractmethod
 from collections.abc import Iterable
 from typing import TYPE_CHECKING, Any
 
-from mypy.util import hash_path_stem, os_path_join
+from .util import hash_path_stem, os_path_join
 
 if TYPE_CHECKING:
     # We avoid importing sqlite3 unless we are using it so we can mostly work

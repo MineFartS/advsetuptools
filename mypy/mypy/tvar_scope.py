@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import TypeAlias as _TypeAlias
 
-from mypy.nodes import (
+from .nodes import (
     Context,
     ParamSpecExpr,
     SymbolTableNode,
@@ -11,7 +11,7 @@ from mypy.nodes import (
     TypeVarLikeExpr,
     TypeVarTupleExpr,
 )
-from mypy.types import (
+from .types import (
     ParamSpecFlavor,
     ParamSpecType,
     TypeVarId,

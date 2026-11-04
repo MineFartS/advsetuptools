@@ -11,8 +11,8 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 from typing import cast
 
-from mypy.nodes import ARG_STAR, ARG_STAR2, FuncItem, TypeAlias
-from mypy.types import (
+from .nodes import ARG_STAR, ARG_STAR2, FuncItem, TypeAlias
+from .types import (
     AnyType,
     CallableType,
     Instance,

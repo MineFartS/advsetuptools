@@ -3,9 +3,9 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping
 from typing import Final, TypeVar, cast, overload
 
-from mypy.nodes import ARG_STAR, ArgKind, FakeInfo, Var
-from mypy.state import state
-from mypy.types import (
+from .nodes import ARG_STAR, ArgKind, FakeInfo, Var
+from .state import state
+from .types import (
     ANY_STRATEGY,
     AnyType,
     BoolTypeQuery,
@@ -41,7 +41,7 @@ from mypy.types import (
     get_proper_type,
     split_with_prefix_and_suffix,
 )
-from mypy.typevartuples import split_with_instance
+from .typevartuples import split_with_instance
 
 # Solving the import cycle:
 import mypy.type_visitor  # ruff: isort: skip

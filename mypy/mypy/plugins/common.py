@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import NamedTuple
 
-from mypy.argmap import map_actuals_to_formals
-from mypy.modules_state import modules_state
-from mypy.nodes import (
+from ..argmap import map_actuals_to_formals
+from ..modules_state import modules_state
+from ..nodes import (
     ARG_POS,
     MDEF,
     SYMBOL_FUNCBASE_TYPES,
@@ -25,15 +25,15 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.plugin import CheckerPluginInterface, ClassDefContext, SemanticAnalyzerPluginInterface
-from mypy.semanal_shared import (
+from ..plugin import CheckerPluginInterface, ClassDefContext, SemanticAnalyzerPluginInterface
+from ..semanal_shared import (
     ALLOW_INCOMPATIBLE_OVERRIDE,
     parse_bool,
     require_bool_literal_argument,
     set_callable_name,
 )
-from mypy.typeops import try_getting_str_literals as try_getting_str_literals
-from mypy.types import (
+from ..typeops import try_getting_str_literals as try_getting_str_literals
+from ..types import (
     AnyType,
     CallableType,
     Instance,
@@ -47,9 +47,9 @@ from mypy.types import (
     deserialize_type,
     get_proper_type,
 )
-from mypy.types_utils import is_overlapping_none
-from mypy.typevars import fill_typevars
-from mypy.util import get_unique_redefinition_name
+from ..types_utils import is_overlapping_none
+from ..typevars import fill_typevars
+from ..util import get_unique_redefinition_name
 
 
 def _get_decorator_bool_argument(ctx: ClassDefContext, name: str, default: bool) -> bool:

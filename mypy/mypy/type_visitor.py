@@ -19,7 +19,7 @@ from typing import Any, Final, Generic, TypeVar, cast
 
 from mypy_extensions import mypyc_attr, trait
 
-from mypy.types import (
+from .types import (
     AnyType,
     CallableArgument,
     CallableType,

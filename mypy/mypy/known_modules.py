@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from typing import Final
 
-from mypy.modulefinder import StdlibVersions
+from .modulefinder import StdlibVersions
 
 POPULAR_THIRD_PARTY_MODULES: Final[frozenset[str]] = frozenset(
     {

@@ -33,7 +33,7 @@ from librt.internal import (
 from mypy_extensions import trait
 
 import mypy.strconv
-from mypy.cache import (
+from .cache import (
     DICT_INT_GEN,
     DICT_STR_GEN,
     DT_SPEC,
@@ -74,13 +74,13 @@ from mypy.cache import (
     write_str_opt_list,
     write_tag,
 )
-from mypy.modules_state import modules_state
-from mypy.options import Options
-from mypy.util import is_sunder, is_typeshed_file, short_type
-from mypy.visitor import ExpressionVisitor, NodeVisitor, StatementVisitor
+from .modules_state import modules_state
+from .options import Options
+from .util import is_sunder, is_typeshed_file, short_type
+from .visitor import ExpressionVisitor, NodeVisitor, StatementVisitor
 
 if TYPE_CHECKING:
-    from mypy.patterns import ConcretePattern
+    from .patterns import ConcretePattern
 
 
 @unique

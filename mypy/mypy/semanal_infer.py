@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from mypy.nodes import ARG_POS, CallExpr, Decorator, Expression, FuncDef, RefExpr, Var
-from mypy.semanal_shared import SemanticAnalyzerInterface, set_callable_name
-from mypy.typeops import function_type
-from mypy.types import (
+from .nodes import ARG_POS, CallExpr, Decorator, Expression, FuncDef, RefExpr, Var
+from .semanal_shared import SemanticAnalyzerInterface, set_callable_name
+from .typeops import function_type
+from .types import (
     AnyType,
     CallableType,
     ProperType,
@@ -14,7 +14,7 @@ from mypy.types import (
     TypeVarType,
     get_proper_type,
 )
-from mypy.typevars import has_no_typevars
+from .typevars import has_no_typevars
 
 
 def infer_decorator_signature_if_simple(

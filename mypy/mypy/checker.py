@@ -78,26 +78,26 @@ from typing import (
 
 import mypy.checkexpr
 from mypy import errorcodes as codes, join, message_registry, nodes, operators
-from mypy.binder import ConditionalTypeBinder, Frame, get_declaration
-from mypy.checker_shared import CheckerScope, TypeCheckerSharedApi, TypeRange
-from mypy.checker_state import checker_state
-from mypy.checkmember import (
+from .binder import ConditionalTypeBinder, Frame, get_declaration
+from .checker_shared import CheckerScope, TypeCheckerSharedApi, TypeRange
+from .checker_state import checker_state
+from .checkmember import (
     MemberContext,
     analyze_class_attribute_access,
     analyze_instance_member_access,
     analyze_member_access,
     is_instance_var,
 )
-from mypy.checkpattern import PatternChecker
-from mypy.constraints import SUPERTYPE_OF
-from mypy.erasetype import (
+from .checkpattern import PatternChecker
+from .constraints import SUPERTYPE_OF
+from .erasetype import (
     erase_type,
     erase_typevars,
     remove_instance_last_known_values,
     shallow_erase_type_for_equality,
 )
-from mypy.errorcodes import TYPE_VAR, UNUSED_AWAITABLE, UNUSED_COROUTINE, ErrorCode
-from mypy.errors import (
+from .errorcodes import TYPE_VAR, UNUSED_AWAITABLE, UNUSED_COROUTINE, ErrorCode
+from .errors import (
     ErrorInfo,
     Errors,
     ErrorWatcher,
@@ -105,12 +105,12 @@ from mypy.errors import (
     IterationErrorWatcher,
     report_internal_error,
 )
-from mypy.expandtype import expand_type
-from mypy.literals import Key, extract_var_from_literal_hash, literal, literal_hash
-from mypy.maptype import map_instance_to_supertype
-from mypy.meet import is_overlapping_types, meet_types
-from mypy.message_registry import ErrorMessage
-from mypy.messages import (
+from .expandtype import expand_type
+from .literals import Key, extract_var_from_literal_hash, literal, literal_hash
+from .maptype import map_instance_to_supertype
+from .meet import is_overlapping_types, meet_types
+from .message_registry import ErrorMessage
+from .messages import (
     SUGGESTED_TEST_FIXTURES,
     MessageBuilder,
     append_invariance_notes,
@@ -121,8 +121,8 @@ from mypy.messages import (
     make_inferred_type_note,
     pretty_seq,
 )
-from mypy.mro import MroError, calculate_mro
-from mypy.nodes import (
+from .mro import MroError, calculate_mro
+from .nodes import (
     ARG_NAMED,
     ARG_POS,
     ARG_STAR,
@@ -209,18 +209,18 @@ from mypy.nodes import (
     get_func_def,
     is_final_node,
 )
-from mypy.operators import flip_ops, int_op_to_method, neg_ops
-from mypy.options import PRECISE_TUPLE_TYPES, Options
-from mypy.patterns import AsPattern, StarredPattern
-from mypy.plugin import Plugin
+from .operators import flip_ops, int_op_to_method, neg_ops
+from .options import PRECISE_TUPLE_TYPES, Options
+from .patterns import AsPattern, StarredPattern
+from .plugin import Plugin
 from mypy.plugins import dataclasses as dataclasses_plugin
-from mypy.scope import Scope
-from mypy.semanal import is_trivial_body, refers_to_fullname, set_callable_name
-from mypy.semanal_enum import ENUM_BASES, ENUM_SPECIAL_PROPS
-from mypy.semanal_shared import SemanticAnalyzerCoreInterface
-from mypy.sharedparse import BINARY_MAGIC_METHODS
-from mypy.state import state
-from mypy.subtypes import (
+from .scope import Scope
+from .semanal import is_trivial_body, refers_to_fullname, set_callable_name
+from .semanal_enum import ENUM_BASES, ENUM_SPECIAL_PROPS
+from .semanal_shared import SemanticAnalyzerCoreInterface
+from .sharedparse import BINARY_MAGIC_METHODS
+from .state import state
+from .subtypes import (
     find_member,
     has_any_type,
     infer_class_variances,
@@ -233,10 +233,10 @@ from mypy.subtypes import (
     restrict_subtype_away,
     unify_generic_callable,
 )
-from mypy.traverser import TraverserVisitor, all_return_statements, has_return_statement
-from mypy.treetransform import TransformVisitor
-from mypy.typeanal import check_for_explicit_any, has_any_from_unimported_type, make_optional_type
-from mypy.typeops import (
+from .traverser import TraverserVisitor, all_return_statements, has_return_statement
+from .treetransform import TransformVisitor
+from .typeanal import check_for_explicit_any, has_any_from_unimported_type, make_optional_type
+from .typeops import (
     bind_self,
     can_have_shared_disjoint_base,
     coerce_to_literal,
@@ -259,7 +259,7 @@ from mypy.typeops import (
     tuple_fallback,
     type_object_type,
 )
-from mypy.types import (
+from .types import (
     ANY_STRATEGY,
     MYPYC_NATIVE_INT_NAMES,
     NOT_IMPLEMENTED_TYPE_NAMES,
@@ -303,11 +303,11 @@ from mypy.types import (
     is_named_instance,
     is_unannotated_any,
 )
-from mypy.types_utils import is_overlapping_none, remove_optional, store_argument_type, strip_type
-from mypy.typetraverser import TypeTraverserVisitor
-from mypy.typevars import fill_typevars, fill_typevars_with_any, has_no_typevars
-from mypy.util import is_dunder, is_sunder
-from mypy.visitor import NodeVisitor
+from .types_utils import is_overlapping_none, remove_optional, store_argument_type, strip_type
+from .typetraverser import TypeTraverserVisitor
+from .typevars import fill_typevars, fill_typevars_with_any, has_no_typevars
+from .util import is_dunder, is_sunder
+from .visitor import NodeVisitor
 
 T = TypeVar("T")
 

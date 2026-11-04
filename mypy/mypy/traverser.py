@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from mypy_extensions import mypyc_attr, trait
 
-from mypy.nodes import (
+from .nodes import (
     REVEAL_TYPE,
     AssertStmt,
     AssertTypeExpr,
@@ -87,7 +87,7 @@ from mypy.nodes import (
     YieldExpr,
     YieldFromExpr,
 )
-from mypy.patterns import (
+from .patterns import (
     AsPattern,
     ClassPattern,
     MappingPattern,
@@ -97,7 +97,7 @@ from mypy.patterns import (
     StarredPattern,
     ValuePattern,
 )
-from mypy.visitor import NodeVisitor
+from .visitor import NodeVisitor
 
 
 @trait

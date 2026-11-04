@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from mypy.expandtype import expand_type_by_instance
-from mypy.nodes import TypeInfo
-from mypy.types import AnyType, Instance, TupleType, TypeOfAny, has_type_vars
+from .expandtype import expand_type_by_instance
+from .nodes import TypeInfo
+from .types import AnyType, Instance, TupleType, TypeOfAny, has_type_vars
 
 
 def map_instance_to_supertype(instance: Instance, superclass: TypeInfo) -> Instance:

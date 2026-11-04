@@ -5,15 +5,15 @@ from __future__ import annotations
 from collections.abc import Sequence
 from typing import Final
 
-from mypy.constraints import (
+from .constraints import (
     SUBTYPE_OF,
     SUPERTYPE_OF,
     infer_constraints,
     infer_constraints_for_callable,
 )
-from mypy.nodes import ArgKind
-from mypy.solve import solve_constraints
-from mypy.types import CallableType, Instance, Type, TypeVarLikeType
+from .nodes import ArgKind
+from .solve import solve_constraints
+from .types import CallableType, Instance, Type, TypeVarLikeType
 
 
 class ArgumentInferContext:

@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Final, TypeVar
 
-from mypy.literals import literal
-from mypy.nodes import (
+from .literals import literal
+from .nodes import (
     LITERAL_YES,
     AssertStmt,
     Block,
@@ -30,9 +30,9 @@ from mypy.nodes import (
     TupleExpr,
     UnaryExpr,
 )
-from mypy.options import Options
-from mypy.patterns import AsPattern, OrPattern, Pattern
-from mypy.traverser import TraverserVisitor
+from .options import Options
+from .patterns import AsPattern, OrPattern, Pattern
+from .traverser import TraverserVisitor
 
 # Inferred truth value of an expression.
 ALWAYS_TRUE: Final = 1

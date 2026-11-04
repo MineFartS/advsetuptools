@@ -7,19 +7,19 @@ from typing import Any, Final, TypeAlias as _TypeAlias, TypeVar, cast
 import mypy.applytype
 import mypy.constraints
 import mypy.typeops
-from mypy.checker_state import checker_state
-from mypy.erasetype import erase_type
-from mypy.expandtype import (
+from .checker_state import checker_state
+from .erasetype import erase_type
+from .expandtype import (
     expand_self_type,
     expand_type,
     expand_type_by_instance,
     freshen_function_type_vars,
 )
-from mypy.maptype import map_instance_to_supertype
+from .maptype import map_instance_to_supertype
 
 # Circular import; done in the function instead.
 # import mypy.solve
-from mypy.nodes import (
+from .nodes import (
     ARG_POS,
     ARG_STAR,
     ARG_STAR2,
@@ -34,10 +34,10 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.options import Options
-from mypy.state import state
-from mypy.type_visitor import ANY_STRATEGY, BoolTypeQuery
-from mypy.types import (
+from .options import Options
+from .state import state
+from .type_visitor import ANY_STRATEGY, BoolTypeQuery
+from .types import (
     MAX_PROTOCOL_DEPTH,
     MYPYC_NATIVE_INT_NAMES,
     TUPLE_LIKE_INSTANCE_NAMES,
@@ -79,9 +79,9 @@ from mypy.types import (
     is_named_instance,
     split_with_prefix_and_suffix,
 )
-from mypy.types_utils import flatten_types
-from mypy.typestate import SubtypeKind, type_state
-from mypy.typevars import fill_typevars, fill_typevars_with_any
+from .types_utils import flatten_types
+from .typestate import SubtypeKind, type_state
+from .typevars import fill_typevars, fill_typevars_with_any
 
 # Flags for detected protocol members
 IS_SETTABLE: Final = 1
@@ -1461,7 +1461,7 @@ def find_member(
                 return itype.extra_attrs.attrs[name]
             return None
 
-    from mypy.checkmember import (
+    from .checkmember import (
         MemberContext,
         analyze_class_attribute_access,
         analyze_instance_member_access,
@@ -1637,7 +1637,7 @@ def find_node_type(
     """Find type of a variable or method 'node' (maybe also a decorated method).
     Apply type arguments from 'itype', and bind 'self' to 'subtype'.
     """
-    from mypy.typeops import bind_self
+    from .typeops import bind_self
 
     if isinstance(node, FuncBase):
         typ: Type | None = mypy.typeops.function_type(

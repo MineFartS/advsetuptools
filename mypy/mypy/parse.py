@@ -5,11 +5,11 @@ import re
 from librt.internal import ReadBuffer
 
 from mypy import errorcodes as codes
-from mypy.cache import read_int
-from mypy.errors import Errors
-from mypy.nodes import FileRawData, MypyFile, ParseError, StrExpr
-from mypy.options import Options
-from mypy.types import ProperType
+from .cache import read_int
+from .errors import Errors
+from .nodes import FileRawData, MypyFile, ParseError, StrExpr
+from .options import Options
+from .types import ProperType
 
 
 def parse(

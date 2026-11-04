@@ -8,7 +8,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import cast
 
-from mypy.nodes import (
+from .nodes import (
     GDEF,
     REVEAL_TYPE,
     Argument,
@@ -94,7 +94,7 @@ from mypy.nodes import (
     YieldExpr,
     YieldFromExpr,
 )
-from mypy.patterns import (
+from .patterns import (
     AsPattern,
     ClassPattern,
     ConcretePattern,
@@ -105,10 +105,10 @@ from mypy.patterns import (
     StarredPattern,
     ValuePattern,
 )
-from mypy.traverser import TraverserVisitor
-from mypy.types import FunctionLike, ProperType, Type
-from mypy.util import replace_object_state
-from mypy.visitor import NodeVisitor
+from .traverser import TraverserVisitor
+from .types import FunctionLike, ProperType, Type
+from .util import replace_object_state
+from .visitor import NodeVisitor
 
 
 class TransformVisitor(NodeVisitor[Node]):

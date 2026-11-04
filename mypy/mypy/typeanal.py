@@ -8,22 +8,22 @@ from contextlib import contextmanager
 from typing import Final, Protocol, TypeVar
 
 from mypy import errorcodes as codes, message_registry, nodes
-from mypy.errorcodes import ErrorCode
-from mypy.errors import ErrorInfo
-from mypy.expandtype import expand_type
-from mypy.message_registry import (
+from .errorcodes import ErrorCode
+from .errors import ErrorInfo
+from .expandtype import expand_type
+from .message_registry import (
     INVALID_PARAM_SPEC_LOCATION,
     INVALID_PARAM_SPEC_LOCATION_NOTE,
     TYPEDDICT_OVERRIDE_MERGE,
 )
-from mypy.messages import (
+from .messages import (
     MessageBuilder,
     format_type,
     format_type_bare,
     quote_type_string,
     wrong_type_arg_count,
 )
-from mypy.nodes import (
+from .nodes import (
     ARG_NAMED,
     ARG_NAMED_OPT,
     ARG_OPT,
@@ -49,17 +49,17 @@ from mypy.nodes import (
     check_arg_kinds,
     check_param_names,
 )
-from mypy.options import INLINE_TYPEDDICT, Options
-from mypy.plugin import AnalyzeTypeContext, Plugin, TypeAnalyzerPluginInterface
-from mypy.semanal_shared import (
+from .options import INLINE_TYPEDDICT, Options
+from .plugin import AnalyzeTypeContext, Plugin, TypeAnalyzerPluginInterface
+from .semanal_shared import (
     SemanticAnalyzerCoreInterface,
     SemanticAnalyzerInterface,
     paramspec_args,
     paramspec_kwargs,
 )
-from mypy.state import state
-from mypy.tvar_scope import TypeVarLikeScope
-from mypy.types import (
+from .state import state
+from .tvar_scope import TypeVarLikeScope
+from .types import (
     ANNOTATED_TYPE_NAMES,
     ANY_STRATEGY,
     CONCATENATE_TYPE_NAMES,
@@ -116,8 +116,8 @@ from mypy.types import (
     get_proper_type,
     has_type_vars,
 )
-from mypy.types_utils import get_bad_type_type_item
-from mypy.typevars import fill_typevars
+from .types_utils import get_bad_type_type_item
+from .typevars import fill_typevars
 
 T = TypeVar("T")
 

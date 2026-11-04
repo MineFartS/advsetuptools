@@ -4,7 +4,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from typing import Final
 
-from mypy.nodes import (
+from .nodes import (
     AssignmentStmt,
     Block,
     BreakStmt,
@@ -28,8 +28,8 @@ from mypy.nodes import (
     WhileStmt,
     WithStmt,
 )
-from mypy.patterns import AsPattern
-from mypy.traverser import TraverserVisitor
+from .patterns import AsPattern
+from .traverser import TraverserVisitor
 
 # Scope kinds
 FILE: Final = 0

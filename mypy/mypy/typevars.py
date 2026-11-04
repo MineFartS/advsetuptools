@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from mypy.erasetype import erase_typevars
-from mypy.nodes import TypeInfo
-from mypy.types import (
+from .erasetype import erase_typevars
+from .nodes import TypeInfo
+from .types import (
     Instance,
     ParamSpecType,
     ProperType,
@@ -14,7 +14,7 @@ from mypy.types import (
     TypeVarType,
     UnpackType,
 )
-from mypy.typevartuples import erased_vars
+from .typevartuples import erased_vars
 
 
 def fill_typevars(typ: TypeInfo) -> Instance | TupleType:

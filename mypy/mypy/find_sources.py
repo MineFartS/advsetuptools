@@ -7,15 +7,15 @@ import os
 from collections.abc import Sequence
 from typing import Final
 
-from mypy.fscache import FileSystemCache
-from mypy.modulefinder import (
+from .fscache import FileSystemCache
+from .modulefinder import (
     PYTHON_EXTENSIONS,
     BuildSource,
     matches_exclude,
     matches_gitignore,
     mypy_path,
 )
-from mypy.options import Options
+from .options import Options
 
 PY_EXTENSIONS: Final = tuple(PYTHON_EXTENSIONS)
 

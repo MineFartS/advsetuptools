@@ -6,10 +6,10 @@ This is conceptually part of mypy.semanal (semantic analyzer pass 2).
 from __future__ import annotations
 
 from mypy import errorcodes as codes
-from mypy.errorcodes import ErrorCode
-from mypy.exprtotype import TypeTranslationError, expr_to_unanalyzed_type
-from mypy.messages import MessageBuilder, format_type
-from mypy.nodes import (
+from .errorcodes import ErrorCode
+from .exprtotype import TypeTranslationError, expr_to_unanalyzed_type
+from .messages import MessageBuilder, format_type
+from .nodes import (
     ARG_POS,
     MDEF,
     Argument,
@@ -27,10 +27,10 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.options import Options
-from mypy.semanal_shared import SemanticAnalyzerInterface, has_placeholder
-from mypy.typeanal import check_for_explicit_any, has_any_from_unimported_type
-from mypy.types import (
+from .options import Options
+from .semanal_shared import SemanticAnalyzerInterface, has_placeholder
+from .typeanal import check_for_explicit_any, has_any_from_unimported_type
+from .types import (
     AnyType,
     CallableType,
     Instance,

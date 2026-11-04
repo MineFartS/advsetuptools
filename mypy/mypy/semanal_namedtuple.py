@@ -10,10 +10,10 @@ from collections.abc import Container, Iterator, Mapping
 from contextlib import contextmanager
 from typing import Final, cast
 
-from mypy.errorcodes import ARG_TYPE, ErrorCode
-from mypy.exprtotype import TypeTranslationError, expr_to_unanalyzed_type
-from mypy.messages import MessageBuilder
-from mypy.nodes import (
+from .errorcodes import ARG_TYPE, ErrorCode
+from .exprtotype import TypeTranslationError, expr_to_unanalyzed_type
+from .messages import MessageBuilder
+from .nodes import (
     ARG_NAMED_OPT,
     ARG_OPT,
     ARG_POS,
@@ -47,15 +47,15 @@ from mypy.nodes import (
     Var,
     is_StrExpr_list,
 )
-from mypy.options import Options
-from mypy.semanal_shared import (
+from .options import Options
+from .semanal_shared import (
     PRIORITY_FALLBACKS,
     SemanticAnalyzerInterface,
     calculate_tuple_fallback,
     has_placeholder,
     set_callable_name,
 )
-from mypy.types import (
+from .types import (
     TYPED_NAMEDTUPLE_NAMES,
     AnyType,
     CallableType,
@@ -70,7 +70,7 @@ from mypy.types import (
     UnboundType,
     has_type_vars,
 )
-from mypy.util import get_unique_redefinition_name
+from .util import get_unique_redefinition_name
 
 # Matches "_prohibited" in typing.py, but adds __annotations__, which works at runtime but can't
 # easily be supported in a static checker.

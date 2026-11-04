@@ -6,11 +6,11 @@ from collections.abc import Sequence
 from typing import overload
 
 import mypy.typeops
-from mypy.expandtype import expand_type
-from mypy.maptype import map_instance_to_supertype
-from mypy.nodes import CONTRAVARIANT, COVARIANT, INVARIANT, VARIANCE_NOT_READY, TypeInfo
-from mypy.state import state
-from mypy.subtypes import (
+from .expandtype import expand_type
+from .maptype import map_instance_to_supertype
+from .nodes import CONTRAVARIANT, COVARIANT, INVARIANT, VARIANCE_NOT_READY, TypeInfo
+from .state import state
+from .subtypes import (
     SubtypeContext,
     find_member,
     is_equivalent,
@@ -18,7 +18,7 @@ from mypy.subtypes import (
     is_protocol_implementation,
     is_subtype,
 )
-from mypy.types import (
+from .types import (
     AnyType,
     CallableType,
     DeletedType,
@@ -331,7 +331,7 @@ class TypeJoinVisitor(TypeVisitor[ProperType]):
             if not is_similar_params(t, self.s):
                 # TODO: it would be prudent to return [*object, **object] instead of Any.
                 return self.default(self.s)
-            from mypy.meet import meet_types
+            from .meet import meet_types
 
             return t.copy_modified(
                 arg_types=[
@@ -836,7 +836,7 @@ def safe_join(t: Type, s: Type) -> Type:
 
 def safe_meet(t: Type, s: Type) -> Type:
     # Similar to above but for meet_types().
-    from mypy.meet import meet_types
+    from .meet import meet_types
 
     if not isinstance(t, UnpackType) and not isinstance(s, UnpackType):
         return meet_types(t, s)

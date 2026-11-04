@@ -14,28 +14,28 @@ from typing_extensions import assert_never
 import mypy.checker
 import mypy.errorcodes as codes
 from mypy import applytype, erasetype, join, message_registry, nodes, operators, types
-from mypy.argmap import ArgTypeExpander, map_actuals_to_formals, map_formals_to_actuals
-from mypy.checker_shared import ExpressionCheckerSharedApi
-from mypy.checkmember import analyze_member_access, has_operator
-from mypy.checkstrformat import StringFormatterChecker
-from mypy.constant_fold import constant_fold_expr
-from mypy.erasetype import erase_type, remove_instance_last_known_values, replace_meta_vars
-from mypy.errors import ErrorInfo, ErrorWatcher, report_internal_error
-from mypy.expandtype import (
+from .argmap import ArgTypeExpander, map_actuals_to_formals, map_formals_to_actuals
+from .checker_shared import ExpressionCheckerSharedApi
+from .checkmember import analyze_member_access, has_operator
+from .checkstrformat import StringFormatterChecker
+from .constant_fold import constant_fold_expr
+from .erasetype import erase_type, remove_instance_last_known_values, replace_meta_vars
+from .errors import ErrorInfo, ErrorWatcher, report_internal_error
+from .expandtype import (
     expand_type,
     expand_type_by_instance,
     freshen_all_functions_type_vars,
     freshen_function_type_vars,
 )
-from mypy.exprtotype import TypeTranslationError, expr_to_unanalyzed_type
-from mypy.infer import ArgumentInferContext, infer_function_type_arguments, infer_type_arguments
-from mypy.literals import literal
-from mypy.lookup import lookup_fully_qualified
-from mypy.maptype import map_instance_to_supertype
-from mypy.meet import is_overlapping_types, narrow_declared_type
-from mypy.message_registry import ErrorMessage
-from mypy.messages import MessageBuilder, callable_name, format_type
-from mypy.nodes import (
+from .exprtotype import TypeTranslationError, expr_to_unanalyzed_type
+from .infer import ArgumentInferContext, infer_function_type_arguments, infer_type_arguments
+from .literals import literal
+from .lookup import lookup_fully_qualified
+from .maptype import map_instance_to_supertype
+from .meet import is_overlapping_types, narrow_declared_type
+from .message_registry import ErrorMessage
+from .messages import MessageBuilder, callable_name, format_type
+from .nodes import (
     ARG_NAMED,
     ARG_POS,
     ARG_STAR,
@@ -111,17 +111,17 @@ from mypy.nodes import (
     YieldFromExpr,
     get_member_expr_fullname,
 )
-from mypy.options import PRECISE_TUPLE_TYPES
-from mypy.plugin import (
+from .options import PRECISE_TUPLE_TYPES
+from .plugin import (
     FunctionContext,
     FunctionSigContext,
     MethodContext,
     MethodSigContext,
     Plugin,
 )
-from mypy.semanal_enum import ENUM_BASES
-from mypy.state import state
-from mypy.subtypes import (
+from .semanal_enum import ENUM_BASES
+from .state import state
+from .subtypes import (
     common_type,
     covers_at_runtime,
     find_member,
@@ -132,13 +132,13 @@ from mypy.subtypes import (
     non_method_protocol_members,
     union_function_signatures,
 )
-from mypy.traverser import (
+from .traverser import (
     all_name_and_member_expressions,
     has_await_expression,
     has_str_expression,
 )
-from mypy.tvar_scope import TypeVarLikeScope
-from mypy.typeanal import (
+from .tvar_scope import TypeVarLikeScope
+from .typeanal import (
     TypeAnalyser,
     check_for_explicit_any,
     fix_instance,
@@ -147,7 +147,7 @@ from mypy.typeanal import (
     set_any_tvars,
     validate_instance,
 )
-from mypy.typeops import (
+from .typeops import (
     callable_type,
     custom_special_method,
     erase_to_union_or_bound,
@@ -164,7 +164,7 @@ from mypy.typeops import (
     tuple_fallback,
     type_object_type,
 )
-from mypy.types import (
+from .types import (
     LITERAL_TYPE_NAMES,
     TUPLE_LIKE_INSTANCE_NAMES,
     AnyType,
@@ -209,15 +209,15 @@ from mypy.types import (
     remove_dups,
     split_with_prefix_and_suffix,
 )
-from mypy.types_utils import (
+from .types_utils import (
     is_generic_instance,
     is_overlapping_none,
     is_self_type_like,
     remove_optional,
 )
-from mypy.typestate import type_state
-from mypy.typevars import fill_typevars
-from mypy.visitor import ExpressionVisitor
+from .typestate import type_state
+from .typevars import fill_typevars
+from .visitor import ExpressionVisitor
 
 # Type of callback user for checking individual function arguments. See
 # check_args() below for details.

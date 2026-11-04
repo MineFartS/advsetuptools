@@ -7,8 +7,8 @@ from __future__ import annotations
 
 from typing import Final
 
-from mypy.errors import Errors
-from mypy.nodes import (
+from .errors import Errors
+from .nodes import (
     IMPLICITLY_ABSTRACT,
     IS_ABSTRACT,
     CallExpr,
@@ -21,8 +21,8 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.options import Options
-from mypy.types import MYPYC_NATIVE_INT_NAMES, Instance, ProperType
+from .options import Options
+from .types import MYPYC_NATIVE_INT_NAMES, Instance, ProperType
 
 # Hard coded type promotions (shared between all Python versions).
 # These add extra ad-hoc edges to the subtyping relation. For example,

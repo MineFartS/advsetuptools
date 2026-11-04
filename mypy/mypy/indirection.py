@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 
 import mypy.types as types
-from mypy.types import TypeVisitor
+from .types import TypeVisitor
 
 
 class TypeIndirectionVisitor(TypeVisitor[None]):

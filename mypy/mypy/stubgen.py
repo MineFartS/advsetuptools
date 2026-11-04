@@ -56,18 +56,18 @@ import mypy.parse
 import mypy.traverser
 import mypy.util
 import mypy.version
-from mypy.build import build
-from mypy.errors import CompileError, Errors
-from mypy.find_sources import InvalidSourceList, create_source_list
-from mypy.modulefinder import (
+from .build import build
+from .errors import CompileError, Errors
+from .find_sources import InvalidSourceList, create_source_list
+from .modulefinder import (
     BuildSource,
     FindModuleCache,
     ModuleNotFoundReason,
     SearchPaths,
     default_lib_path,
 )
-from mypy.moduleinspect import ModuleInspect, is_pyc_only
-from mypy.nodes import (
+from .moduleinspect import ModuleInspect, is_pyc_only
+from .nodes import (
     ARG_NAMED,
     ARG_POS,
     ARG_STAR,
@@ -121,13 +121,13 @@ from mypy.nodes import (
     UnaryExpr,
     Var,
 )
-from mypy.options import Options as MypyOptions
-from mypy.plugins.dataclasses import DATACLASS_FIELD_SPECIFIERS
-from mypy.semanal_shared import find_dataclass_transform_spec
-from mypy.sharedparse import MAGIC_METHODS_POS_ARGS_ONLY
-from mypy.stubdoc import ArgSig, FunctionSig
-from mypy.stubgenc import InspectionStubGenerator, generate_stub_for_c_module
-from mypy.stubutil import (
+from .options import Options as MypyOptions
+from .plugins.dataclasses import DATACLASS_FIELD_SPECIFIERS
+from .semanal_shared import find_dataclass_transform_spec
+from .sharedparse import MAGIC_METHODS_POS_ARGS_ONLY
+from .stubdoc import ArgSig, FunctionSig
+from .stubgenc import InspectionStubGenerator, generate_stub_for_c_module
+from .stubutil import (
     TYPING_BUILTIN_REPLACEMENTS,
     BaseStubGenerator,
     CantImport,
@@ -143,13 +143,13 @@ from mypy.stubutil import (
     report_missing,
     walk_packages,
 )
-from mypy.traverser import (
+from .traverser import (
     all_yield_expressions,
     has_return_statement,
     has_yield_expression,
     has_yield_from_expression,
 )
-from mypy.types import (
+from .types import (
     DATACLASS_TRANSFORM_NAMES,
     OVERLOAD_NAMES,
     TPDICT_NAMES,
@@ -163,7 +163,7 @@ from mypy.types import (
     UnboundType,
     get_proper_type,
 )
-from mypy.visitor import NodeVisitor
+from .visitor import NodeVisitor
 
 # Common ways of naming package containing vendored modules.
 VENDOR_PACKAGES: Final = ["packages", "vendor", "vendored", "_vendor", "_vendored_packages"]

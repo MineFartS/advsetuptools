@@ -8,8 +8,8 @@ from typing import Final, Literal, Protocol, overload
 
 from mypy_extensions import trait
 
-from mypy.errorcodes import LITERAL_REQ, ErrorCode
-from mypy.nodes import (
+from .errorcodes import LITERAL_REQ, ErrorCode
+from .nodes import (
     CallExpr,
     ClassDef,
     Context,
@@ -27,11 +27,11 @@ from mypy.nodes import (
     TypeAlias,
     TypeInfo,
 )
-from mypy.plugin import SemanticAnalyzerPluginInterface
-from mypy.tvar_scope import TypeVarLikeScope
-from mypy.type_visitor import ANY_STRATEGY, BoolTypeQuery
-from mypy.typeops import make_simplified_union
-from mypy.types import (
+from .plugin import SemanticAnalyzerPluginInterface
+from .tvar_scope import TypeVarLikeScope
+from .type_visitor import ANY_STRATEGY, BoolTypeQuery
+from .typeops import make_simplified_union
+from .types import (
     TPDICT_FB_NAMES,
     AnyType,
     FunctionLike,

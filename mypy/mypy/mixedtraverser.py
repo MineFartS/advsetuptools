@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from mypy.nodes import (
+from .nodes import (
     AssertTypeExpr,
     AssignmentStmt,
     CastExpr,
@@ -21,9 +21,9 @@ from mypy.nodes import (
     Var,
     WithStmt,
 )
-from mypy.traverser import TraverserVisitor
-from mypy.types import Type
-from mypy.typetraverser import TypeTraverserVisitor
+from .traverser import TraverserVisitor
+from .types import Type
+from .typetraverser import TypeTraverserVisitor
 
 
 class MixedTraverserVisitor(TraverserVisitor, TypeTraverserVisitor):

@@ -19,7 +19,7 @@ from librt.internal import (
 )
 
 from mypy import errorcodes as codes
-from mypy.cache import (
+from .cache import (
     ErrorTuple,
     read_int,
     read_int_list,
@@ -30,14 +30,14 @@ from mypy.cache import (
     write_str,
     write_str_opt,
 )
-from mypy.error_formatter import ErrorFormatter
-from mypy.errorcodes import IMPORT, IMPORT_NOT_FOUND, IMPORT_UNTYPED, ErrorCode, mypy_error_codes
-from mypy.nodes import Context
-from mypy.options import Options
-from mypy.scope import Scope
-from mypy.types import Type
-from mypy.util import DEFAULT_SOURCE_OFFSET
-from mypy.version import __version__ as mypy_version
+from .error_formatter import ErrorFormatter
+from .errorcodes import IMPORT, IMPORT_NOT_FOUND, IMPORT_UNTYPED, ErrorCode, mypy_error_codes
+from .nodes import Context
+from .options import Options
+from .scope import Scope
+from .types import Type
+from .util import DEFAULT_SOURCE_OFFSET
+from .version import __version__ as mypy_version
 
 T = TypeVar("T")
 

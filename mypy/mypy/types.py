@@ -27,8 +27,8 @@ from librt.internal import (
 )
 
 import mypy.nodes
-from mypy.bogus_type import Bogus
-from mypy.cache import (
+from .bogus_type import Bogus
+from .cache import (
     DICT_STR_GEN,
     END_TAG,
     EXTRA_ATTRS,
@@ -58,10 +58,10 @@ from mypy.cache import (
     write_str_opt_list,
     write_tag,
 )
-from mypy.nodes import ARG_KINDS, ARG_POS, ARG_STAR, ARG_STAR2, INVARIANT, ArgKind, SymbolNode
-from mypy.options import Options
-from mypy.state import state
-from mypy.util import IdMapper
+from .nodes import ARG_KINDS, ARG_POS, ARG_STAR, ARG_STAR2, INVARIANT, ArgKind, SymbolNode
+from .options import Options
+from .state import state
+from .util import IdMapper
 
 T = TypeVar("T")
 
@@ -3838,7 +3838,7 @@ def get_proper_types(
 # to make it easier to gradually get modules working with mypyc.
 # Import them here, after the types are defined.
 # This is intended as a re-export also.
-from mypy.type_visitor import (
+from .type_visitor import (
     ALL_STRATEGY as ALL_STRATEGY,
     ANY_STRATEGY as ANY_STRATEGY,
     BoolTypeQuery as BoolTypeQuery,
@@ -4637,7 +4637,7 @@ def write_type_map(data: WriteBuffer, value: dict[str, Type]) -> None:
 # This cyclic import is unfortunate, but to avoid it we would need to move away all uses
 # of get_proper_type() from types.py. Majority of them have been removed, but few remaining
 # are quite tricky to get rid of, but ultimately we want to do it at some point.
-from mypy.expandtype import ExpandTypeVisitor
+from .expandtype import ExpandTypeVisitor
 
 
 class InstantiateAliasVisitor(ExpandTypeVisitor):

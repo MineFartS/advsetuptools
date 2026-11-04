@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from mypy.nodes import Block, MypyFile
-from mypy.traverser import TraverserVisitor
+from .nodes import Block, MypyFile
+from .traverser import TraverserVisitor
 
 
 class TreeFreer(TraverserVisitor):

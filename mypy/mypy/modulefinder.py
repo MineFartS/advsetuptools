@@ -19,12 +19,12 @@ from pathspec import GitIgnoreSpec
 from pathspec.patterns.gitignore import GitIgnorePatternError
 
 from mypy import pyinfo
-from mypy.errors import CompileError
-from mypy.fscache import FileSystemCache
-from mypy.nodes import MypyFile
-from mypy.options import Options
-from mypy.stubinfo import stub_distribution_name
-from mypy.util import os_path_join
+from .errors import CompileError
+from .fscache import FileSystemCache
+from .nodes import MypyFile
+from .options import Options
+from .stubinfo import stub_distribution_name
+from .util import os_path_join
 
 
 # Paths to be searched in find_module().

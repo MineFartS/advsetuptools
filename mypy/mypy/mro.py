@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from mypy.nodes import TypeInfo
-from mypy.types import Instance
-from mypy.typestate import type_state
+from .nodes import TypeInfo
+from .types import Instance
+from .typestate import type_state
 
 
 def calculate_mro(info: TypeInfo, obj_type: Callable[[], Instance] | None = None) -> None:

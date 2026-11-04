@@ -7,9 +7,9 @@ from __future__ import annotations
 
 from typing import Final, TypeAlias as _TypeAlias
 
-from mypy.nodes import VARIANCE_NOT_READY, TypeInfo
-from mypy.server.trigger import make_trigger
-from mypy.types import Instance, Type, TypeVarId, TypeVarType, get_proper_type
+from .nodes import VARIANCE_NOT_READY, TypeInfo
+from .server.trigger import make_trigger
+from .types import Instance, Type, TypeVarId, TypeVarType, get_proper_type
 
 MAX_NEGATIVE_CACHE_TYPES: Final = 1000
 MAX_NEGATIVE_CACHE_ENTRIES: Final = 10000

@@ -32,29 +32,29 @@ from itertools import groupby
 from typing import TYPE_CHECKING, Final, TypeAlias as _TypeAlias
 
 import mypy.state
-from mypy.checker import FineGrainedDeferredNode
-from mypy.errors import Errors
-from mypy.nodes import Decorator, FuncDef, MypyFile, OverloadedFuncDef, TypeInfo
-from mypy.options import Options
-from mypy.plugin import ClassDefContext
+from .checker import FineGrainedDeferredNode
+from .errors import Errors
+from .nodes import Decorator, FuncDef, MypyFile, OverloadedFuncDef, TypeInfo
+from .options import Options
+from .plugin import ClassDefContext
 from mypy.plugins import dataclasses as dataclasses_plugin
-from mypy.semanal import (
+from .semanal import (
     SemanticAnalyzer,
     apply_semantic_analyzer_patches,
     remove_imported_names_from_symtable,
 )
-from mypy.semanal_classprop import (
+from .semanal_classprop import (
     add_type_promotion,
     calculate_class_abstract_status,
     calculate_class_vars,
     check_protocol_status,
 )
-from mypy.semanal_infer import infer_decorator_signature_if_simple
-from mypy.semanal_shared import find_dataclass_transform_spec
-from mypy.semanal_typeargs import TypeArgumentAnalyzer
+from .semanal_infer import infer_decorator_signature_if_simple
+from .semanal_shared import find_dataclass_transform_spec
+from .semanal_typeargs import TypeArgumentAnalyzer
 
 if TYPE_CHECKING:
-    from mypy.build import Graph, State
+    from .build import Graph, State
 
 
 Patches: _TypeAlias = list[tuple[int, Callable[[], None]]]

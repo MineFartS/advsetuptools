@@ -5,11 +5,11 @@ from __future__ import annotations
 # Fully qualified instead of "from mypy.plugin import ..." to avoid circular import problems.
 import mypy.plugin
 from mypy import nodes
-from mypy.maptype import map_instance_to_supertype
-from mypy.messages import format_type
-from mypy.subtypes import is_subtype
-from mypy.typeops import make_simplified_union
-from mypy.types import (
+from ..maptype import map_instance_to_supertype
+from ..messages import format_type
+from ..subtypes import is_subtype
+from ..typeops import make_simplified_union
+from ..types import (
     AnyType,
     CallableType,
     Instance,

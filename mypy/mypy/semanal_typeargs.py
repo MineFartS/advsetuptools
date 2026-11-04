@@ -10,16 +10,16 @@ from __future__ import annotations
 from collections.abc import Callable
 
 from mypy import errorcodes as codes, message_registry
-from mypy.errorcodes import ErrorCode
-from mypy.errors import Errors
-from mypy.message_registry import INVALID_PARAM_SPEC_LOCATION, INVALID_PARAM_SPEC_LOCATION_NOTE
-from mypy.messages import format_type
-from mypy.mixedtraverser import MixedTraverserVisitor
-from mypy.nodes import Block, ClassDef, Context, FakeInfo, FuncItem, MypyFile
-from mypy.options import Options
-from mypy.scope import Scope
-from mypy.subtypes import is_same_type, is_subtype
-from mypy.types import (
+from .errorcodes import ErrorCode
+from .errors import Errors
+from .message_registry import INVALID_PARAM_SPEC_LOCATION, INVALID_PARAM_SPEC_LOCATION_NOTE
+from .messages import format_type
+from .mixedtraverser import MixedTraverserVisitor
+from .nodes import Block, ClassDef, Context, FakeInfo, FuncItem, MypyFile
+from .options import Options
+from .scope import Scope
+from .subtypes import is_same_type, is_subtype
+from .types import (
     AnyType,
     CallableType,
     Instance,
@@ -39,7 +39,7 @@ from mypy.types import (
     get_proper_types,
     split_with_prefix_and_suffix,
 )
-from mypy.typevartuples import erased_vars
+from .typevartuples import erased_vars
 
 
 class TypeArgumentAnalyzer(MixedTraverserVisitor):

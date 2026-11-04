@@ -6,17 +6,17 @@ from collections import defaultdict
 from typing import Final, NamedTuple
 
 from mypy import message_registry
-from mypy.checker_shared import TypeCheckerSharedApi, TypeRange
-from mypy.checkmember import analyze_member_access
-from mypy.expandtype import expand_type_by_instance
-from mypy.join import join_types
-from mypy.literals import literal_hash
-from mypy.maptype import map_instance_to_supertype
-from mypy.meet import narrow_declared_type
-from mypy.messages import MessageBuilder
-from mypy.nodes import ARG_POS, Expression, NameExpr, TempNode, TypeAlias, Var
-from mypy.options import Options
-from mypy.patterns import (
+from .checker_shared import TypeCheckerSharedApi, TypeRange
+from .checkmember import analyze_member_access
+from .expandtype import expand_type_by_instance
+from .join import join_types
+from .literals import literal_hash
+from .maptype import map_instance_to_supertype
+from .meet import narrow_declared_type
+from .messages import MessageBuilder
+from .nodes import ARG_POS, Expression, NameExpr, TempNode, TypeAlias, Var
+from .options import Options
+from .patterns import (
     AsPattern,
     ClassPattern,
     MappingPattern,
@@ -27,15 +27,15 @@ from mypy.patterns import (
     StarredPattern,
     ValuePattern,
 )
-from mypy.plugin import Plugin
-from mypy.subtypes import is_subtype
-from mypy.typeops import (
+from .plugin import Plugin
+from .subtypes import is_subtype
+from .typeops import (
     coerce_to_literal,
     make_simplified_union,
     try_getting_str_literals_from_type,
     tuple_fallback,
 )
-from mypy.types import (
+from .types import (
     AnyType,
     FunctionLike,
     Instance,
@@ -56,8 +56,8 @@ from mypy.types import (
     get_proper_type,
     split_with_prefix_and_suffix,
 )
-from mypy.typevars import fill_typevars, fill_typevars_with_any
-from mypy.visitor import PatternVisitor
+from .typevars import fill_typevars, fill_typevars_with_any
+from .visitor import PatternVisitor
 
 self_match_type_names: Final = [
     "builtins.bool",

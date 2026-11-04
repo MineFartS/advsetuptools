@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections.abc import Callable, Container
 from typing import cast
 
-from mypy.nodes import ARG_STAR, ARG_STAR2
-from mypy.types import (
+from .nodes import ARG_STAR, ARG_STAR2
+from .types import (
     AnyType,
     CallableType,
     DeletedType,
@@ -35,7 +35,7 @@ from mypy.types import (
     get_proper_type,
     get_proper_types,
 )
-from mypy.typevartuples import erased_vars
+from .typevartuples import erased_vars
 
 
 def erase_type(typ: Type) -> ProperType:
@@ -129,7 +129,7 @@ class EraseTypeVisitor(TypeVisitor[ProperType]):
 
     def visit_union_type(self, t: UnionType) -> ProperType:
         erased_items = [erase_type(item) for item in t.items]
-        from mypy.typeops import make_simplified_union
+        from .typeops import make_simplified_union
 
         return make_simplified_union(erased_items)
 
@@ -277,7 +277,7 @@ class LastKnownValueEraser(TypeTranslator):
                         if len(types) == 1:
                             merged.append(item)
                         else:
-                            from mypy.typeops import make_simplified_union
+                            from .typeops import make_simplified_union
 
                             merged.append(make_simplified_union(types))
                             del instances_by_name[item.type.fullname]

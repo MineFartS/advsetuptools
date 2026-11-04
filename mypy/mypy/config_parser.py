@@ -18,8 +18,8 @@ from typing import Any, Final, TextIO, TypeAlias
 from typing_extensions import Never
 
 from mypy import defaults
-from mypy.options import PER_MODULE_OPTIONS, Options
-from mypy.util import get_available_threads
+from .options import PER_MODULE_OPTIONS, Options
+from .util import get_available_threads
 
 _CONFIG_VALUE_TYPES: TypeAlias = (
     str | bool | int | float | dict[str, str] | list[str] | tuple[int, int]

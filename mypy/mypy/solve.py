@@ -6,14 +6,14 @@ from collections import defaultdict
 from collections.abc import Iterable, Sequence
 from typing import TypeAlias as _TypeAlias
 
-from mypy.constraints import SUBTYPE_OF, SUPERTYPE_OF, Constraint, infer_constraints, neg_op
-from mypy.expandtype import expand_type
-from mypy.graph_utils import prepare_sccs, strongly_connected_components, topsort
-from mypy.join import join_type_list
-from mypy.meet import meet_type_list, meet_types
-from mypy.subtypes import is_subtype
-from mypy.typeops import get_all_type_vars
-from mypy.types import (
+from .constraints import SUBTYPE_OF, SUPERTYPE_OF, Constraint, infer_constraints, neg_op
+from .expandtype import expand_type
+from .graph_utils import prepare_sccs, strongly_connected_components, topsort
+from .join import join_type_list
+from .meet import meet_type_list, meet_types
+from .subtypes import is_subtype
+from .typeops import get_all_type_vars
+from .types import (
     AnyType,
     Instance,
     NoneType,
@@ -32,7 +32,7 @@ from mypy.types import (
     UnpackType,
     get_proper_type,
 )
-from mypy.typestate import type_state
+from .typestate import type_state
 
 Bounds: _TypeAlias = "dict[TypeVarId, set[Type]]"
 Graph: _TypeAlias = "set[tuple[TypeVarId, TypeVarId]]"

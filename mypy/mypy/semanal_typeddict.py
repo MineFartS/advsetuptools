@@ -6,11 +6,11 @@ from collections.abc import Collection
 from typing import Final, NamedTuple
 
 from mypy import errorcodes as codes, message_registry
-from mypy.errorcodes import ErrorCode
-from mypy.expandtype import expand_type
-from mypy.exprtotype import TypeTranslationError, expr_to_unanalyzed_type
-from mypy.messages import MessageBuilder
-from mypy.nodes import (
+from .errorcodes import ErrorCode
+from .expandtype import expand_type
+from .exprtotype import TypeTranslationError, expr_to_unanalyzed_type
+from .messages import MessageBuilder
+from .nodes import (
     ARG_NAMED,
     ARG_POS,
     AssignmentStmt,
@@ -36,15 +36,15 @@ from mypy.nodes import (
     TypeInfo,
     inline_base,
 )
-from mypy.options import Options
-from mypy.semanal_shared import (
+from .options import Options
+from .semanal_shared import (
     SemanticAnalyzerInterface,
     has_placeholder,
     require_bool_literal_argument,
 )
-from mypy.state import state
-from mypy.typeanal import check_for_explicit_any, has_any_from_unimported_type
-from mypy.types import (
+from .state import state
+from .typeanal import check_for_explicit_any, has_any_from_unimported_type
+from .types import (
     TPDICT_NAMES,
     AnyType,
     ReadOnlyType,

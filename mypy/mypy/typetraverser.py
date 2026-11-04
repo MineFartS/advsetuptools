@@ -4,7 +4,7 @@ from collections.abc import Iterable
 
 from mypy_extensions import trait
 
-from mypy.types import (
+from .types import (
     AnyType,
     CallableArgument,
     CallableType,

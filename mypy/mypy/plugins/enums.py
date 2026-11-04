@@ -17,11 +17,11 @@ from collections.abc import Iterable, Sequence
 from typing import TypeVar, cast
 
 import mypy.plugin  # To avoid circular imports.
-from mypy.checker_shared import TypeCheckerSharedApi
-from mypy.nodes import TypeInfo, Var
-from mypy.subtypes import is_equivalent
-from mypy.typeops import fixup_partial_type, make_simplified_union
-from mypy.types import (
+from ..checker_shared import TypeCheckerSharedApi
+from ..nodes import TypeInfo, Var
+from ..subtypes import is_equivalent
+from ..typeops import fixup_partial_type, make_simplified_union
+from ..types import (
     ELLIPSIS_TYPE_NAMES,
     CallableType,
     Instance,

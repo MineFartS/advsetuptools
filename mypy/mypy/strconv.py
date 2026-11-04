@@ -8,9 +8,9 @@ from collections.abc import Sequence
 from typing import TYPE_CHECKING, Any
 
 import mypy.nodes
-from mypy.options import Options
-from mypy.util import IdMapper, short_type
-from mypy.visitor import NodeVisitor
+from .options import Options
+from .util import IdMapper, short_type
+from .visitor import NodeVisitor
 
 if TYPE_CHECKING:
     import mypy.patterns
@@ -675,7 +675,7 @@ def dump_tagged(nodes: Sequence[object], tag: str | None, str_conv: StrConv) -> 
      - pairs (str, array) are converted recursively, so that str is the tag
      - other items are converted to strings and indented
     """
-    from mypy.types import Type, TypeStrVisitor
+    from .types import Type, TypeStrVisitor
 
     a: list[str] = []
     if tag:

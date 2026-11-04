@@ -7,11 +7,11 @@ from typing import TYPE_CHECKING, Final, TypeGuard, cast
 
 import mypy.subtypes
 import mypy.typeops
-from mypy.argmap import ArgTypeExpander
-from mypy.erasetype import erase_typevars
-from mypy.expandtype import expand_type_by_instance
-from mypy.maptype import map_instance_to_supertype
-from mypy.nodes import (
+from .argmap import ArgTypeExpander
+from .erasetype import erase_typevars
+from .expandtype import expand_type_by_instance
+from .maptype import map_instance_to_supertype
+from .nodes import (
     ARG_OPT,
     ARG_POS,
     ARG_STAR,
@@ -21,7 +21,7 @@ from mypy.nodes import (
     ArgKind,
     TypeInfo,
 )
-from mypy.types import (
+from .types import (
     MAX_PROTOCOL_DEPTH,
     TUPLE_LIKE_INSTANCE_NAMES,
     AnyType,
@@ -60,11 +60,11 @@ from mypy.types import (
     is_named_instance,
     split_with_prefix_and_suffix,
 )
-from mypy.types_utils import is_union_with_any
-from mypy.typestate import type_state
+from .types_utils import is_union_with_any
+from .typestate import type_state
 
 if TYPE_CHECKING:
-    from mypy.infer import ArgumentInferContext
+    from .infer import ArgumentInferContext
 
 SUBTYPE_OF: Final = 0
 SUPERTYPE_OF: Final = 1

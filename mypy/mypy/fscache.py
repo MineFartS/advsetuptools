@@ -35,7 +35,7 @@ import stat
 
 from mypy_extensions import mypyc_attr
 
-from mypy.util import hash_digest
+from .util import hash_digest
 
 
 @mypyc_attr(allow_interpreted_subclasses=True)  # for tests

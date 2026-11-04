@@ -11,13 +11,13 @@ import itertools
 from collections.abc import Callable, Iterable, Sequence
 from typing import Any, TypeVar, cast
 
-from mypy.checker_state import checker_state
-from mypy.copytype import copy_type
-from mypy.expandtype import expand_type, expand_type_by_instance
-from mypy.lookup import lookup_stdlib_typeinfo
-from mypy.maptype import map_instance_to_supertype
-from mypy.modules_state import modules_state
-from mypy.nodes import (
+from .checker_state import checker_state
+from .copytype import copy_type
+from .expandtype import expand_type, expand_type_by_instance
+from .lookup import lookup_stdlib_typeinfo
+from .maptype import map_instance_to_supertype
+from .modules_state import modules_state
+from .nodes import (
     ARG_POS,
     ARG_STAR,
     ARG_STAR2,
@@ -33,8 +33,8 @@ from mypy.nodes import (
     TypeInfo,
     Var,
 )
-from mypy.state import state
-from mypy.types import (
+from .state import state
+from .types import (
     ELLIPSIS_TYPE_NAMES,
     NOT_IMPLEMENTED_TYPE_NAMES,
     SENTINEL_TYPE_NAMES,
@@ -71,8 +71,8 @@ from mypy.types import (
     instance_cache,
     remove_dups,
 )
-from mypy.typetraverser import TypeTraverserVisitor
-from mypy.typevars import fill_typevars
+from .typetraverser import TypeTraverserVisitor
+from .typevars import fill_typevars
 
 
 def is_recursive_pair(s: Type, t: Type) -> bool:
@@ -336,7 +336,7 @@ def class_callable(
     variables.extend(info.defn.type_vars)
     variables.extend(init_type.variables)
 
-    from mypy.subtypes import is_equivalent, is_subtype
+    from .subtypes import is_equivalent, is_subtype
 
     init_ret_type = get_proper_type(init_type.ret_type)
     orig_self_type = get_proper_type(orig_self_type)
@@ -491,7 +491,7 @@ def bind_self(
     if func.variables and supported_self_type(
         self_param_type, allow_callable=allow_callable, allow_instances=not ignore_instances
     ):
-        from mypy.infer import infer_type_arguments
+        from .infer import infer_type_arguments
 
         if original_type is None:
             # TODO: type check method override (see #7861).
@@ -567,7 +567,7 @@ def callable_corresponding_argument(
 
         # def right(a: int = ...) -> None: ...
         # def left(x: int = ..., /, *, a: int = ...) -> None: ...
-        from mypy.meet import meet_types
+        from .meet import meet_types
 
         if (
             not (by_name.required or by_pos.required)
@@ -694,7 +694,7 @@ def make_simplified_union(
 
 
 def _remove_redundant_union_items(items: list[Type], keep_erased: bool) -> list[Type]:
-    from mypy.subtypes import is_proper_subtype
+    from .subtypes import is_proper_subtype
 
     # The first pass through this loop, we check if later items are subtypes of earlier items.
     # The second pass through this loop, we check if earlier items are subtypes of later items

@@ -8,13 +8,13 @@ from functools import reduce
 from typing import Final, Literal, cast
 
 import mypy.plugin  # To avoid circular imports.
-from mypy.applytype import apply_generic_arguments
-from mypy.errorcodes import LITERAL_REQ
-from mypy.expandtype import expand_type, expand_type_by_instance
-from mypy.exprtotype import TypeTranslationError, expr_to_unanalyzed_type
-from mypy.meet import meet_types
-from mypy.messages import format_type_bare
-from mypy.nodes import (
+from ..applytype import apply_generic_arguments
+from ..errorcodes import LITERAL_REQ
+from ..expandtype import expand_type, expand_type_by_instance
+from ..exprtotype import TypeTranslationError, expr_to_unanalyzed_type
+from ..meet import meet_types
+from ..messages import format_type_bare
+from ..nodes import (
     ARG_NAMED,
     ARG_NAMED_OPT,
     ARG_OPT,
@@ -45,8 +45,8 @@ from mypy.nodes import (
     Var,
     is_class_var,
 )
-from mypy.plugin import SemanticAnalyzerPluginInterface
-from mypy.plugins.common import (
+from ..plugin import SemanticAnalyzerPluginInterface
+from .common import (
     _get_argument,
     _get_bool_argument,
     _get_decorator_bool_argument,
@@ -54,15 +54,15 @@ from mypy.plugins.common import (
     add_method_to_class,
     deserialize_and_fixup_type,
 )
-from mypy.server.trigger import make_wildcard_trigger
-from mypy.state import state
-from mypy.typeops import (
+from ..server.trigger import make_wildcard_trigger
+from ..state import state
+from ..typeops import (
     get_type_vars,
     make_simplified_union,
     map_type_from_supertype,
     type_object_type,
 )
-from mypy.types import (
+from ..types import (
     AnyType,
     CallableType,
     FunctionLike,
@@ -82,8 +82,8 @@ from mypy.types import (
     get_proper_type,
     is_unannotated_any,
 )
-from mypy.typevars import fill_typevars
-from mypy.util import unmangle
+from ..typevars import fill_typevars
+from ..util import unmangle
 
 # The names of the different functions that create classes or arguments.
 attr_class_makers: Final = {"attr.s", "attr.attrs", "attr.attributes"}

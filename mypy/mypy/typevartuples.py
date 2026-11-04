@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
-from mypy.types import (
+from .types import (
     AnyType,
     Instance,
     Type,

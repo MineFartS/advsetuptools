@@ -57,20 +57,20 @@ from typing import Any, Final, TypeAlias as _TypeAlias, TypeGuard, TypeVar, cast
 from typing_extensions import assert_never
 
 from mypy import errorcodes as codes, message_registry
-from mypy.constant_fold import constant_fold_expr
-from mypy.errorcodes import PROPERTY_DECORATOR, ErrorCode
-from mypy.errors import Errors, report_internal_error
-from mypy.exprtotype import TypeTranslationError, expr_to_unanalyzed_type
-from mypy.message_registry import ErrorMessage
-from mypy.messages import (
+from .constant_fold import constant_fold_expr
+from .errorcodes import PROPERTY_DECORATOR, ErrorCode
+from .errors import Errors, report_internal_error
+from .exprtotype import TypeTranslationError, expr_to_unanalyzed_type
+from .message_registry import ErrorMessage
+from .messages import (
     SUGGESTED_TEST_FIXTURES,
     TYPES_FOR_UNIMPORTED_HINTS,
     MessageBuilder,
     best_matches,
     pretty_seq,
 )
-from mypy.mro import MroError, calculate_mro
-from mypy.nodes import (
+from .mro import MroError, calculate_mro
+from .nodes import (
     ARG_NAMED,
     ARG_POS,
     ARG_STAR2,
@@ -197,8 +197,8 @@ from mypy.nodes import (
     type_aliases_source_versions,
     typing_extensions_aliases,
 )
-from mypy.options import Options
-from mypy.patterns import (
+from .options import Options
+from .patterns import (
     AsPattern,
     ClassPattern,
     MappingPattern,
@@ -208,14 +208,14 @@ from mypy.patterns import (
     StarredPattern,
     ValuePattern,
 )
-from mypy.plugin import (
+from .plugin import (
     ClassDefContext,
     DynamicClassDefContext,
     Plugin,
     SemanticAnalyzerPluginInterface,
 )
 from mypy.plugins import dataclasses as dataclasses_plugin
-from mypy.reachability import (
+from .reachability import (
     ALWAYS_FALSE,
     ALWAYS_TRUE,
     MYPY_FALSE,
@@ -224,11 +224,11 @@ from mypy.reachability import (
     infer_reachability_of_if_statement,
     infer_reachability_of_match_statement,
 )
-from mypy.scope import Scope
-from mypy.semanal_enum import EnumCallAnalyzer
-from mypy.semanal_namedtuple import NamedTupleAnalyzer
-from mypy.semanal_newtype import NewTypeAnalyzer
-from mypy.semanal_shared import (
+from .scope import Scope
+from .semanal_enum import EnumCallAnalyzer
+from .semanal_namedtuple import NamedTupleAnalyzer
+from .semanal_newtype import NewTypeAnalyzer
+from .semanal_shared import (
     ALLOW_INCOMPATIBLE_OVERRIDE,
     PRIORITY_FALLBACKS,
     SemanticAnalyzerInterface,
@@ -239,9 +239,9 @@ from mypy.semanal_shared import (
     require_bool_literal_argument,
     set_callable_name as set_callable_name,
 )
-from mypy.semanal_typeddict import TypedDictAnalyzer
-from mypy.tvar_scope import TypeVarLikeScope
-from mypy.typeanal import (
+from .semanal_typeddict import TypedDictAnalyzer
+from .tvar_scope import TypeVarLikeScope
+from .typeanal import (
     SELF_TYPE_NAMES,
     FindTypeVarVisitor,
     TypeAnalyser,
@@ -257,8 +257,8 @@ from mypy.typeanal import (
     type_constructors,
     validate_instance,
 )
-from mypy.typeops import function_type, get_type_vars, try_getting_str_literals_from_type
-from mypy.types import (
+from .typeops import function_type, get_type_vars, try_getting_str_literals_from_type
+from .types import (
     ANNOTATED_TYPE_NAMES,
     ASSERT_TYPE_NAMES,
     DATACLASS_TRANSFORM_NAMES,
@@ -315,10 +315,10 @@ from mypy.types import (
     remove_dups,
     type_vars_as_args,
 )
-from mypy.types_utils import is_invalid_recursive_alias, store_argument_type
-from mypy.typevars import fill_typevars
-from mypy.util import correct_relative_import, is_dunder, module_prefix, unmangle, unnamed_function
-from mypy.visitor import NodeVisitor
+from .types_utils import is_invalid_recursive_alias, store_argument_type
+from .typevars import fill_typevars
+from .util import correct_relative_import, is_dunder, module_prefix, unmangle, unnamed_function
+from .visitor import NodeVisitor
 
 T = TypeVar("T")
 

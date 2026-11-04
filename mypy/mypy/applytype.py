@@ -3,12 +3,12 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable, Sequence
 
 import mypy.subtypes
-from mypy.erasetype import erase_typevars
-from mypy.expandtype import expand_type
-from mypy.nodes import Context, TypeInfo
-from mypy.type_visitor import TypeTranslator
-from mypy.typeops import get_all_type_vars
-from mypy.types import (
+from .erasetype import erase_typevars
+from .expandtype import expand_type
+from .nodes import Context, TypeInfo
+from .type_visitor import TypeTranslator
+from .typeops import get_all_type_vars
+from .types import (
     AnyType,
     CallableType,
     Instance,

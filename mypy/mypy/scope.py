@@ -9,7 +9,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager, nullcontext
 from typing import TypeAlias as _TypeAlias
 
-from mypy.nodes import FuncBase, TypeInfo
+from .nodes import FuncBase, TypeInfo
 
 SavedScope: _TypeAlias = tuple[str, TypeInfo | None, FuncBase | None]
 

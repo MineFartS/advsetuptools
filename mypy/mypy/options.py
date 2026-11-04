@@ -11,9 +11,9 @@ from typing import Any, Final
 from librt.internal import WriteBuffer, write_bool, write_str
 
 from mypy import defaults
-from mypy.cache import write_json
-from mypy.errorcodes import ErrorCode, error_codes
-from mypy.util import get_class_descriptors, replace_object_state
+from .cache import write_json
+from .errorcodes import ErrorCode, error_codes
+from .util import get_class_descriptors, replace_object_state
 
 
 class BuildType:

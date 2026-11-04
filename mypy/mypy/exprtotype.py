@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from mypy.nodes import (
+from .nodes import (
     MISSING_FALLBACK,
     BytesExpr,
     CallExpr,
@@ -28,9 +28,9 @@ from mypy.nodes import (
     UnaryExpr,
     get_member_expr_fullname,
 )
-from mypy.options import Options
-from mypy.parse import parse_type_string
-from mypy.types import (
+from .options import Options
+from .parse import parse_type_string
+from .types import (
     ANNOTATED_TYPE_NAMES,
     AnyType,
     CallableArgument,

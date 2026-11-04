@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from mypy.nodes import (
+from .nodes import (
     AssertStmt,
     AssignmentStmt,
     Block,
@@ -18,13 +18,13 @@ from mypy.nodes import (
     MypyFile,
     ReturnStmt,
 )
-from mypy.options import Options
-from mypy.reachability import (
+from .options import Options
+from .reachability import (
     assert_will_always_fail,
     infer_reachability_of_if_statement,
     infer_reachability_of_match_statement,
 )
-from mypy.traverser import TraverserVisitor
+from .traverser import TraverserVisitor
 
 
 class SemanticAnalyzerPreAnalysis(TraverserVisitor):

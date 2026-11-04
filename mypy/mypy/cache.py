@@ -51,7 +51,7 @@ from collections.abc import Sequence
 from typing import TYPE_CHECKING, Any, Final, TypeAlias as _TypeAlias
 
 if TYPE_CHECKING:
-    from mypy.types import SentinelValue
+    from .types import SentinelValue
 
 from librt.internal import (
     ReadBuffer as ReadBuffer,
@@ -344,7 +344,7 @@ def read_literal(data: ReadBuffer, tag: Tag) -> int | str | bool | float | Senti
     elif tag == LITERAL_FLOAT:
         return read_float_bare(data)
     elif tag == LITERAL_SENTINEL:
-        from mypy.types import SentinelValue as _SentinelValue
+        from .types import SentinelValue as _SentinelValue
 
         return _SentinelValue(read_str_bare(data), read_str_bare(data))
     assert False, f"Unknown literal tag {tag}"

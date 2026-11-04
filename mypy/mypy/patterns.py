@@ -6,8 +6,8 @@ from typing import TypeAlias, TypeVar
 
 from mypy_extensions import trait
 
-from mypy.nodes import Expression, NameExpr, Node, RefExpr
-from mypy.visitor import PatternVisitor
+from .nodes import Expression, NameExpr, Node, RefExpr
+from .visitor import PatternVisitor
 
 T = TypeVar("T")
 

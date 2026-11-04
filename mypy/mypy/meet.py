@@ -3,10 +3,10 @@ from __future__ import annotations
 from collections.abc import Callable
 
 from mypy import join
-from mypy.erasetype import erase_type
-from mypy.maptype import map_instance_to_supertype
-from mypy.state import state
-from mypy.subtypes import (
+from .erasetype import erase_type
+from .maptype import map_instance_to_supertype
+from .state import state
+from .subtypes import (
     are_parameters_compatible,
     find_member,
     is_callable_compatible,
@@ -15,8 +15,8 @@ from mypy.subtypes import (
     is_same_type,
     is_subtype,
 )
-from mypy.typeops import is_recursive_pair, make_simplified_union, tuple_fallback
-from mypy.types import (
+from .typeops import is_recursive_pair, make_simplified_union, tuple_fallback
+from .types import (
     MYPYC_NATIVE_INT_NAMES,
     TUPLE_LIKE_INSTANCE_NAMES,
     AnyType,
@@ -863,7 +863,7 @@ class TypeMeetVisitor(TypeVisitor[ProperType]):
         if isinstance(self.s, Parameters):
             if len(t.arg_types) != len(self.s.arg_types):
                 return self.default(self.s)
-            from mypy.join import join_types
+            from .join import join_types
 
             return t.copy_modified(
                 arg_types=[join_types(s_a, t_a) for s_a, t_a in zip(self.s.arg_types, t.arg_types)]
@@ -1238,7 +1238,7 @@ class TypeMeetVisitor(TypeVisitor[ProperType]):
 
 
 def meet_similar_callables(t: CallableType, s: CallableType) -> CallableType:
-    from mypy.join import match_generic_callables, safe_join
+    from .join import match_generic_callables, safe_join
 
     t, s = match_generic_callables(t, s)
     arg_types: list[Type] = []

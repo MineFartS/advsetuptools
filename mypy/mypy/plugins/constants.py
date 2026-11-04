@@ -2,7 +2,7 @@
 
 from typing import Final
 
-from mypy.semanal_enum import ENUM_BASES
+from ..semanal_enum import ENUM_BASES
 
 SINGLEDISPATCH_TYPE: Final = "functools._SingleDispatchCallable"
 SINGLEDISPATCH_REGISTER_METHOD: Final = f"{SINGLEDISPATCH_TYPE}.register"

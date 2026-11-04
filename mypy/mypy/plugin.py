@@ -124,11 +124,11 @@ from typing import TYPE_CHECKING, Any, NamedTuple, TypeVar
 
 from mypy_extensions import mypyc_attr, trait
 
-from mypy.errorcodes import ErrorCode
-from mypy.errors import ErrorInfo
-from mypy.lookup import lookup_fully_qualified
-from mypy.message_registry import ErrorMessage
-from mypy.nodes import (
+from .errorcodes import ErrorCode
+from .errors import ErrorInfo
+from .lookup import lookup_fully_qualified
+from .message_registry import ErrorMessage
+from .nodes import (
     ArgKind,
     CallExpr,
     ClassDef,
@@ -138,8 +138,8 @@ from mypy.nodes import (
     SymbolTableNode,
     TypeInfo,
 )
-from mypy.options import Options
-from mypy.types import (
+from .options import Options
+from .types import (
     CallableType,
     FunctionLike,
     Instance,
@@ -150,8 +150,8 @@ from mypy.types import (
 )
 
 if TYPE_CHECKING:
-    from mypy.messages import MessageBuilder
-    from mypy.tvar_scope import TypeVarLikeScope
+    from .messages import MessageBuilder
+    from .tvar_scope import TypeVarLikeScope
 
 
 @trait

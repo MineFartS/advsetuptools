@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from mypy.errors import MypyError
+    from .errors import MypyError
 
 
 class ErrorFormatter(ABC):

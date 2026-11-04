@@ -6,8 +6,8 @@ from typing import Final
 
 import mypy.errorcodes as codes
 from mypy import message_registry
-from mypy.nodes import DictExpr, Expression, IntExpr, StrExpr, UnaryExpr
-from mypy.plugin import (
+from ..nodes import DictExpr, Expression, IntExpr, StrExpr, UnaryExpr
+from ..plugin import (
     AttributeContext,
     ClassDefContext,
     FunctionContext,
@@ -16,7 +16,7 @@ from mypy.plugin import (
     MethodSigContext,
     Plugin,
 )
-from mypy.plugins.attrs import (
+from .attrs import (
     attr_class_maker_callback,
     attr_class_makers,
     attr_dataclass_makers,
@@ -26,15 +26,15 @@ from mypy.plugins.attrs import (
     evolve_function_sig_callback,
     fields_function_sig_callback,
 )
-from mypy.plugins.common import try_getting_str_literals
-from mypy.plugins.constants import (
+from .common import try_getting_str_literals
+from .constants import (
     ENUM_NAME_ACCESS,
     ENUM_VALUE_ACCESS,
     SINGLEDISPATCH_CALLABLE_CALL_METHOD,
     SINGLEDISPATCH_REGISTER_CALLABLE_CALL_METHOD,
     SINGLEDISPATCH_REGISTER_METHOD,
 )
-from mypy.plugins.ctypes import (
+from .ctypes import (
     array_constructor_callback,
     array_getitem_callback,
     array_iter_callback,
@@ -42,28 +42,28 @@ from mypy.plugins.ctypes import (
     array_setitem_callback,
     array_value_callback,
 )
-from mypy.plugins.dataclasses import (
+from .dataclasses import (
     dataclass_class_maker_callback,
     dataclass_makers,
     dataclass_tag_callback,
     replace_function_sig_callback,
 )
-from mypy.plugins.enums import enum_member_callback, enum_name_callback, enum_value_callback
-from mypy.plugins.functools import (
+from .enums import enum_member_callback, enum_name_callback, enum_value_callback
+from .functools import (
     functools_total_ordering_maker_callback,
     functools_total_ordering_makers,
     partial_call_callback,
     partial_new_callback,
 )
-from mypy.plugins.singledispatch import (
+from .singledispatch import (
     call_singledispatch_function_after_register_argument,
     call_singledispatch_function_callback,
     create_singledispatch_function_callback,
     singledispatch_register_callback,
 )
-from mypy.subtypes import is_subtype
-from mypy.typeops import is_literal_type_like, make_simplified_union
-from mypy.types import (
+from ..subtypes import is_subtype
+from ..typeops import is_literal_type_like, make_simplified_union
+from ..types import (
     TPDICT_FB_NAMES,
     AnyType,
     CallableType,

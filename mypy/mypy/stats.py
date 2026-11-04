@@ -9,8 +9,8 @@ from contextlib import contextmanager
 from typing import Final
 
 from mypy import nodes
-from mypy.argmap import map_formals_to_actuals
-from mypy.nodes import (
+from .argmap import map_formals_to_actuals
+from .nodes import (
     AssignmentExpr,
     AssignmentStmt,
     BreakStmt,
@@ -42,10 +42,10 @@ from mypy.nodes import (
     UnaryExpr,
     YieldFromExpr,
 )
-from mypy.traverser import TraverserVisitor
-from mypy.type_visitor import ANY_STRATEGY, BoolTypeQuery
-from mypy.typeanal import collect_all_inner_types
-from mypy.types import (
+from .traverser import TraverserVisitor
+from .type_visitor import ANY_STRATEGY, BoolTypeQuery
+from .typeanal import collect_all_inner_types
+from .types import (
     AnyType,
     CallableType,
     FunctionLike,
@@ -57,7 +57,7 @@ from mypy.types import (
     get_proper_type,
     get_proper_types,
 )
-from mypy.util import correct_relative_import
+from .util import correct_relative_import
 
 TYPE_EMPTY: Final = 0
 TYPE_UNANALYZED: Final = 1  # type of non-typechecked code

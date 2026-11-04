@@ -6,19 +6,19 @@ from collections.abc import Callable, Sequence
 from typing import TypeVar, cast
 
 from mypy import message_registry, state
-from mypy.checker_shared import TypeCheckerSharedApi
-from mypy.erasetype import erase_typevars
-from mypy.expandtype import (
+from .checker_shared import TypeCheckerSharedApi
+from .erasetype import erase_typevars
+from .expandtype import (
     expand_self_type,
     expand_type_by_instance,
     freshen_all_functions_type_vars,
 )
-from mypy.lookup import lookup_stdlib_typeinfo
-from mypy.maptype import map_instance_to_supertype
-from mypy.meet import is_overlapping_types
-from mypy.messages import MessageBuilder
-from mypy.modules_state import modules_state
-from mypy.nodes import (
+from .lookup import lookup_stdlib_typeinfo
+from .maptype import map_instance_to_supertype
+from .meet import is_overlapping_types
+from .messages import MessageBuilder
+from .modules_state import modules_state
+from .nodes import (
     ARG_POS,
     ARG_STAR,
     ARG_STAR2,
@@ -41,9 +41,9 @@ from mypy.nodes import (
     Var,
     is_final_node,
 )
-from mypy.plugin import AttributeContext
-from mypy.subtypes import is_subtype
-from mypy.typeops import (
+from .plugin import AttributeContext
+from .subtypes import is_subtype
+from .typeops import (
     bind_self,
     erase_to_bound,
     freeze_all_type_vars,
@@ -52,7 +52,7 @@ from mypy.typeops import (
     supported_self_type,
     tuple_fallback,
 )
-from mypy.types import (
+from .types import (
     AnyType,
     CallableType,
     DeletedType,
