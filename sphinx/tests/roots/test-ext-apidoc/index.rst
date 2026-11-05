@@ -1,6 +1,0 @@
-Heading
-=======
-
-.. toctree::
-
-   generated/modules
