@@ -6,9 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "auto-python-docs"
 version = "v0"
 requires-python = ">=3.12"
-dependencies = [
-    "sphinx",
-    "ghp-import",
-    "sphinx-autodoc2 @ git+https://github.com/minefarts/sphinx-autodoc2",
-]
+dynamic = ["dependencies"]
+
+[tool.setuptools.packages.find]
+include = ["auto_python_docs*"]
+exclude = ["autodoc2*"]
 
