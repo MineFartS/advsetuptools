@@ -162,77 +162,22 @@ class InspectionStubGenerator(_InspectionStubGenerator):
         ro_properties: list[str],
         class_info: ClassInfo | None = None,
     ) -> None:
-        """Generate property stub using introspection of 'obj'.
 
-        Try to infer type from docstring, append resulting lines to 'output'.
+        initial_size = len(ro_properties)
 
-        raw_obj : object before evaluation of descriptor (if any)
-        obj : object after evaluation of descriptor
-        """
-
-        is_cached_prop = is_cached_property(raw_obj)
-
-        docstring = getattr(raw_obj, "__doc__", None)
-        
-        if is_cached_prop and not docstring:
-            docstring = getattr(raw_obj.func, "__doc__", None)
-        
-        fget = getattr(raw_obj, "fget", None)
-        if fget:
-            alt_docstr = getattr(fget, "__doc__", None)
-            if alt_docstr and docstring:
-                docstring += "\n" + alt_docstr
-            elif alt_docstr:
-                docstring = alt_docstr
-
-        ctx = FunctionContext(
-            self.module_name, name, docstring=docstring, is_abstract=False, class_info=class_info
+        super().generate_property_stub(
+            name, raw_obj, obj, 
+            static_properties,
+            rw_properties,
+            ro_properties,
+            class_info,
         )
 
-        if self.is_private_name(name) or self.is_not_in_all(name):
-            return
+        if (is_cached_property(raw_obj) 
+            and len(ro_properties) > initial_size
+            and "@property" in ro_properties[-1]
+        ):
+            self.import_tracker.add_import_from("functools", [("cached_property", None)])
+            ro_properties[-1] = ro_properties[-1].replace("@property", "@cached_property")
 
-        self.record_name(ctx.name)
-        static = self.is_static_property(raw_obj)
-        readonly = self.is_property_readonly(raw_obj)
-        if static:
-            ret_type: str | None = self.strip_or_import(self.get_type_annotation(obj))
-        else:
-            default_sig = self.get_default_function_sig(raw_obj, ctx)
-            ret_type = default_sig.ret_type
-
-        inferred_type = self.get_property_type(ret_type, self.sig_generators, ctx)
-        if inferred_type is not None:
-            inferred_type = self.strip_or_import(inferred_type)
-
-        if static:
-            classvar = self.add_name("typing.ClassVar")
-            trailing_comment = "  # read-only" if readonly else ""
-            if inferred_type is None:
-                inferred_type = self.add_name("_typeshed.Incomplete")
-
-            static_properties.append(
-                f"{self._indent}{name}: {classvar}[{inferred_type}] = ...{trailing_comment}"
-            )
-        else:  # regular property
-            if readonly:
-                docstring = self._indent_docstring(ctx.docstring) if ctx.docstring else None
-
-                if is_cached_prop:
-                    self.import_tracker.add_import_from("functools", [("cached_property", None)])
-                    ro_properties.append(f"{self._indent}@cached_property")
-                else:
-                    ro_properties.append(f"{self._indent}@property")
-                
-                sig = FunctionSig(name, [ArgSig("self")], inferred_type, docstring=docstring)
-                ro_properties.append(
-                    sig.format_sig(
-                        indent=self._indent, include_docstrings=self._include_docstrings
-                    )
-                )
-            else:
-                if inferred_type is None:
-                    inferred_type = self.add_name("_typeshed.Incomplete")
-
-                rw_properties.append(f"{self._indent}{name}: {inferred_type}")
 
