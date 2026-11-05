@@ -1,7 +1,6 @@
 from setuptools.command.build_ext import build_ext as __build_ext
+from .stubgen import generate_stubs, MonkeyPatch
 from setuptools.extension import Extension
-from .mypy.stubgen import generate_stubs
-from .mypy.stubgenc import MonkeyPatch
 
 class build_ext(__build_ext):
 

@@ -1,5 +1,14 @@
+from __future__ import annotations
+
+__all__ = [
+    "generate_stubs",
+    "InspectionStubGenerator",
+    "MonkeyPatch",
+]
+
 from mypy.stubdoc import FunctionSig
 from mypy import stubgenc as _stubgenc
+from os import environ
 
 from mypy.stubutil import (
     ClassInfo,
@@ -10,10 +19,27 @@ from mypy.stubgenc import (
     InspectionStubGenerator as _InspectionStubGenerator
 )
 
-__all__ = [
-    "InspectionStubGenerator",
-    "MonkeyPatch",
-]
+from mypy.stubgen import (
+    parse_options,
+    generate_stubs as _generate_stubs,
+)
+
+def generate_stubs(
+    output_dir: str, 
+    modules: list[str]
+) -> None:
+    """Main entry point for the program."""
+
+    options = parse_options([
+        '--output', output_dir,
+    ])
+    options.modules = modules
+
+    environ["STUBGEN"] = "1"
+    try:
+        _generate_stubs(options)
+    finally:
+        environ.pop("STUBGEN", None)
 
 class MonkeyPatch:
 
