@@ -1,10 +1,10 @@
 
 from .git import update_submodule
-from .build_ext import build_ext
-from .cpp_ext import cpp_ext
+from .build.build_ext import build_ext
+from .build.cpp_ext import cpp_ext
 import setuptools as st
 
-from .cpp_ext import (
+from .build.cpp_ext import (
     _extra_compile_args as extra_compile_args,
     _extra_objects as extra_objects,
     _include_dirs as include_dirs,
@@ -22,5 +22,6 @@ def setup(*ext_modules:cpp_ext) -> None:
         cmdclass = {'build_ext': build_ext},
         ext_modules = list(filter(None, ext_modules)),
     )
-    from auto_python_docs.build import __main__
+    from .build import sphinx # Run sphinx.py
+    from .build import ghp_import # Run ghp_import.py
 

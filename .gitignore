@@ -2,5 +2,5 @@
 **/__pycache__
 
 **/build
-!auto-python-docs/auto_python_docs/build
+!pybind_setup_ext/build
 

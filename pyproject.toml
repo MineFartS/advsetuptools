@@ -10,7 +10,7 @@ dynamic = ["dependencies"]
 
 [tool.setuptools.packages.find]
 include = ["pybind_setup_ext*"]
-exclude = ["pybind11*", "mypy*", "auto-python-docs*"]
+exclude = ["mypy*", "autodoc2*"]
 
 [tool.setuptools.package-data]
 "pybind_setup_ext" = ["include/**/*"]
