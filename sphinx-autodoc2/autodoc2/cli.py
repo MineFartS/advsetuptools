@@ -9,7 +9,6 @@ from rich.console import Console
 import typer
 
 from . import __name__ as package_name
-from . import __version__
 from .analysis import analyse_module
 from .config import Config
 from .db import InMemoryDb, UniqueError
@@ -29,7 +28,7 @@ app_main = typer.Typer(
 def version_callback(value: bool) -> None:
     """Print the version and exit."""
     if value:
-        console.print(f"{package_name} version: {__version__}")
+        console.print(f"{package_name} version: 0.5.0")
         raise typer.Exit()
 
 

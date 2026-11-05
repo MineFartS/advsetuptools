@@ -12,7 +12,6 @@ import typing as t
 
 from sphinx.application import Sphinx
 
-from .. import __version__
 from ..analysis import analyse_module
 from ..config import CONFIG_PREFIX, Config
 from ..db import UniqueError
@@ -60,7 +59,7 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
     # TODO support viewcode, when a package is not installed
 
     return {
-        "version": __version__,
+        "version": "0.5.0",
         # TODO allow for parallelization of some form
         "parallel_read_safe": True,
         "parallel_write_safe": True,
