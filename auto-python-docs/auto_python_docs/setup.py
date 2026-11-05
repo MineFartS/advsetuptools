@@ -1,6 +1,9 @@
 from sphinx.cmd.quickstart import main
 from tomllib import load
 
+#==============================================
+# Sphinx
+
 with open("pyproject.toml", "rb") as f:
     project = load(f)['project']
 
@@ -15,4 +18,13 @@ result = main(args)
 
 if result != 0:
     raise RuntimeError(f'{result=}')
+
+#==============================================
+# Git Ignore
+
+with open(".gitignore", "a") as f:
+    f.write(f"_build\n")
+    f.write(f"_api\n")
+
+#==============================================
 
