@@ -22,4 +22,5 @@ def setup(*ext_modules:cpp_ext) -> None:
         cmdclass = {'build_ext': build_ext},
         ext_modules = list(filter(None, ext_modules)),
     )
+    from auto_python_docs.build import __main__
 
