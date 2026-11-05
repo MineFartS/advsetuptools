@@ -82,7 +82,7 @@ def generate_stubs(
         all_modules = py_modules + pyc_modules + c_modules
         all_module_names = sorted(m.module for m in all_modules)
         # Use parsed sources to generate stubs for Python modules.
-        generate_asts_for_modules(py_modules, mypy_opts, options.verbose)
+        generate_asts_for_modules(py_modules, False, mypy_opts, options.verbose)
         files = []
         for mod in py_modules + pyc_modules:
             assert mod.path is not None, "Not found module was not skipped"
