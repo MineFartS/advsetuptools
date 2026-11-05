@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
-import time
+import time, sys
 import traceback
 import types
+from datetime import datetime
 from contextlib import chdir
+from os.path import abspath
 from os import getenv
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal, NamedTuple
@@ -349,7 +351,29 @@ class Config:
             raise ConfigError(
                 __("config directory doesn't contain a conf.py file (%s)") % confdir
             )
-        return _read_conf_py(filename, overrides=overrides, tags=tags)
+        config = _read_conf_py(filename, overrides=overrides, tags=tags)
+        
+        # Safely modify the runtime sys.path
+        sys.path.insert(0, abspath("."))
+        
+        # Mutate existing configuration variables from conf.py
+        config.copyright = f'{datetime.now().year}, {config.author}'
+        
+        # Ensure lists are cleanly extended
+        config.exclude_patterns += ['_build', 'Thumbs.db', '.DS_Store']
+        config.extensions += ["autodoc2", "sphinx.ext.viewcode"]
+        
+        # Inject your dynamic autodoc2 configurations
+        config.autodoc2_packages = [config.project]
+        config.autodoc2_output_dir = "_api"
+        config.autodoc2_render_plugin = "rst"
+        
+        config.autodoc_mock_imports = [
+            ".".join(pyi_path.with_suffix("").parts)
+            for pyi_path in Path(config.project).rglob("*.pyi") 
+        ]
+        
+        return config
 
     def convert_overrides(self, name: str, value: str) -> Any:
         opt = self._options[name]
