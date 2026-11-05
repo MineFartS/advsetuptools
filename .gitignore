@@ -1,2 +1,6 @@
-/pybind_setup_ext.egg-info
-/build
+**.egg-info
+**/__pycache__
+
+**/build
+!auto-python-docs/auto_python_docs/build
+
