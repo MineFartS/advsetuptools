@@ -9,9 +9,9 @@ def embed(name:str) -> str:
 setup(
     install_requires = [
         "setuptools>=74.1",
-        "sphinx",
         "ghp-import",
         embed("mypy"),
+        embed("sphinx"),
         embed("sphinx-autodoc2"),
     ]
 )
