@@ -16,9 +16,9 @@ from collections.abc import Callable, Mapping
 from types import FunctionType, ModuleType
 from typing import Any
 
-from .fastparse import parse_type_comment
-from .moduleinspect import is_c_module
-from .stubdoc import (
+from mypy.fastparse import parse_type_comment
+from mypy.moduleinspect import is_c_module
+from mypy.stubdoc import (
     ArgSig,
     FunctionSig,
     Sig,
@@ -30,7 +30,7 @@ from .stubdoc import (
     infer_sig_from_docstring,
     parse_all_signatures,
 )
-from .stubutil import (
+from mypy.stubutil import (
     BaseStubGenerator,
     ClassInfo,
     FunctionContext,
@@ -38,7 +38,7 @@ from .stubutil import (
     infer_method_arg_types,
     infer_method_ret_type,
 )
-from .util import quote_docstring
+from mypy.util import quote_docstring
 
 def is_cached_property(obj: Any) -> bool:
     return type(obj).__name__ == "cached_property"

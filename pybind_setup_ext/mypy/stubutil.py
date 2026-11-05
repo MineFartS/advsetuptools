@@ -14,14 +14,13 @@ from typing import Final, overload
 
 from mypy_extensions import mypyc_attr
 
-class mypyL
-    from . import options
+import mypy.options
 
-from .modulefinder import ModuleNotFoundReason
-from .moduleinspect import InspectError, ModuleInspect
-from .nodes import PARAM_SPEC_KIND, TYPE_VAR_TUPLE_KIND, ClassDef, FuncDef, TypeAliasStmt
-from .stubdoc import ArgSig, FunctionSig
-from .types import (
+from mypy.modulefinder import ModuleNotFoundReason
+from mypy.moduleinspect import InspectError, ModuleInspect
+from mypy.nodes import PARAM_SPEC_KIND, TYPE_VAR_TUPLE_KIND, ClassDef, FuncDef, TypeAliasStmt
+from mypy.stubdoc import ArgSig, FunctionSig
+from mypy.types import (
     AnyType,
     NoneType,
     Type,
