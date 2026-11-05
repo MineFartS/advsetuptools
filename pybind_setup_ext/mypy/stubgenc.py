@@ -69,24 +69,6 @@ class InspectionStubGenerator(_InspectionStubGenerator):
             )
         )
 
-    def get_members(self, obj: object) -> list[tuple[str, Any]]:
-        obj_dict: Mapping[str, Any] = getattr(obj, "__dict__")  # noqa: B009
-        results = []
-        for name in obj_dict:
-            if self.is_skipped_attribute(name):
-                continue
-            # Try to get the value via getattr
-            try:
-                if is_cached_property(obj_dict[name]):
-                    value = obj_dict[name]
-                else:
-                    value = getattr(obj, name)
-            except AttributeError:
-                continue
-            else:
-                results.append((name, value))
-        return results
-
     @staticmethod
     def is_property(class_info: ClassInfo, name: str, obj: object) -> bool:
         return (
