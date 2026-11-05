@@ -1,18 +1,17 @@
 from setuptools.command.build_ext import build_ext as __build_ext
 from .mypy.stubgen import generate_stubs
-from os.path import abspath
-import sys
+from .utils import sys_path
 
 class build_ext(__build_ext):
     def run(self) -> None:
         
         super().run()
 
-        sys.path.insert(0, abspath(self.build_lib))
+        with sys_path(self.build_lib):
 
-        for ext in self.extensions:
+            for ext in self.extensions:
 
-            generate_stubs(self.build_lib, [ext.name])
+                generate_stubs(self.build_lib, [ext.name])
 
-            generate_stubs('.', [ext.name])
+                generate_stubs('.', [ext.name])
 

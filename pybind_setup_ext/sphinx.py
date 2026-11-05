@@ -1,10 +1,9 @@
 from sphinx.application import Sphinx as _Sphinx
 from ghp_import import ghp_import
 from datetime import datetime
-from os.path import abspath
+from .utils import sys_path
 from pathlib import Path
 import tomllib as toml
-import sys
 
 __all__ = [
     "shell", "Sphinx",
@@ -60,28 +59,26 @@ class Sphinx(_Sphinx):
     )
 
     def build(s) -> None:
+        with sys_path('.'):
 
-        # Safely modify the runtime sys.path
-        sys.path.insert(0, abspath("."))
+            # Mutate existing configuration variables from conf.py
+            s.config.copyright = f'{datetime.now().year}, {s.config.author}'
 
-        # Mutate existing configuration variables from conf.py
-        s.config.copyright = f'{datetime.now().year}, {s.config.author}'
+            # Ensure lists are cleanly extended
+            s.config.exclude_patterns += ['_build', 'Thumbs.db', '.DS_Store']
+            s.config.extensions += ["autodoc2", "sphinx.ext.viewcode"]
 
-        # Ensure lists are cleanly extended
-        s.config.exclude_patterns += ['_build', 'Thumbs.db', '.DS_Store']
-        s.config.extensions += ["autodoc2", "sphinx.ext.viewcode"]
+            # Inject your dynamic autodoc2 configurations
+            s.config.autodoc2_packages = [s.config.project]
+            s.config.autodoc2_output_dir = "_api"
+            s.config.autodoc2_render_plugin = "rst"
 
-        # Inject your dynamic autodoc2 configurations
-        s.config.autodoc2_packages = [s.config.project]
-        s.config.autodoc2_output_dir = "_api"
-        s.config.autodoc2_render_plugin = "rst"
+            s.config.autodoc_mock_imports = [
+                ".".join(pyi_path.with_suffix("").parts)
+                for pyi_path in Path(s.config.project).rglob("*.pyi") 
+            ]
 
-        s.config.autodoc_mock_imports = [
-            ".".join(pyi_path.with_suffix("").parts)
-            for pyi_path in Path(s.config.project).rglob("*.pyi") 
-        ]
-
-        super().build()
+            super().build()
 
     def upload(self) -> None:
         ghp_import(
