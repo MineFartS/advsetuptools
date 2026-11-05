@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 __all__ = [
-    "generate_stub_for_c_module",
     "InspectionStubGenerator",
     "is_cached_property",
+    "MonkeyPatch",
 ]
 
 from collections.abc import Mapping
 from typing import Any
-import os.path
 
 from mypy.stubdoc import ArgSig, FunctionSig
+from mypy import stubgenc as _stubgenc
 
 from mypy.stubutil import (
     ClassInfo,
@@ -24,46 +24,16 @@ from mypy.stubgenc import (
     DocstringSignatureGenerator,
 )
 
+class MonkeyPatch:
+
+    def inject() -> None:
+        _stubgenc.InspectionStubGenerator = InspectionStubGenerator
+
+    def eject() -> None:
+        _stubgenc.InspectionStubGenerator = _InspectionStubGenerator
+
 def is_cached_property(obj: Any) -> bool:
     return type(obj).__name__ == "cached_property"
-
-def generate_stub_for_c_module(
-    module_name: str,
-    target: str,
-    known_modules: list[str],
-    doc_dir: str = "",
-    *,
-    export_less: bool = False,
-    include_docstrings: bool = False,
-) -> None:
-    """Generate stub for C module.
-
-    Signature generators are called in order until a list of signatures is returned.  The order
-    is:
-    - signatures inferred from .rst documentation (if given)
-    - simple runtime introspection (looking for docstrings and attributes
-      with simple builtin types)
-    - fallback based special method names or "(*args, **kwargs)"
-
-    If directory for target doesn't exist it will be created. Existing stub
-    will be overwritten.
-    """
-    subdir = os.path.dirname(target)
-    if subdir and not os.path.isdir(subdir):
-        os.makedirs(subdir)
-
-    gen = InspectionStubGenerator(
-        module_name,
-        known_modules,
-        doc_dir,
-        export_less=export_less,
-        include_docstrings=include_docstrings,
-    )
-    gen.generate_module()
-    output = gen.output()
-
-    with open(target, "w", encoding="utf-8") as file:
-        file.write(output)
 
 class InspectionStubGenerator(_InspectionStubGenerator):
     """Stub generator that does not parse code.
