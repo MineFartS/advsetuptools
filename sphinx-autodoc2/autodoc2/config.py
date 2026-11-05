@@ -9,7 +9,7 @@ import re
 import typing as t
 
 if t.TYPE_CHECKING:
-    from autodoc2.render.base import RendererBase
+    from .render.base import RendererBase
 
 
 class ValidationError(Exception):
@@ -175,7 +175,7 @@ def _validate_list_tuple_regex_str(
 
 def _load_renderer(name: str, item: t.Any) -> type[RendererBase]:
     """Load a renderer class."""
-    from autodoc2.render.base import RendererBase
+    from .render.base import RendererBase
 
     if isinstance(item, type) and issubclass(item, RendererBase):
         return item
@@ -184,11 +184,11 @@ def _load_renderer(name: str, item: t.Any) -> type[RendererBase]:
             f"{name!r} must be a string or subclass of {RendererBase.__qualname__}"
         )
     if item in ("rst", "restructuredtext"):
-        from autodoc2.render.rst_ import RstRenderer
+        from .render.rst_ import RstRenderer
 
         return RstRenderer
     if item in ("markdown", "md", "myst"):
-        from autodoc2.render.myst_ import MystRenderer
+        from .render.myst_ import MystRenderer
 
         return MystRenderer
     try:

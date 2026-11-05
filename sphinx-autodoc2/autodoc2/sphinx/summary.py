@@ -8,14 +8,14 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
 
-from autodoc2.sphinx.utils import (
+from .utils import (
     get_all_analyser,
     get_database,
     load_config,
     nested_parse_generated,
     warn_sphinx,
 )
-from autodoc2.utils import ItemData, WarningSubtypes
+from ..utils import ItemData, WarningSubtypes
 
 
 class AutodocSummary(SphinxDirective):

@@ -5,10 +5,10 @@ from __future__ import annotations
 import re
 import typing as t
 
-from autodoc2.render.base import RendererBase
+from .base import RendererBase
 
 if t.TYPE_CHECKING:
-    from autodoc2.utils import ItemData
+    from ..utils import ItemData
 
 
 _RE_DELIMS = re.compile(r"(\s*[\[\]\(\),]\s*)")

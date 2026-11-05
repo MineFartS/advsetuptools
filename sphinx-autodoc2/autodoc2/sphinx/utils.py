@@ -10,10 +10,10 @@ from sphinx.application import Sphinx
 from sphinx.environment import BuildEnvironment
 from sphinx.util import logging
 
-from autodoc2.config import CONFIG_PREFIX, Config, ValidationError
-from autodoc2.db import Database, InMemoryDb
-from autodoc2.resolve_all import AllResolver
-from autodoc2.utils import WarningSubtypes
+from ..config import CONFIG_PREFIX, Config, ValidationError
+from ..db import Database, InMemoryDb
+from ..resolve_all import AllResolver
+from ..utils import WarningSubtypes
 
 if t.TYPE_CHECKING:
     from docutils.parsers.rst.states import RSTStateMachine

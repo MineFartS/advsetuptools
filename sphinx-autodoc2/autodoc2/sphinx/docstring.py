@@ -12,8 +12,8 @@ from docutils.statemachine import StringList
 from sphinx.util.docutils import SphinxDirective, new_document
 from sphinx.util.logging import prefixed_warnings
 
-from autodoc2.sphinx.utils import get_database, nested_parse_generated, warn_sphinx
-from autodoc2.utils import WarningSubtypes
+from .utils import get_database, nested_parse_generated, warn_sphinx
+from ..utils import WarningSubtypes
 
 if t.TYPE_CHECKING:
     from docutils.parsers.rst.states import RSTStateMachine

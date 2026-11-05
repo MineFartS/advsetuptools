@@ -8,13 +8,13 @@ import abc
 from collections import OrderedDict
 import typing as t
 
-from autodoc2.resolve_all import AllResolver
-from autodoc2.utils import WarningSubtypes
+from ..resolve_all import AllResolver
+from ..utils import WarningSubtypes
 
 if t.TYPE_CHECKING:
-    from autodoc2.config import Config
-    from autodoc2.db import Database
-    from autodoc2.utils import ARGS_TYPE, ItemData
+    from ..config import Config
+    from ..db import Database
+    from ..utils import ARGS_TYPE, ItemData
 
 
 class RendererBase(abc.ABC):

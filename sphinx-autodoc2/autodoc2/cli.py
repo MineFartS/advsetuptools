@@ -8,13 +8,13 @@ from rich import progress as rp
 from rich.console import Console
 import typer
 
-from autodoc2 import __name__ as package_name
-from autodoc2 import __version__
-from autodoc2.analysis import analyse_module
-from autodoc2.config import Config
-from autodoc2.db import InMemoryDb, UniqueError
-from autodoc2.resolve_all import AllResolver
-from autodoc2.utils import WarningSubtypes, yield_modules
+from . import __name__ as package_name
+from . import __version__
+from .analysis import analyse_module
+from .config import Config
+from .db import InMemoryDb, UniqueError
+from .resolve_all import AllResolver
+from .utils import WarningSubtypes, yield_modules
 
 console = Console()
 

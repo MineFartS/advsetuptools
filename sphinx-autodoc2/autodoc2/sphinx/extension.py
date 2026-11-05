@@ -12,21 +12,21 @@ import typing as t
 
 from sphinx.application import Sphinx
 
-from autodoc2 import __version__
-from autodoc2.analysis import analyse_module
-from autodoc2.config import CONFIG_PREFIX, Config
-from autodoc2.db import UniqueError
-from autodoc2.sphinx.autodoc import AutodocObject
-from autodoc2.sphinx.docstring import DocstringRenderer
-from autodoc2.sphinx.summary import AutodocSummary
-from autodoc2.sphinx.utils import (
+from .. import __version__
+from ..analysis import analyse_module
+from ..config import CONFIG_PREFIX, Config
+from ..db import UniqueError
+from .autodoc import AutodocObject
+from .docstring import DocstringRenderer
+from .summary import AutodocSummary
+from .utils import (
     LOGGER,
     get_all_analyser,
     get_database,
     load_config,
     warn_sphinx,
 )
-from autodoc2.utils import WarningSubtypes, yield_modules
+from ..utils import WarningSubtypes, yield_modules
 
 try:
     from sphinx.util.display import status_iterator

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import typing as t
 
-from autodoc2.db import Database
+from .db import Database
 
 
 class AllResolutionError(Exception):
