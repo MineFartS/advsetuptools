@@ -8,10 +8,10 @@ version = "v0"
 requires-python = ">=3.12"
 dynamic = ["dependencies"]
 
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.packages.find]
 include = ["pybind_setup_ext*"]
 exclude = ["mypy*", "sphinx*"]
-
-[tool.setuptools.package-data]
-"pybind_setup_ext" = ["include/**/*"]
 
