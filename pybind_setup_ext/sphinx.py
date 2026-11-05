@@ -78,6 +78,8 @@ class Sphinx(_Sphinx):
                 for pyi_path in Path(s.config.project).rglob("*.pyi") 
             ]
 
+            s.config.suppress_warnings += ['docutils']
+
             super().build()
 
     def upload(self) -> None:
