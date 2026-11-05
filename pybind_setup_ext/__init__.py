@@ -23,5 +23,4 @@ def setup(*ext_modules:cpp_ext) -> None:
         ext_modules = list(filter(None, ext_modules)),
     )
     from .build import sphinx # Run sphinx.py
-    from .build import ghp_import # Run ghp_import.py
 
