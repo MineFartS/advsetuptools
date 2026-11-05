@@ -1,4 +1,4 @@
-from sphinx.application import Sphinx
+from ..sphinx.application import Sphinx
 from ghp_import import ghp_import
 
 Sphinx(

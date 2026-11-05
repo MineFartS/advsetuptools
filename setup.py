@@ -11,7 +11,7 @@ setup(
         "setuptools>=74.1",
         "ghp-import",
         "mypy==2.4.1",
-        embed("sphinx"),
+        "sphinx==9.1.1",
         embed("sphinx-autodoc2"),
     ]
 )
