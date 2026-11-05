@@ -13,5 +13,5 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 include = ["pybind_setup_ext*"]
-exclude = ["mypy*", "sphinx*"]
+exclude = ["sphinx*"]
 
