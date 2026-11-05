@@ -3,7 +3,6 @@ from __future__ import annotations
 __all__ = [
     "generate_stubs",
     "InspectionStubGenerator",
-    "MonkeyPatch",
 ]
 
 from mypy.stubdoc import FunctionSig
@@ -30,6 +29,8 @@ def generate_stubs(
 ) -> None:
     """Main entry point for the program."""
 
+    _stubgenc.InspectionStubGenerator = InspectionStubGenerator
+
     options = parse_options([
         '--output', output_dir,
     ])
@@ -40,13 +41,6 @@ def generate_stubs(
         _generate_stubs(options)
     finally:
         environ.pop("STUBGEN", None)
-
-class MonkeyPatch:
-
-    def inject() -> None:
-        _stubgenc.InspectionStubGenerator = InspectionStubGenerator
-
-    def eject() -> None:
         _stubgenc.InspectionStubGenerator = _InspectionStubGenerator
 
 class InspectionStubGenerator(_InspectionStubGenerator):
