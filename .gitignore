@@ -2,5 +2,4 @@
 **/__pycache__
 
 **/build
-!pybind_setup_ext/build
 

@@ -1,5 +1,5 @@
 from setuptools.command.build_ext import build_ext as __build_ext
-from ..mypy.stubgen import generate_stubs
+from .mypy.stubgen import generate_stubs
 from os.path import abspath
 import sys
 
