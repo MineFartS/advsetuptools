@@ -1,30 +1,5 @@
-from sphinx.cmd.quickstart import main
-from tomllib import load
+from .sphinx import Sphinx
 
-#==============================================
-# Sphinx
-
-with open("pyproject.toml", "rb") as f:
-    project = load(f)['project']
-
-args = ['=q']
-
-args += '-p', project['name']
-args += '-v', project['version']
-
-args += "--no-sep", '.'
-
-result = main(args)
-
-if result != 0:
-    raise RuntimeError(f'{result=}')
-
-#==============================================
-# Git Ignore
-
-with open(".gitignore", "a") as f:
-    f.write(f"_build\n")
-    f.write(f"_api\n")
-
-#==============================================
+if __name__ == '__main__':
+    Sphinx.init()
 

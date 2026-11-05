@@ -2,6 +2,7 @@
 from .git import update_submodule
 from .build_ext import build_ext
 from .cpp_ext import cpp_ext
+from .sphinx import Sphinx
 import setuptools as st
 
 from .cpp_ext import (
@@ -22,5 +23,5 @@ def setup(*ext_modules:cpp_ext) -> None:
         cmdclass = {'build_ext': build_ext},
         ext_modules = list(filter(None, ext_modules)),
     )
-    from . import sphinx # Run sphinx.py
+    Sphinx('.', True).build()
 
