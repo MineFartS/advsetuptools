@@ -10,8 +10,8 @@ from sphinx.locale import __
 if TYPE_CHECKING:
     from docutils import nodes
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 
 class DummyBuilder(Builder):

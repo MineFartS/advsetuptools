@@ -27,7 +27,7 @@ def docname_join(basedocname: str, docname: str) -> str:
 def get_filetype(
     source_suffix: dict[str, str], filename: str | os.PathLike[str]
 ) -> str:
-    from sphinx.errors import FiletypeNotFoundError
+    from ..errors import FiletypeNotFoundError
 
     for suffix, filetype in source_suffix.items():
         if os.fspath(filename).endswith(suffix):
@@ -57,7 +57,7 @@ def _sha1(data: bytes = b'', **_kw: Any) -> hashlib._Hash:
 
 
 def __getattr__(name: str) -> Any:
-    from sphinx.deprecation import _deprecation_warning
+    from ..deprecation import _deprecation_warning
 
     obj: Callable[..., Any]
     mod: ModuleType
@@ -81,32 +81,32 @@ def __getattr__(name: str) -> Any:
     # but not currently deprecated
 
     if name == 'encode_uri':
-        from sphinx.util._uri import encode_uri
+        from ._uri import encode_uri
 
         return encode_uri
 
     if name == 'import_object':
-        from sphinx.util._importer import import_object
+        from ._importer import import_object
 
         return import_object
 
     if name == 'isurl':
-        from sphinx.util._uri import is_url
+        from ._uri import is_url
 
         return is_url
 
     if name == 'parselinenos':
-        from sphinx.util._lines import parse_line_num_spec
+        from ._lines import parse_line_num_spec
 
         return parse_line_num_spec
 
     if name == 'patfilter':
-        from sphinx.util.matching import patfilter
+        from .matching import patfilter
 
         return patfilter
 
     if name == 'strip_escape_sequences':
-        from sphinx._cli.util.errors import strip_escape_sequences
+        from .._cli.util.errors import strip_escape_sequences
 
         return strip_escape_sequences
 

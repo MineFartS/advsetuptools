@@ -5,17 +5,17 @@ from typing import TYPE_CHECKING
 
 from docutils.utils import assemble_option_dict
 
-from sphinx.deprecation import RemovedInSphinx11Warning
-from sphinx.ext.autodoc._sentinels import ALL, EMPTY, SUPPRESS
+from ...deprecation import RemovedInSphinx11Warning
+from ._sentinels import ALL, EMPTY, SUPPRESS
 from sphinx.locale import __
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Iterator, Mapping, Set
     from typing import Any, Final, Literal, Self
 
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
-    from sphinx.ext.autodoc._sentinels import ALL_T, EMPTY_T, SUPPRESS_T
-    from sphinx.util.typing import OptionSpec
+    from ._property_types import _AutodocObjType
+    from ._sentinels import ALL_T, EMPTY_T, SUPPRESS_T
+    from ...util.typing import OptionSpec
 
 
 # common option names for autodoc directives

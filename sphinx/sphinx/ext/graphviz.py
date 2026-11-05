@@ -16,27 +16,27 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 
 import sphinx
-from sphinx.errors import SphinxError
+from ..errors import SphinxError
 from sphinx.locale import _, __
 from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.docutils import SphinxDirective
-from sphinx.util.i18n import search_image_for_language
-from sphinx.util.nodes import set_source_info
+from ..util._pathlib import _StrPath
+from ..util.docutils import SphinxDirective
+from ..util.i18n import search_image_for_language
+from ..util.nodes import set_source_info
 
 if TYPE_CHECKING:
     from typing import Any, ClassVar
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
-    from sphinx.writers.html5 import HTML5Translator
-    from sphinx.writers.latex import LaTeXTranslator
-    from sphinx.writers.manpage import ManualPageTranslator
-    from sphinx.writers.texinfo import TexinfoTranslator
-    from sphinx.writers.text import TextTranslator
+    from ..application import Sphinx
+    from ..config import Config
+    from ..util.typing import ExtensionMetadata, OptionSpec
+    from ..writers.html5 import HTML5Translator
+    from ..writers.latex import LaTeXTranslator
+    from ..writers.manpage import ManualPageTranslator
+    from ..writers.texinfo import TexinfoTranslator
+    from ..writers.text import TextTranslator
 
 logger = logging.getLogger(__name__)
 

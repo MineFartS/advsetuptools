@@ -11,10 +11,10 @@ from docutils.readers import standalone
 from docutils.transforms import references
 from docutils.writers import UnfilteredWriter
 
-from sphinx.deprecation import RemovedInSphinx10Warning
-from sphinx.transforms import SphinxTransformer
-from sphinx.util import logging
-from sphinx.util.docutils import LoggingReporter
+from .deprecation import RemovedInSphinx10Warning
+from .transforms import SphinxTransformer
+from .util import logging
+from .util.docutils import LoggingReporter
 
 if TYPE_CHECKING:
     from typing import Any
@@ -24,8 +24,8 @@ if TYPE_CHECKING:
     from docutils.parsers import Parser
     from docutils.transforms import Transform
 
-    from sphinx.environment import BuildEnvironment
-    from sphinx.util.docutils import _DocutilsSettings
+    from .environment import BuildEnvironment
+    from .util.docutils import _DocutilsSettings
 
 
 logger = logging.getLogger(__name__)

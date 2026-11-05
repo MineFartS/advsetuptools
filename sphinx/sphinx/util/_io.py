@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sphinx._cli.util.errors import strip_escape_sequences
+from .._cli.util.errors import strip_escape_sequences
 
 if TYPE_CHECKING:
     from typing import Protocol

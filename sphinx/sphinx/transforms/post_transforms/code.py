@@ -17,8 +17,8 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node, TextElement
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ...application import Sphinx
+    from ...util.typing import ExtensionMetadata
 
 
 class HighlightSetting(NamedTuple):

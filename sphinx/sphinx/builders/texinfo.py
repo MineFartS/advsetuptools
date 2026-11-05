@@ -8,26 +8,26 @@ from typing import TYPE_CHECKING
 from docutils import nodes
 
 from sphinx import addnodes, package_dir
-from sphinx._cli.util.colour import darkgreen
+from .._cli.util.colour import darkgreen
 from sphinx.builders import Builder
-from sphinx.environment.adapters.asset import ImageAdapter
-from sphinx.errors import NoUri
+from ..environment.adapters.asset import ImageAdapter
+from ..errors import NoUri
 from sphinx.locale import _, __
 from sphinx.util import logging
-from sphinx.util.display import progress_message, status_iterator
-from sphinx.util.docutils import _get_settings, new_document
-from sphinx.util.nodes import inline_all_toctrees
-from sphinx.util.osutil import SEP, copyfile, ensuredir, make_filename_from_project
-from sphinx.writers.texinfo import TexinfoTranslator, TexinfoWriter
+from ..util.display import progress_message, status_iterator
+from ..util.docutils import _get_settings, new_document
+from ..util.nodes import inline_all_toctrees
+from ..util.osutil import SEP, copyfile, ensuredir, make_filename_from_project
+from ..writers.texinfo import TexinfoTranslator, TexinfoWriter
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Set
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..config import Config
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 template_dir = package_dir.joinpath('templates', 'texinfo')

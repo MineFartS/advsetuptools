@@ -12,8 +12,8 @@ from sphinx.transforms import SphinxTransform
 if TYPE_CHECKING:
     from typing import Any
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 
 class SphinxDanglingReferences(DanglingReferences):

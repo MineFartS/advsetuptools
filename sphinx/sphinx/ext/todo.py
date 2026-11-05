@@ -15,12 +15,12 @@ from docutils import nodes
 
 import sphinx
 from sphinx import addnodes
-from sphinx.directives.admonitions import SphinxAdmonition
+from ..directives.admonitions import SphinxAdmonition
 from sphinx.domains import Domain
-from sphinx.errors import NoUri
+from ..errors import NoUri
 from sphinx.locale import _, __
 from sphinx.util import logging, texescape
-from sphinx.util.docutils import SphinxDirective, new_document
+from ..util.docutils import SphinxDirective, new_document
 
 if TYPE_CHECKING:
     from collections.abc import Set
@@ -28,11 +28,11 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
-    from sphinx.writers.html5 import HTML5Translator
-    from sphinx.writers.latex import LaTeXTranslator
+    from ..util.typing import ExtensionMetadata, OptionSpec
+    from ..writers.html5 import HTML5Translator
+    from ..writers.latex import LaTeXTranslator
 
 logger = logging.getLogger(__name__)
 

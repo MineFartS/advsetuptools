@@ -12,27 +12,27 @@ from typing import TYPE_CHECKING
 from urllib.parse import urlsplit, urlunsplit
 
 from sphinx.builders.html import INVENTORY_FILENAME
-from sphinx.errors import ConfigError
-from sphinx.ext.intersphinx._shared import LOGGER, InventoryAdapter, _IntersphinxProject
+from ...errors import ConfigError
+from ._shared import LOGGER, InventoryAdapter, _IntersphinxProject
 from sphinx.locale import __
 from sphinx.util import requests
-from sphinx.util.inventory import InventoryFile
+from ...util.inventory import InventoryFile
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
     from pathlib import Path
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.ext.intersphinx._shared import (
+    from ...application import Sphinx
+    from ...config import Config
+    from ._shared import (
         IntersphinxMapping,
         InventoryCacheEntry,
         InventoryLocation,
         InventoryName,
         InventoryURI,
     )
-    from sphinx.util.inventory import _Inventory
-    from sphinx.util.typing import Inventory
+    from ...util.inventory import _Inventory
+    from ...util.typing import Inventory
 
 
 def validate_intersphinx_mapping(app: Sphinx, config: Config) -> None:

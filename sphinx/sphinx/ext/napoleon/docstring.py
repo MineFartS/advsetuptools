@@ -12,15 +12,15 @@ from typing import TYPE_CHECKING, Any
 
 from sphinx.locale import _, __
 from sphinx.util import logging
-from sphinx.util.typing import get_type_hints, stringify_annotation
+from ...util.typing import get_type_hints, stringify_annotation
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator
     from typing import Literal
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config as SphinxConfig
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
+    from ...application import Sphinx
+    from ...config import Config as SphinxConfig
+    from ..autodoc._property_types import _AutodocObjType
 
 logger = logging.getLogger(__name__)
 

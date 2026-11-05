@@ -14,18 +14,18 @@ from sphinx import addnodes
 from sphinx.environment.collectors import EnvironmentCollector
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.i18n import get_image_filename_for_language, search_image_for_language
-from sphinx.util.images import guess_mimetype
-from sphinx.util.osutil import _relative_path
+from ...util.i18n import get_image_filename_for_language, search_image_for_language
+from ...util.images import guess_mimetype
+from ...util.osutil import _relative_path
 
 if TYPE_CHECKING:
     from collections.abc import Set
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ...util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

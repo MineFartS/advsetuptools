@@ -42,14 +42,14 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 
 import sphinx
-from sphinx.ext.graphviz import (
+from .graphviz import (
     figure_wrapper,
     graphviz,
     render_dot_html,
     render_dot_latex,
     render_dot_texinfo,
 )
-from sphinx.util.docutils import SphinxDirective
+from ..util.docutils import SphinxDirective
 
 if TYPE_CHECKING:
     from collections.abc import Collection, Iterable, Iterator, Sequence, Set
@@ -58,13 +58,13 @@ if TYPE_CHECKING:
     from docutils.nodes import Node
 
     from sphinx import addnodes
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
+    from ..application import Sphinx
+    from ..config import Config
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
-    from sphinx.writers.html5 import HTML5Translator
-    from sphinx.writers.latex import LaTeXTranslator
-    from sphinx.writers.texinfo import TexinfoTranslator
+    from ..util.typing import ExtensionMetadata, OptionSpec
+    from ..writers.html5 import HTML5Translator
+    from ..writers.latex import LaTeXTranslator
+    from ..writers.texinfo import TexinfoTranslator
 
 module_sig_re = re.compile(
     r"""^

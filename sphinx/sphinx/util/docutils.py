@@ -21,11 +21,11 @@ from docutils.statemachine import StateMachine
 from docutils.transforms import references
 from docutils.utils import Reporter, unescape
 
-from sphinx.errors import SphinxError
+from ..errors import SphinxError
 from sphinx.locale import __
 from sphinx.transforms import SphinxTransformer
 from sphinx.util import logging, rst
-from sphinx.util.parsing import nested_parse_to_nodes
+from .parsing import nested_parse_to_nodes
 
 logger = logging.getLogger(__name__)
 report_re = re.compile(
@@ -45,10 +45,10 @@ if TYPE_CHECKING:
     from docutils.transforms import Transform
 
     from sphinx.builders import Builder
-    from sphinx.config import Config
+    from ..config import Config
     from sphinx.environment import BuildEnvironment
-    from sphinx.events import EventManager
-    from sphinx.util.typing import RoleFunction
+    from ..events import EventManager
+    from .typing import RoleFunction
 
     type _DocutilsSettings = docutils.frontend.Values  # pyright: ignore[reportDeprecated]  # ty: ignore[deprecated]
 

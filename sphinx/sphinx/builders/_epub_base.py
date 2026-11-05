@@ -17,13 +17,13 @@ from docutils.utils import smartquotes
 
 from sphinx import addnodes
 from sphinx.builders.html import StandaloneHTMLBuilder
-from sphinx.builders.html._build_info import BuildInfo
+from .html._build_info import BuildInfo
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.display import status_iterator
-from sphinx.util.fileutil import copy_asset_file
-from sphinx.util.osutil import copyfile, ensuredir, relpath
+from ..util._pathlib import _StrPath
+from ..util.display import status_iterator
+from ..util.fileutil import copy_asset_file
+from ..util.osutil import copyfile, ensuredir, relpath
 
 if TYPE_CHECKING:
     from typing import Any

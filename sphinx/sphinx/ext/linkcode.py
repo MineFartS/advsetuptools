@@ -9,14 +9,14 @@ from docutils import nodes
 
 import sphinx
 from sphinx import addnodes
-from sphinx.errors import SphinxError
+from ..errors import SphinxError
 from sphinx.locale import _
 
 if TYPE_CHECKING:
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 
 _DOMAIN_KEYS = {

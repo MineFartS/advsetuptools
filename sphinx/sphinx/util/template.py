@@ -12,7 +12,7 @@ from jinja2.loaders import BaseLoader
 from jinja2.sandbox import SandboxedEnvironment
 
 from sphinx import package_dir
-from sphinx.jinja2glue import SphinxFileSystemLoader
+from ..jinja2glue import SphinxFileSystemLoader
 from sphinx.locale import get_translator
 from sphinx.util import rst, texescape
 

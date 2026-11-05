@@ -8,7 +8,7 @@ from operator import itemgetter
 from typing import TYPE_CHECKING
 from uuid import uuid4
 
-from sphinx.transforms import SphinxTransform
+from .transforms import SphinxTransform
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator
@@ -16,8 +16,8 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from .application import Sphinx
+    from .util.typing import ExtensionMetadata
 
 try:
     import Levenshtein  # type: ignore[import-not-found]

@@ -9,10 +9,10 @@ import docutils.parsers.rst.directives
 import docutils.parsers.rst.states
 from docutils import nodes, utils
 
-from sphinx import addnodes
-from sphinx.locale import _, __
-from sphinx.util import ws_re
-from sphinx.util.docutils import ReferenceRole, SphinxRole, _normalize_options
+from . import addnodes
+from .locale import _, __
+from .util import ws_re
+from .util.docutils import ReferenceRole, SphinxRole, _normalize_options
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -20,9 +20,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node, TextElement, system_message
 
-    from sphinx.application import Sphinx
-    from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata, RoleFunction
+    from .application import Sphinx
+    from .environment import BuildEnvironment
+    from .util.typing import ExtensionMetadata, RoleFunction
 
 
 generic_docroles = {

@@ -14,8 +14,8 @@ from docutils.writers.html5_polyglot import HTMLTranslator as BaseTranslator
 from sphinx import addnodes
 from sphinx.locale import _, __, admonitionlabels
 from sphinx.util import logging
-from sphinx.util.docutils import SphinxTranslator
-from sphinx.util.images import get_image_size
+from ..util.docutils import SphinxTranslator
+from ..util.images import get_image_size
 
 if TYPE_CHECKING:
     from collections.abc import Callable

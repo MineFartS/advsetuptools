@@ -7,8 +7,8 @@ from typing import TYPE_CHECKING, cast
 from docutils import nodes
 
 from sphinx import addnodes
-from sphinx.domains.c._ids import _id_prefix, _max_id
-from sphinx.util.cfamily import (
+from ._ids import _id_prefix, _max_id
+from ...util.cfamily import (
     ASTBaseBase,
     ASTBaseParenExprList,
     UnsupportedMultiCharacterCharLiteral,
@@ -20,9 +20,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node, TextElement
 
-    from sphinx.domains.c._symbol import Symbol
+    from ._symbol import Symbol
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.cfamily import (
+    from ...util.cfamily import (
         ASTAttributeList,
         StringifyTransform,
     )

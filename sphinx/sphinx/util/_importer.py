@@ -3,7 +3,7 @@ from __future__ import annotations
 from importlib import import_module
 from typing import TYPE_CHECKING
 
-from sphinx.errors import ExtensionError
+from ..errors import ExtensionError
 
 if TYPE_CHECKING:
     from typing import Any

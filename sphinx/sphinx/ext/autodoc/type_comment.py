@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sphinx.ext.autodoc._dynamic._type_comments import (
+from ._dynamic._type_comments import (
     _update_annotations_using_type_comments,
     not_suppressed,  # NoQA: F401
     signature_from_ast,  # NoQA: F401
@@ -13,7 +13,7 @@ from sphinx.ext.autodoc._dynamic._type_comments import (
 if TYPE_CHECKING:
     from typing import Any
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
 
 
 # Retained: legacy class-based

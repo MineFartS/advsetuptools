@@ -8,7 +8,7 @@ import warnings
 import zlib
 from typing import TYPE_CHECKING
 
-from sphinx.deprecation import RemovedInSphinx10Warning
+from ..deprecation import RemovedInSphinx10Warning
 from sphinx.locale import __
 from sphinx.util import logging
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import Inventory
+    from .typing import Inventory
 
     # Readable file stream for inventory loading
     class _SupportsRead(Protocol):
@@ -33,7 +33,7 @@ if TYPE_CHECKING:
 
 def __getattr__(name: str) -> object:
     if name == 'InventoryFileReader':
-        from sphinx.util._inventory_file_reader import InventoryFileReader
+        from ._inventory_file_reader import InventoryFileReader
 
         return InventoryFileReader
     msg = f'module {__name__!r} has no attribute {name!r}'

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sphinx.ext.autodoc._dynamic._preserve_defaults import (
+from ._dynamic._preserve_defaults import (
     DefaultValue,  # NoQA: F401
     _get_arguments,  # NoQA: F401
     _get_arguments_inner,  # NoQA: F401
@@ -20,7 +20,7 @@ from sphinx.ext.autodoc._dynamic._preserve_defaults import (
 if TYPE_CHECKING:
     from typing import Any
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
 
 
 # Retained: legacy class-based

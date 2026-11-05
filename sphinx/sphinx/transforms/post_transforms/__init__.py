@@ -9,12 +9,12 @@ from typing import TYPE_CHECKING, cast
 from docutils import nodes
 
 from sphinx import addnodes
-from sphinx.errors import NoUri
+from ...errors import NoUri
 from sphinx.locale import __
 from sphinx.transforms import SphinxTransform
 from sphinx.util import logging
-from sphinx.util.docutils import SphinxTranslator
-from sphinx.util.nodes import find_pending_xref_condition, process_only_nodes
+from ...util.docutils import SphinxTranslator
+from ...util.nodes import find_pending_xref_condition, process_only_nodes
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -22,10 +22,10 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node
 
-    from sphinx.addnodes import pending_xref
-    from sphinx.application import Sphinx
+    from ...addnodes import pending_xref
+    from ...application import Sphinx
     from sphinx.domains import Domain
-    from sphinx.util.typing import ExtensionMetadata
+    from ...util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

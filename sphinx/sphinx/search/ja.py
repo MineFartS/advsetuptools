@@ -33,9 +33,9 @@ try:
 except ImportError:
     janome_module = False
 
-from sphinx.errors import ExtensionError, SphinxError
+from ..errors import ExtensionError, SphinxError
 from sphinx.search import SearchLanguage
-from sphinx.util._importer import import_object
+from ..util._importer import import_object
 
 
 class BaseSplitter:

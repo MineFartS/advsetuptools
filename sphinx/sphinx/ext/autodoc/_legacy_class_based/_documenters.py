@@ -9,9 +9,9 @@ from typing import TYPE_CHECKING, NewType, TypeVar
 
 from docutils.statemachine import StringList
 
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._dynamic._mock import ismock, mock, undecorate
-from sphinx.ext.autodoc._legacy_class_based._directive_options import (
+from ....errors import PycodeError
+from .._dynamic._mock import ismock, mock, undecorate
+from ._directive_options import (
     annotation_option,
     bool_option,
     class_doc_from_option,
@@ -22,15 +22,15 @@ from sphinx.ext.autodoc._legacy_class_based._directive_options import (
     members_option,
     merge_members_option,
 )
-from sphinx.ext.autodoc._legacy_class_based._sentinels import (
+from ._sentinels import (
     ALL,
     INSTANCEATTR,
     SLOTSATTR,
     SUPPRESS,
     UNINITIALIZED_ATTR,
 )
-from sphinx.ext.autodoc._shared import LOGGER
-from sphinx.ext.autodoc.importer import (  # type: ignore[attr-defined]
+from .._shared import LOGGER
+from ..importer import (  # type: ignore[attr-defined]
     get_class_members,
     import_module,
     import_object,
@@ -38,27 +38,27 @@ from sphinx.ext.autodoc.importer import (  # type: ignore[attr-defined]
 from sphinx.locale import _, __
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.util import inspect
-from sphinx.util.docstrings import prepare_docstring, separate_metadata
-from sphinx.util.inspect import (
+from ....util.docstrings import prepare_docstring, separate_metadata
+from ....util.inspect import (
     evaluate_signature,
     getdoc,
     object_description,
     safe_getattr,
     stringify_signature,
 )
-from sphinx.util.typing import get_type_hints, restify, stringify_annotation
+from ....util.typing import get_type_hints, restify, stringify_annotation
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator, Sequence
     from types import ModuleType
     from typing import Any, ClassVar, Literal
 
-    from sphinx.config import Config
+    from ....config import Config
     from sphinx.environment import BuildEnvironment, _CurrentDocument
-    from sphinx.events import EventManager
-    from sphinx.ext.autodoc.directive import DocumenterBridge
-    from sphinx.registry import SphinxComponentRegistry
-    from sphinx.util.typing import OptionSpec, _RestifyMode
+    from ....events import EventManager
+    from ..directive import DocumenterBridge
+    from ....registry import SphinxComponentRegistry
+    from ....util.typing import OptionSpec, _RestifyMode
 
 #: extended signature RE: with explicit module name separated by ::
 py_ext_sig_re = re.compile(

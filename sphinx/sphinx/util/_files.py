@@ -4,7 +4,7 @@ import hashlib
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from sphinx.util._pathlib import _StrPath
+from ._pathlib import _StrPath
 
 if TYPE_CHECKING:
     import os

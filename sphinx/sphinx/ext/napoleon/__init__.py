@@ -6,17 +6,17 @@ from types import NoneType
 from typing import TYPE_CHECKING
 
 import sphinx
-from sphinx.application import Sphinx
-from sphinx.ext.napoleon.docstring import GoogleDocstring, NumpyDocstring
+from ...application import Sphinx
+from .docstring import GoogleDocstring, NumpyDocstring
 from sphinx.util import inspect
 
 if TYPE_CHECKING:
     from collections.abc import Sequence, Set
     from typing import Any
 
-    from sphinx.config import _ConfigRebuild
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
-    from sphinx.util.typing import ExtensionMetadata
+    from ...config import _ConfigRebuild
+    from ..autodoc._property_types import _AutodocObjType
+    from ...util.typing import ExtensionMetadata
 
 
 class Config:
@@ -343,7 +343,7 @@ def setup(app: Sphinx) -> ExtensionMetadata:
 
 
 def _patch_python_domain() -> None:
-    from sphinx.domains.python._object import PyObject, PyTypedField
+    from ...domains.python._object import PyObject, PyTypedField
     from sphinx.locale import _
 
     for doc_field in PyObject.doc_field_types:

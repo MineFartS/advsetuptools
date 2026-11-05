@@ -12,9 +12,9 @@ from sphinx import addnodes
 from sphinx.directives import optional_int
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util._lines import parse_line_num_spec
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.docutils import SphinxDirective
+from ..util._lines import parse_line_num_spec
+from ..util._pathlib import _StrPath
+from ..util.docutils import SphinxDirective
 
 if TYPE_CHECKING:
     import os
@@ -22,9 +22,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..application import Sphinx
+    from ..config import Config
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 logger = logging.getLogger(__name__)
 

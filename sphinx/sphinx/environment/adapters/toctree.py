@@ -9,11 +9,11 @@ from docutils import nodes
 from docutils.nodes import Element
 
 from sphinx import addnodes
-from sphinx.deprecation import RemovedInSphinx11Warning
+from ...deprecation import RemovedInSphinx11Warning
 from sphinx.locale import __
 from sphinx.util import logging, url_re
-from sphinx.util.matching import Matcher
-from sphinx.util.nodes import _only_node_keep_children, clean_astext
+from ...util.matching import Matcher
+from ...util.nodes import _only_node_keep_children, clean_astext
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Set
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.tags import Tags
+    from ...util.tags import Tags
 
 
 logger = logging.getLogger(__name__)

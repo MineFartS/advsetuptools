@@ -15,18 +15,18 @@ from uuid import uuid4
 from docutils import nodes
 
 from sphinx import addnodes, package_dir
-from sphinx._cli.util.colour import bold
+from .._cli.util.colour import bold
 from sphinx.builders import Builder
-from sphinx.errors import ThemeError
+from ..errors import ThemeError
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.display import status_iterator
-from sphinx.util.i18n import docname_to_domain
-from sphinx.util.index_entries import split_index_msg
-from sphinx.util.nodes import extract_messages, traverse_translatable_index
-from sphinx.util.osutil import canon_path, ensuredir, relpath
-from sphinx.util.tags import Tags
-from sphinx.util.template import SphinxRenderer
+from ..util.display import status_iterator
+from ..util.i18n import docname_to_domain
+from ..util.index_entries import split_index_msg
+from ..util.nodes import extract_messages, traverse_translatable_index
+from ..util.osutil import canon_path, ensuredir, relpath
+from ..util.tags import Tags
+from ..util.template import SphinxRenderer
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Iterator, Sequence
@@ -34,9 +34,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element
 
-    from sphinx.application import Sphinx
-    from sphinx.util.i18n import CatalogInfo
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.i18n import CatalogInfo
+    from ..util.typing import ExtensionMetadata
 
 DEFAULT_TEMPLATE_PATH = package_dir.joinpath('templates', 'gettext')
 

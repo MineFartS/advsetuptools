@@ -9,28 +9,28 @@ from typing import TYPE_CHECKING
 
 import sphinx.builders.latex.nodes  # NoQA: F401  # Workaround: import this before writer to avoid ImportError
 from sphinx import addnodes, highlighting, package_dir
-from sphinx._cli.util.colour import darkgreen
+from ..._cli.util.colour import darkgreen
 from sphinx.builders import Builder
-from sphinx.builders.latex.constants import (
+from .constants import (
     ADDITIONAL_SETTINGS,
     DEFAULT_SETTINGS,
     SHORTHANDOFF,
 )
-from sphinx.builders.latex.theming import Theme, ThemeFactory
-from sphinx.builders.latex.util import ExtBabel
-from sphinx.config import ENUM
-from sphinx.environment.adapters.asset import ImageAdapter
-from sphinx.errors import NoUri, SphinxError
+from .theming import Theme, ThemeFactory
+from .util import ExtBabel
+from ...config import ENUM
+from ...environment.adapters.asset import ImageAdapter
+from ...errors import NoUri, SphinxError
 from sphinx.locale import _, __
 from sphinx.util import logging, texescape
-from sphinx.util.display import progress_message, status_iterator
-from sphinx.util.docutils import _get_settings, new_document
-from sphinx.util.fileutil import copy_asset_file
-from sphinx.util.i18n import format_date
-from sphinx.util.nodes import inline_all_toctrees
-from sphinx.util.osutil import SEP, copyfile, make_filename_from_project
-from sphinx.util.template import LaTeXRenderer
-from sphinx.writers.latex import LaTeXTranslator, LaTeXWriter
+from ...util.display import progress_message, status_iterator
+from ...util.docutils import _get_settings, new_document
+from ...util.fileutil import copy_asset_file
+from ...util.i18n import format_date
+from ...util.nodes import inline_all_toctrees
+from ...util.osutil import SEP, copyfile, make_filename_from_project
+from ...util.template import LaTeXRenderer
+from ...writers.latex import LaTeXTranslator, LaTeXWriter
 
 # load docutils.nodes after loading sphinx.builders.latex.nodes
 from docutils import nodes  # isort:skip
@@ -41,9 +41,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util.typing import ExtensionMetadata
+    from ...application import Sphinx
+    from ...config import Config
+    from ...util.typing import ExtensionMetadata
 
 XINDY_LANG_OPTIONS = {
     # language codes from docutils.writers.latex2e.Babel

@@ -12,25 +12,25 @@ from typing import TYPE_CHECKING, final
 from docutils import nodes
 from docutils.utils import DependencyList
 
-from sphinx._cli.util.colour import bold
-from sphinx.deprecation import _deprecation_warning
+from .._cli.util.colour import bold
+from ..deprecation import _deprecation_warning
 from sphinx.environment import (
     CONFIG_CHANGED_REASON,
     CONFIG_OK,
     _CurrentDocument,
 )
-from sphinx.environment.adapters.asset import ImageAdapter
-from sphinx.errors import SphinxError
+from ..environment.adapters.asset import ImageAdapter
+from ..errors import SphinxError
 from sphinx.locale import __
 from sphinx.util import get_filetype, logging
-from sphinx.util._importer import import_object
-from sphinx.util._pathlib import _StrPathProperty
-from sphinx.util.build_phase import BuildPhase
-from sphinx.util.display import progress_message, status_iterator
-from sphinx.util.docutils import _parse_str_to_doctree
-from sphinx.util.i18n import CatalogRepository, docname_to_domain
-from sphinx.util.osutil import ensuredir, relative_uri, relpath
-from sphinx.util.parallel import (
+from ..util._importer import import_object
+from ..util._pathlib import _StrPathProperty
+from ..util.build_phase import BuildPhase
+from ..util.display import progress_message, status_iterator
+from ..util.docutils import _parse_str_to_doctree
+from ..util.i18n import CatalogRepository, docname_to_domain
+from ..util.osutil import ensuredir, relative_uri, relpath
+from ..util.parallel import (
     ParallelTasks,
     SerialTasks,
     make_chunks,
@@ -48,14 +48,14 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
+    from ..application import Sphinx
+    from ..config import Config
     from sphinx.environment import (
         BuildEnvironment,
     )
-    from sphinx.events import EventManager
-    from sphinx.util.i18n import CatalogInfo
-    from sphinx.util.tags import Tags
+    from ..events import EventManager
+    from ..util.i18n import CatalogInfo
+    from ..util.tags import Tags
 
 
 logger = logging.getLogger(__name__)
@@ -174,7 +174,7 @@ class Builder:
             )
             self.templates = template_bridge_cls()
         else:
-            from sphinx.jinja2glue import BuiltinTemplateLoader
+            from ..jinja2glue import BuiltinTemplateLoader
 
             self.templates = BuiltinTemplateLoader()
 
@@ -419,7 +419,7 @@ class Builder:
 
         if updated_docnames:
             # save the environment
-            from sphinx.application import ENV_PICKLE_FILENAME
+            from ..application import ENV_PICKLE_FILENAME
 
             with (
                 progress_message(__('pickling environment')),
@@ -525,8 +525,8 @@ class Builder:
             self._read_serial(docnames)
 
         if self.config.master_doc not in self.env.all_docs:
-            from sphinx.project import EXCLUDE_PATHS
-            from sphinx.util.matching import _translate_pattern
+            from ..project import EXCLUDE_PATHS
+            from ..util.matching import _translate_pattern
 
             master_doc_path = self.env.doc2path(self.config.master_doc)
             master_doc_canon = master_doc_path.as_posix()

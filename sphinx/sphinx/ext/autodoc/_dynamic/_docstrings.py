@@ -2,32 +2,32 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, TypeVar
 
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._dynamic._importer import (
+from ....errors import PycodeError
+from ._importer import (
     _get_attribute_comment,
     _is_runtime_instance_attribute_not_commented,
 )
-from sphinx.ext.autodoc._property_types import _ClassDefProperties
-from sphinx.ext.autodoc._sentinels import (
+from .._property_types import _ClassDefProperties
+from .._sentinels import (
     RUNTIME_INSTANCE_ATTRIBUTE,
     SLOTS_ATTR,
     UNINITIALIZED_ATTR,
 )
-from sphinx.ext.autodoc._shared import LOGGER
+from .._shared import LOGGER
 from sphinx.locale import __
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.util import inspect
-from sphinx.util.docstrings import prepare_docstring
-from sphinx.util.inspect import getdoc
+from ....util.docstrings import prepare_docstring
+from ....util.inspect import getdoc
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Mapping
     from typing import Any, Literal
 
-    from sphinx.events import EventManager
-    from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-    from sphinx.ext.autodoc._property_types import _ItemProperties
-    from sphinx.ext.autodoc._shared import _AttrGetter
+    from ....events import EventManager
+    from .._directive_options import _AutoDocumenterOptions
+    from .._property_types import _ItemProperties
+    from .._shared import _AttrGetter
 
 
 def _docstring_lines_for_props(

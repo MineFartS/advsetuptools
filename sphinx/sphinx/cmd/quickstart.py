@@ -14,7 +14,7 @@ from docutils.utils import column_width
 
 import sphinx.locale
 from sphinx import __display_version__, package_dir
-from sphinx._cli.util.colour import (
+from .._cli.util.colour import (
     _create_input_mode_colour_func,
     bold,
     disable_colour,
@@ -22,8 +22,8 @@ from sphinx._cli.util.colour import (
     terminal_supports_colour,
 )
 from sphinx.locale import __
-from sphinx.util.osutil import ensuredir
-from sphinx.util.template import SphinxRenderer
+from ..util.osutil import ensuredir
+from ..util.template import SphinxRenderer
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Sequence
@@ -77,9 +77,9 @@ PROMPT_PREFIX = '> '
 if sys.platform == 'win32':
     # On Windows, show questions as bold because of PowerShell's colour scheme
     # See: https://github.com/sphinx-doc/sphinx/issues/5294
-    from sphinx._cli.util.colour import bold as _question_colour
+    from .._cli.util.colour import bold as _question_colour
 else:
-    from sphinx._cli.util.colour import purple as _question_colour
+    from .._cli.util.colour import purple as _question_colour
 
     if READLINE_AVAILABLE:
         # Use an input-mode colour function if readline is available

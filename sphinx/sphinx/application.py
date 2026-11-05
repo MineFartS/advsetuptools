@@ -15,25 +15,24 @@ from typing import TYPE_CHECKING, overload
 
 from docutils.parsers.rst import roles
 
-import sphinx
-from sphinx import locale, package_dir
-from sphinx._cli.util.colour import bold
-from sphinx.config import Config
-from sphinx.environment import BuildEnvironment
-from sphinx.errors import ApplicationError, ConfigError, VersionRequirementError
-from sphinx.events import EventManager
-from sphinx.highlighting import lexer_classes
-from sphinx.locale import __
-from sphinx.project import Project
-from sphinx.registry import SphinxComponentRegistry
-from sphinx.util import docutils, logging
-from sphinx.util._pathlib import _StrPath, _StrPathProperty
-from sphinx.util.build_phase import BuildPhase
-from sphinx.util.display import progress_message
-from sphinx.util.i18n import CatalogRepository
-from sphinx.util.logging import prefixed_warnings
-from sphinx.util.osutil import ensuredir, relpath
-from sphinx.util.tags import Tags
+from . import locale, package_dir, __init__ as sphinx
+from ._cli.util.colour import bold
+from .config import Config
+from .environment import BuildEnvironment
+from .errors import ApplicationError, ConfigError, VersionRequirementError
+from .events import EventManager
+from .highlighting import lexer_classes
+from .locale import __
+from .project import Project
+from .registry import SphinxComponentRegistry
+from .util import docutils, logging
+from .util._pathlib import _StrPath, _StrPathProperty
+from .util.build_phase import BuildPhase
+from .util.display import progress_message
+from .util.i18n import CatalogRepository
+from .util.logging import prefixed_warnings
+from .util.osutil import ensuredir, relpath
+from .util.tags import Tags
 
 if TYPE_CHECKING:
     import os
@@ -47,32 +46,32 @@ if TYPE_CHECKING:
     from docutils.transforms import Transform
     from pygments.lexer import Lexer
 
-    from sphinx import addnodes
-    from sphinx.builders import Builder
-    from sphinx.config import ENUM, _ConfigRebuild
-    from sphinx.domains import Domain, Index
-    from sphinx.environment.collectors import EnvironmentCollector
-    from sphinx.ext.autodoc._event_listeners import (
+    from . import addnodes
+    from .builders import Builder
+    from .config import ENUM, _ConfigRebuild
+    from .domains import Domain, Index
+    from .environment.collectors import EnvironmentCollector
+    from .ext.autodoc._event_listeners import (
         _AutodocBeforeProcessSignatureListener,
         _AutodocProcessBasesListener,
         _AutodocProcessDocstringListener,
         _AutodocProcessSignatureListener,
         _AutodocSkipMemberListener,
     )
-    from sphinx.ext.autodoc._legacy_class_based._documenters import Documenter
-    from sphinx.ext.todo import todo_node
-    from sphinx.extension import Extension
-    from sphinx.registry import (
+    from .ext.autodoc._legacy_class_based._documenters import Documenter
+    from .ext.todo import todo_node
+    from .extension import Extension
+    from .registry import (
         _MathsBlockRenderers,
         _MathsInlineRenderers,
         _NodeHandler,
         _NodeHandlerPair,
     )
-    from sphinx.roles import XRefRole
-    from sphinx.search import SearchLanguage
-    from sphinx.theming import Theme
-    from sphinx.util.docfields import Field
-    from sphinx.util.typing import RoleFunction, TitleGetter
+    from .roles import XRefRole
+    from .search import SearchLanguage
+    from .theming import Theme
+    from .util.docfields import Field
+    from .util.typing import RoleFunction, TitleGetter
 
 
 builtin_extensions: tuple[str, ...] = (
@@ -1671,7 +1670,7 @@ class Sphinx:
            Add *override* keyword.
         """
         logger.debug('[app] adding autodocumenter: %r', cls)
-        from sphinx.ext.autodoc.directive import AutodocDirective
+        from .ext.autodoc.directive import AutodocDirective
 
         objtype = cls.objtype
         self.registry.add_documenter(objtype, cls)
@@ -1705,7 +1704,7 @@ class Sphinx:
         .. versionadded:: 1.1
         """
         logger.debug('[app] adding search language: %r', cls)
-        from sphinx.search import languages
+        from .search import languages
 
         languages[cls.lang] = cls
 

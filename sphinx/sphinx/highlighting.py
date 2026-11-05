@@ -22,9 +22,9 @@ from pygments.lexers import (
 from pygments.styles import get_style_by_name
 from pygments.util import ClassNotFound
 
-from sphinx.locale import __
-from sphinx.pygments_styles import NoneStyle, SphinxStyle
-from sphinx.util import logging, texescape
+from .locale import __
+from .pygments_styles import NoneStyle, SphinxStyle
+from .util import logging, texescape
 
 if TYPE_CHECKING:
     from typing import Any

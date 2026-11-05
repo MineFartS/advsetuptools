@@ -10,19 +10,19 @@ if TYPE_CHECKING:
 
     from sphinx.domains import Domain
     from sphinx.domains.c import CDomain
-    from sphinx.domains.changeset import ChangeSetDomain
-    from sphinx.domains.citation import CitationDomain
+    from .changeset import ChangeSetDomain
+    from .citation import CitationDomain
     from sphinx.domains.cpp import CPPDomain
-    from sphinx.domains.index import IndexDomain
-    from sphinx.domains.javascript import JavaScriptDomain
-    from sphinx.domains.math import MathDomain
+    from .index import IndexDomain
+    from .javascript import JavaScriptDomain
+    from .math import MathDomain
     from sphinx.domains.python import PythonDomain
-    from sphinx.domains.rst import ReSTDomain
+    from .rst import ReSTDomain
     from sphinx.domains.std import StandardDomain
     from sphinx.environment import BuildEnvironment
-    from sphinx.ext.duration import DurationDomain
-    from sphinx.ext.todo import TodoDomain
-    from sphinx.registry import SphinxComponentRegistry
+    from ..ext.duration import DurationDomain
+    from ..ext.todo import TodoDomain
+    from ..registry import SphinxComponentRegistry
 
 
 class _DomainsContainer:
@@ -86,14 +86,14 @@ class _DomainsContainer:
     def _from_environment_default(cls, *, env: BuildEnvironment) -> Self:
         """Return a default instance with every domain we require."""
         from sphinx.domains.c import CDomain
-        from sphinx.domains.changeset import ChangeSetDomain
-        from sphinx.domains.citation import CitationDomain
+        from .changeset import ChangeSetDomain
+        from .citation import CitationDomain
         from sphinx.domains.cpp import CPPDomain
-        from sphinx.domains.index import IndexDomain
-        from sphinx.domains.javascript import JavaScriptDomain
-        from sphinx.domains.math import MathDomain
+        from .index import IndexDomain
+        from .javascript import JavaScriptDomain
+        from .math import MathDomain
         from sphinx.domains.python import PythonDomain
-        from sphinx.domains.rst import ReSTDomain
+        from .rst import ReSTDomain
         from sphinx.domains.std import StandardDomain
 
         return cls(

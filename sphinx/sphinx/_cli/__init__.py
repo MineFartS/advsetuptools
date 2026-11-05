@@ -25,7 +25,7 @@ import locale
 import sys
 from typing import TYPE_CHECKING
 
-from sphinx._cli.util.colour import (
+from .util.colour import (
     bold,
     disable_colour,
     enable_colour,

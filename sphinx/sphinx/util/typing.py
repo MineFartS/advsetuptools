@@ -20,8 +20,8 @@ if TYPE_CHECKING:
 
     from typing_extensions import TypeIs
 
-    from sphinx.application import Sphinx
-    from sphinx.util.inventory import _InventoryItem
+    from ..application import Sphinx
+    from .inventory import _InventoryItem
 
     type _RestifyMode = Literal[
         'fully-qualified-except-typing',
@@ -198,7 +198,7 @@ def get_type_hints(
     This is a simple wrapper of `typing.get_type_hints()` that does not raise an error on
     runtime.
     """
-    from sphinx.util.inspect import safe_getattr  # lazy loading
+    from .inspect import safe_getattr  # lazy loading
 
     try:
         return typing.get_type_hints(
@@ -249,8 +249,8 @@ def restify(cls: Any, mode: _RestifyMode = 'fully-qualified-except-typing') -> s
                  'smart'
                      Show the name of the annotation.
     """
-    from sphinx.ext.autodoc._dynamic._mock import ismock, ismockmodule  # lazy loading
-    from sphinx.util.inspect import isgenericalias, object_description  # lazy loading
+    from ..ext.autodoc._dynamic._mock import ismock, ismockmodule  # lazy loading
+    from .inspect import isgenericalias, object_description  # lazy loading
 
     valid_modes = {'fully-qualified-except-typing', 'smart'}
     if mode not in valid_modes:
@@ -382,7 +382,7 @@ def restify(cls: Any, mode: _RestifyMode = 'fully-qualified-except-typing') -> s
 
 
 def _format_literal_arg_restify(arg: Any, /, *, mode: str) -> str:
-    from sphinx.util.inspect import isenumattribute  # lazy loading
+    from .inspect import isenumattribute  # lazy loading
 
     if isenumattribute(arg):
         enum_cls = arg.__class__
@@ -418,7 +418,7 @@ def stringify_annotation(
 
     :param short_literals: Render :py:class:`Literals` in PEP 604 style (``|``).
     """
-    from sphinx.ext.autodoc._dynamic._mock import ismock, ismockmodule  # lazy loading
+    from ..ext.autodoc._dynamic._mock import ismock, ismockmodule  # lazy loading
 
     valid_modes = {'fully-qualified-except-typing', 'fully-qualified', 'smart'}
     if mode not in valid_modes:
@@ -611,7 +611,7 @@ def stringify_annotation(
 
 
 def _format_literal_arg_stringify(arg: Any, /, *, mode: str) -> str:
-    from sphinx.util.inspect import isenumattribute  # lazy loading
+    from .inspect import isenumattribute  # lazy loading
 
     if isenumattribute(arg):
         enum_cls = arg.__class__
@@ -633,7 +633,7 @@ def __getattr__(name: str) -> Any:
         msg = f'module {__name__!r} has no attribute {name!r}'
         raise AttributeError(msg)
 
-    from sphinx.deprecation import _deprecation_warning
+    from ..deprecation import _deprecation_warning
 
     deprecated_object, canonical_name, remove = _DEPRECATED_OBJECTS[name]
     _deprecation_warning(__name__, name, canonical_name, remove=remove)

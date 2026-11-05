@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
     from docutils.nodes import TextElement
 
-    from sphinx.config import Config
+    from ..config import Config
 
     type StringifyTransform = Callable[[Any], str]
 

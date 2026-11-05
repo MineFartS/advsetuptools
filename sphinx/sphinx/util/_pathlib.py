@@ -19,7 +19,7 @@ import warnings
 from pathlib import Path, PosixPath, PurePath, WindowsPath
 from typing import TYPE_CHECKING, overload
 
-from sphinx.deprecation import RemovedInSphinx10Warning
+from ..deprecation import RemovedInSphinx10Warning
 
 if TYPE_CHECKING:
     from typing import Any

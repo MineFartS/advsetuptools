@@ -9,7 +9,7 @@ from docutils import nodes
 from sphinx import addnodes
 from sphinx.domains import Domain
 from sphinx.locale import _
-from sphinx.util.docutils import SphinxDirective
+from ..util.docutils import SphinxDirective
 
 if TYPE_CHECKING:
     from collections.abc import Set
@@ -17,9 +17,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 name_aliases = {
     'version-added': 'versionadded',

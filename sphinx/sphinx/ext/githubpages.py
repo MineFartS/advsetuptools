@@ -8,9 +8,9 @@ from typing import TYPE_CHECKING
 import sphinx
 
 if TYPE_CHECKING:
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ..util.typing import ExtensionMetadata
 
 
 def _get_domain_from_url(url: str) -> str:

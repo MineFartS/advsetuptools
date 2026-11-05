@@ -8,16 +8,16 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from sphinx import package_dir
-from sphinx.ext.apidoc._shared import LOGGER
+from ._shared import LOGGER
 from sphinx.locale import __
-from sphinx.util.osutil import FileAvoidWrite
-from sphinx.util.template import ReSTRenderer
+from ...util.osutil import FileAvoidWrite
+from ...util.template import ReSTRenderer
 
 if TYPE_CHECKING:
     import re
     from collections.abc import Iterable, Iterator, Sequence
 
-    from sphinx.ext.apidoc._shared import ApidocOptions
+    from ._shared import ApidocOptions
 
 
 # automodule options

@@ -10,9 +10,9 @@ from docutils.writers import manpage
 from sphinx import addnodes
 from sphinx.locale import _, admonitionlabels
 from sphinx.util import logging
-from sphinx.util.docutils import SphinxTranslator
-from sphinx.util.i18n import format_date
-from sphinx.util.nodes import NodeMatcher
+from ..util.docutils import SphinxTranslator
+from ..util.i18n import format_date
+from ..util.nodes import NodeMatcher
 
 if TYPE_CHECKING:
     from collections.abc import Iterable

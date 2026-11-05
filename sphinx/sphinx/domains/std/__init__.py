@@ -12,15 +12,15 @@ from docutils.parsers.rst import directives
 from docutils.statemachine import StringList
 
 from sphinx import addnodes
-from sphinx.addnodes import pending_xref
+from ...addnodes import pending_xref
 from sphinx.directives import ObjectDescription
 from sphinx.domains import Domain, ObjType
 from sphinx.locale import _, __
-from sphinx.roles import EmphasizedLiteral, XRefRole
+from ...roles import EmphasizedLiteral, XRefRole
 from sphinx.util import docname_join, logging, ws_re
-from sphinx.util.docutils import SphinxDirective
-from sphinx.util.nodes import clean_astext, make_id, make_refnode
-from sphinx.util.parsing import nested_parse_to_nodes
+from ...util.docutils import SphinxDirective
+from ...util.nodes import clean_astext, make_id, make_refnode
+from ...util.parsing import nested_parse_to_nodes
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Iterator, MutableSequence, Set
@@ -28,11 +28,11 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node, system_message
 
-    from sphinx.addnodes import desc_signature
-    from sphinx.application import Sphinx
+    from ...addnodes import desc_signature
+    from ...application import Sphinx
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import (
+    from ...util.typing import (
         ExtensionMetadata,
         OptionSpec,
     )

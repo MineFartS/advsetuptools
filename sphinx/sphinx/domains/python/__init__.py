@@ -13,13 +13,13 @@ from docutils.parsers.rst import directives
 
 from sphinx import addnodes
 from sphinx.domains import Domain, Index, IndexEntry, ObjType
-from sphinx.domains.python._annotations import _parse_annotation
-from sphinx.domains.python._object import PyObject
+from ._annotations import _parse_annotation
+from ._object import PyObject
 from sphinx.locale import _, __
-from sphinx.roles import XRefRole
+from ...roles import XRefRole
 from sphinx.util import logging
-from sphinx.util.docutils import SphinxDirective
-from sphinx.util.nodes import (
+from ...util.docutils import SphinxDirective
+from ...util.nodes import (
     find_pending_xref_condition,
     make_id,
     make_refnode,
@@ -31,20 +31,20 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node
 
-    from sphinx.addnodes import desc_signature, pending_xref
-    from sphinx.application import Sphinx
+    from ...addnodes import desc_signature, pending_xref
+    from ...application import Sphinx
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ...util.typing import ExtensionMetadata, OptionSpec
 
 # re-export objects for backwards compatibility
 # See: https://github.com/sphinx-doc/sphinx/issues/12295
 
-from sphinx.domains.python._annotations import (  # NoQA: F401
+from ._annotations import (  # NoQA: F401
     _parse_arglist,  # for sphinx-immaterial
     type_to_xref,
 )
-from sphinx.domains.python._object import (  # NoQA: F401
+from ._object import (  # NoQA: F401
     PyField,
     PyGroupedField,
     PyTypedField,

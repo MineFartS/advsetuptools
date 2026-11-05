@@ -7,9 +7,9 @@ import re
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from sphinx._cli.util.colour import bold
-from sphinx.ext.apidoc._generate import create_modules_toc_file, recurse_tree
-from sphinx.ext.apidoc._shared import (
+from ..._cli.util.colour import bold
+from ._generate import create_modules_toc_file, recurse_tree
+from ._shared import (
     LOGGER,
     ApidocDefaults,
     ApidocOptions,
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     from collections.abc import Collection, Sequence
     from typing import Any
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
 
 _BOOL_KEYS = frozenset({
     'follow_links',

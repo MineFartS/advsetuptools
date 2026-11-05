@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 from docutils import nodes
 
 from sphinx import addnodes
-from sphinx.domains.cpp._ids import (
+from ._ids import (
     _id_char_from_prefix,
     _id_explicit_cast,
     _id_fundamental_v1,
@@ -19,7 +19,7 @@ from sphinx.domains.cpp._ids import (
     _id_shorthands_v1,
     _max_id,
 )
-from sphinx.util.cfamily import (
+from ...util.cfamily import (
     ASTBaseBase,
     ASTBaseParenExprList,
     NoOldIdError,
@@ -32,10 +32,10 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, TextElement
 
-    from sphinx.addnodes import desc_signature
-    from sphinx.domains.cpp._symbol import Symbol
+    from ...addnodes import desc_signature
+    from ._symbol import Symbol
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.cfamily import (
+    from ...util.cfamily import (
         ASTAttributeList,
         StringifyTransform,
     )

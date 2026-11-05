@@ -13,9 +13,9 @@ from docutils.parsers.rst.directives.misc import Meta
 from sphinx.directives import optional_int
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.docutils import SphinxDirective, _normalize_options
-from sphinx.util.nodes import set_source_info
-from sphinx.util.osutil import SEP, relpath
+from ..util.docutils import SphinxDirective, _normalize_options
+from ..util.nodes import set_source_info
+from ..util.osutil import SEP, relpath
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -23,8 +23,8 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 
 logger = logging.getLogger(__name__)

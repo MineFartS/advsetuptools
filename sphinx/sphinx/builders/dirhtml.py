@@ -7,11 +7,11 @@ from typing import TYPE_CHECKING
 
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.util import logging
-from sphinx.util.osutil import SEP
+from ..util.osutil import SEP
 
 if TYPE_CHECKING:
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

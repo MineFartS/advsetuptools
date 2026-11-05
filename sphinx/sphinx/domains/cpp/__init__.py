@@ -12,30 +12,30 @@ from docutils.parsers.rst import directives
 from sphinx import addnodes
 from sphinx.directives import ObjectDescription
 from sphinx.domains import Domain, ObjType
-from sphinx.domains.cpp._ast import (
+from ._ast import (
     ASTDeclaration,
     ASTIdentifier,
     ASTNamespace,
     ASTNestedName,
     ASTNestedNameElement,
 )
-from sphinx.domains.cpp._ids import _max_id
-from sphinx.domains.cpp._parser import DefinitionParser
-from sphinx.domains.cpp._symbol import Symbol, _DuplicateSymbolError
-from sphinx.errors import NoUri
+from ._ids import _max_id
+from ._parser import DefinitionParser
+from ._symbol import Symbol, _DuplicateSymbolError
+from ...errors import NoUri
 from sphinx.locale import _, __
-from sphinx.roles import XRefRole
+from ...roles import XRefRole
 from sphinx.transforms import SphinxTransform
 from sphinx.transforms.post_transforms import ReferencesResolver
 from sphinx.util import logging
-from sphinx.util.cfamily import (
+from ...util.cfamily import (
     DefinitionError,
     NoOldIdError,
     anon_identifier_re,
 )
-from sphinx.util.docfields import Field, GroupedField
-from sphinx.util.docutils import SphinxDirective, SphinxRole
-from sphinx.util.nodes import make_refnode
+from ...util.docfields import Field, GroupedField
+from ...util.docutils import SphinxDirective, SphinxRole
+from ...util.nodes import make_refnode
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Set
@@ -43,16 +43,16 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node, TextElement, system_message
 
-    from sphinx.addnodes import desc_signature, pending_xref
-    from sphinx.application import Sphinx
+    from ...addnodes import desc_signature, pending_xref
+    from ...application import Sphinx
     from sphinx.builders import Builder
-    from sphinx.domains.cpp._symbol import LookupKey
+    from ._symbol import LookupKey
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ...util.typing import ExtensionMetadata, OptionSpec
 
 # re-export objects for backwards compatibility
 # See: https://github.com/sphinx-doc/sphinx/issues/12295
-from sphinx.domains.cpp._ast import (  # NoQA: F401
+from ._ast import (  # NoQA: F401
     ASTAlignofExpr,
     ASTArray,
     ASTAssignmentExpr,

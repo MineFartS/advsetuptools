@@ -8,9 +8,9 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 
 from sphinx import addnodes
-from sphinx.addnodes import pending_xref, pending_xref_condition
+from ...addnodes import pending_xref, pending_xref_condition
 from sphinx.directives import ObjectDescription
-from sphinx.domains.python._annotations import (
+from ._annotations import (
     _parse_annotation,
     _parse_arglist,
     _parse_type_list,
@@ -19,8 +19,8 @@ from sphinx.domains.python._annotations import (
 )
 from sphinx.locale import _
 from sphinx.util import logging
-from sphinx.util.docfields import Field, GroupedField, TypedField
-from sphinx.util.nodes import (
+from ...util.docfields import Field, GroupedField, TypedField
+from ...util.nodes import (
     make_id,
 )
 
@@ -31,9 +31,9 @@ if TYPE_CHECKING:
     from docutils.nodes import Node
     from docutils.parsers.rst.states import Inliner
 
-    from sphinx.addnodes import desc_signature
+    from ...addnodes import desc_signature
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import OptionSpec, TextlikeNode
+    from ...util.typing import OptionSpec, TextlikeNode
 
 logger = logging.getLogger(__name__)
 

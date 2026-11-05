@@ -12,8 +12,8 @@ from typing import TYPE_CHECKING
 from docutils import nodes
 from docutils.utils import get_source_line
 
-from sphinx._cli.util.colour import colourise
-from sphinx.errors import SphinxWarning
+from .._cli.util.colour import colourise
+from ..errors import SphinxWarning
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Mapping, Sequence, Set
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
 
 
 NAMESPACE = 'sphinx'

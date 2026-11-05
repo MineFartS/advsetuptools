@@ -9,8 +9,8 @@ if TYPE_CHECKING:
     from collections.abc import Sequence
     from typing import Any, Protocol
 
-    from sphinx.application import Sphinx
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
+    from ...application import Sphinx
+    from ._property_types import _AutodocObjType
 
     class _AutodocProcessDocstringListener(Protocol):
         # parameter names are non-normative

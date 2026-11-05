@@ -14,17 +14,17 @@ from typing import TYPE_CHECKING, cast
 from docutils import nodes
 
 import sphinx
-from sphinx.errors import ExtensionError
+from ..errors import ExtensionError
 from sphinx.locale import _
-from sphinx.util.math import get_node_equation_number
+from ..util.math import get_node_equation_number
 
 if TYPE_CHECKING:
     from typing import Any
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
     from sphinx.builders.html import StandaloneHTMLBuilder
-    from sphinx.util.typing import ExtensionMetadata
-    from sphinx.writers.html5 import HTML5Translator
+    from ..util.typing import ExtensionMetadata
+    from ..writers.html5 import HTML5Translator
 
 # more information for mathjax secure url is here:
 # https://docs.mathjax.org/en/latest/web/start.html#using-mathjax-from-a-content-delivery-network-cdn

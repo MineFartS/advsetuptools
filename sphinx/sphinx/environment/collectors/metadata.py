@@ -11,9 +11,9 @@ from sphinx.environment.collectors import EnvironmentCollector
 if TYPE_CHECKING:
     from collections.abc import Set
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ...util.typing import ExtensionMetadata
 
 
 class MetadataCollector(EnvironmentCollector):

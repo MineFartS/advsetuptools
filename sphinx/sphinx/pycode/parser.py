@@ -14,7 +14,7 @@ from token import DEDENT, INDENT, NAME, NEWLINE, NUMBER, OP, STRING
 from tokenize import COMMENT, NL
 from typing import TYPE_CHECKING
 
-from sphinx.pycode.ast import unparse as ast_unparse
+from .ast import unparse as ast_unparse
 
 if TYPE_CHECKING:
     from inspect import Signature
@@ -280,7 +280,7 @@ class VariableCommentPicker(ast.NodeVisitor):
 
     def add_overload_entry(self, func: ast.FunctionDef) -> None:
         # avoid circular import problem
-        from sphinx.util.inspect import signature_from_ast
+        from ..util.inspect import signature_from_ast
 
         qualname = self.get_qualname_for(func.name)
         if qualname:

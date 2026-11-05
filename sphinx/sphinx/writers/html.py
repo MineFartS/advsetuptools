@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING, cast
 from docutils.writers import html4css1
 
 from sphinx.util import logging
-from sphinx.writers.html5 import HTML5Translator
+from .html5 import HTML5Translator
 
 if TYPE_CHECKING:
     from sphinx.builders.html import StandaloneHTMLBuilder

@@ -5,7 +5,7 @@ from __future__ import annotations
 import snowballstemmer
 
 from sphinx.search import SearchLanguage
-from sphinx.search._stopwords.nl import DUTCH_STOPWORDS
+from ._stopwords.nl import DUTCH_STOPWORDS
 
 
 class SearchDutch(SearchLanguage):

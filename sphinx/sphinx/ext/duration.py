@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
     from docutils import nodes
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
 
     class _DurationDomainData(TypedDict):
         reading_durations: dict[str, float]

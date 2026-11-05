@@ -15,7 +15,7 @@ try:
 except ImportError:
     HAS_MULTIPROCESSING = False
 
-from sphinx.errors import SphinxParallelError
+from ..errors import SphinxParallelError
 from sphinx.util import logging
 
 if TYPE_CHECKING:

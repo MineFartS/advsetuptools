@@ -66,27 +66,27 @@ from docutils.statemachine import StringList
 
 import sphinx
 from sphinx import addnodes
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-from sphinx.ext.autodoc._dynamic._importer import _import_module
-from sphinx.ext.autodoc._dynamic._loader import _load_object_by_name
-from sphinx.ext.autodoc._dynamic._member_finder import _best_object_type_for_member
-from sphinx.ext.autodoc._dynamic._mock import mock
-from sphinx.ext.autodoc._sentinels import INSTANCE_ATTR
-from sphinx.ext.autodoc._shared import _AutodocAttrGetter, _AutodocConfig
+from ...errors import PycodeError
+from ..autodoc._directive_options import _AutoDocumenterOptions
+from ..autodoc._dynamic._importer import _import_module
+from ..autodoc._dynamic._loader import _load_object_by_name
+from ..autodoc._dynamic._member_finder import _best_object_type_for_member
+from ..autodoc._dynamic._mock import mock
+from ..autodoc._sentinels import INSTANCE_ATTR
+from ..autodoc._shared import _AutodocAttrGetter, _AutodocConfig
 from sphinx.locale import __
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.util import logging, rst
-from sphinx.util.docutils import (
+from ...util.docutils import (
     NullReporter,
     SphinxDirective,
     SphinxRole,
     new_document,
     switch_source_input,
 )
-from sphinx.util.inspect import getmro, signature_from_str
-from sphinx.util.matching import Matcher
-from sphinx.util.parsing import nested_parse_to_nodes
+from ...util.inspect import getmro, signature_from_str
+from ...util.matching import Matcher
+from ...util.parsing import nested_parse_to_nodes
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -94,11 +94,11 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node, system_message
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
     from sphinx.environment import BuildEnvironment
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
-    from sphinx.writers.html5 import HTML5Translator
+    from ..autodoc._property_types import _AutodocObjType
+    from ...util.typing import ExtensionMetadata, OptionSpec
+    from ...writers.html5 import HTML5Translator
 
 logger = logging.getLogger(__name__)
 
@@ -865,7 +865,7 @@ def process_generate_options(app: Sphinx) -> None:
         )
         return
 
-    from sphinx.ext.autosummary.generate import generate_autosummary_docs
+    from .generate import generate_autosummary_docs
 
     imported_members = app.config.autosummary_imported_members
     with mock(app.config.autosummary_mock_imports):

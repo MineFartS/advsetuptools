@@ -14,19 +14,19 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 import sphinx
-from sphinx.ext.apidoc._cli import main
+from ._cli import main
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ...application import Sphinx
+    from ...util.typing import ExtensionMetadata
 
 __all__: Sequence[str] = 'main', 'setup'
 
 
 def setup(app: Sphinx) -> ExtensionMetadata:
-    from sphinx.ext.apidoc._extension import run_apidoc
+    from ._extension import run_apidoc
 
     # Require autodoc
     app.setup_extension('sphinx.ext.autodoc')

@@ -9,11 +9,11 @@ from collections import defaultdict
 from operator import attrgetter
 from typing import TYPE_CHECKING, NamedTuple, overload
 
-from sphinx.deprecation import _deprecation_warning
-from sphinx.errors import ExtensionError, SphinxError
-from sphinx.locale import __
-from sphinx.util import logging
-from sphinx.util.inspect import safe_getattr
+from .deprecation import _deprecation_warning
+from .errors import ExtensionError, SphinxError
+from .locale import __
+from .util import logging
+from .util.inspect import safe_getattr
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Sequence, Set
@@ -22,20 +22,20 @@ if TYPE_CHECKING:
 
     from docutils import nodes
 
-    from sphinx import addnodes
-    from sphinx.application import Sphinx
-    from sphinx.builders import Builder
-    from sphinx.config import Config
-    from sphinx.domains import Domain
-    from sphinx.environment import BuildEnvironment
-    from sphinx.ext.autodoc._event_listeners import (
+    from . import addnodes
+    from .application import Sphinx
+    from .builders import Builder
+    from .config import Config
+    from .domains import Domain
+    from .environment import BuildEnvironment
+    from .ext.autodoc._event_listeners import (
         _AutodocBeforeProcessSignatureListener,
         _AutodocProcessBasesListener,
         _AutodocProcessDocstringListener,
         _AutodocProcessSignatureListener,
         _AutodocSkipMemberListener,
     )
-    from sphinx.ext.todo import todo_node
+    from .ext.todo import todo_node
 
 
 logger = logging.getLogger(__name__)

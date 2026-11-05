@@ -6,25 +6,25 @@ import traceback
 from importlib.machinery import EXTENSION_SUFFIXES
 from typing import TYPE_CHECKING, NamedTuple
 
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._dynamic._importer import (
+from ...errors import PycodeError
+from ._dynamic._importer import (
     _find_type_stub_spec,  # NoQA: F401
     _reload_module,  # NoQA: F401
     _StubFileLoader,  # NoQA: F401
 )
-from sphinx.ext.autodoc._dynamic._importer import (
+from ._dynamic._importer import (
     _import_module as import_module,
 )
-from sphinx.ext.autodoc._dynamic._importer import _mangle_name as mangle
-from sphinx.ext.autodoc._dynamic._member_finder import (
+from ._dynamic._importer import _mangle_name as mangle
+from ._dynamic._member_finder import (
     _filter_enum_dict,
     _is_native_enum_api,  # NoQA: F401
     unmangle,
 )
-from sphinx.ext.autodoc._dynamic._mock import ismock, undecorate
-from sphinx.ext.autodoc._shared import LOGGER
+from ._dynamic._mock import ismock, undecorate
+from ._shared import LOGGER
 from sphinx.pycode import ModuleAnalyzer
-from sphinx.util.inspect import (
+from ...util.inspect import (
     getannotations,
     getmro,
     getslots,
@@ -35,7 +35,7 @@ from sphinx.util.inspect import (
 if TYPE_CHECKING:
     from typing import Any, Protocol
 
-    from sphinx.ext.autodoc._legacy_class_based._documenters import ObjectMember
+    from ._legacy_class_based._documenters import ObjectMember
 
     class _AttrGetter(Protocol):
         def __call__(self, obj: Any, name: str, default: Any = ..., /) -> Any: ...
@@ -144,7 +144,7 @@ def get_object_members(
     analyzer: ModuleAnalyzer | None = None,
 ) -> dict[str, Attribute]:
     """Get members and attributes of target object."""
-    from sphinx.ext.autodoc._legacy_class_based._sentinels import INSTANCEATTR
+    from ._legacy_class_based._sentinels import INSTANCEATTR
 
     # the members directly defined in the class
     obj_dict = attrgetter(subject, '__dict__', {})
@@ -169,7 +169,7 @@ def get_object_members(
     try:
         subject___slots__ = getslots(subject)
         if subject___slots__:
-            from sphinx.ext.autodoc._legacy_class_based._sentinels import SLOTSATTR
+            from ._legacy_class_based._sentinels import SLOTSATTR
 
             for name in subject___slots__:
                 members[name] = Attribute(
@@ -217,8 +217,8 @@ def get_class_members(
     subject: Any, objpath: Any, attrgetter: _AttrGetter, inherit_docstrings: bool = True
 ) -> dict[str, ObjectMember]:
     """Get members and attributes of target class."""
-    from sphinx.ext.autodoc._legacy_class_based._documenters import ObjectMember
-    from sphinx.ext.autodoc._legacy_class_based._sentinels import INSTANCEATTR
+    from ._legacy_class_based._documenters import ObjectMember
+    from ._legacy_class_based._sentinels import INSTANCEATTR
 
     # the members directly defined in the class
     obj_dict = attrgetter(subject, '__dict__', {})
@@ -241,7 +241,7 @@ def get_class_members(
     try:
         subject___slots__ = getslots(subject)
         if subject___slots__:
-            from sphinx.ext.autodoc._legacy_class_based._sentinels import SLOTSATTR
+            from ._legacy_class_based._sentinels import SLOTSATTR
 
             for name, docstring in subject___slots__.items():
                 members[name] = ObjectMember(

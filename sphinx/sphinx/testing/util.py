@@ -15,7 +15,7 @@ from docutils.parsers.rst import directives, roles
 import sphinx.application
 import sphinx.locale
 import sphinx.pycode
-from sphinx.util.docutils import additional_nodes
+from ..util.docutils import additional_nodes
 
 if TYPE_CHECKING:
     import os

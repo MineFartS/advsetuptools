@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-from sphinx.util._pathlib import _StrPath
+from .util._pathlib import _StrPath
 
 TYPE_CHECKING = False
 if TYPE_CHECKING:

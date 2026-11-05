@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sphinx.util._pathlib import _StrPath
+from ...util._pathlib import _StrPath
 
 if TYPE_CHECKING:
     from sphinx.environment import BuildEnvironment

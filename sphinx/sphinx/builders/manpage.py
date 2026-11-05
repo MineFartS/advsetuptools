@@ -5,15 +5,15 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from sphinx import addnodes
-from sphinx._cli.util.colour import darkgreen
+from .._cli.util.colour import darkgreen
 from sphinx.builders import Builder
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.display import progress_message
-from sphinx.util.docutils import _get_settings
-from sphinx.util.nodes import inline_all_toctrees
-from sphinx.util.osutil import ensuredir, make_filename_from_project
-from sphinx.writers.manpage import (
+from ..util.display import progress_message
+from ..util.docutils import _get_settings
+from ..util.nodes import inline_all_toctrees
+from ..util.osutil import ensuredir, make_filename_from_project
+from ..writers.manpage import (
     ManualPageTranslator,
     ManualPageWriter,
     NestedInlineTransform,
@@ -22,9 +22,9 @@ from sphinx.writers.manpage import (
 if TYPE_CHECKING:
     from collections.abc import Set
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..config import Config
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

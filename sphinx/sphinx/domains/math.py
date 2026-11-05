@@ -9,9 +9,9 @@ from docutils.nodes import make_id
 
 from sphinx.domains import Domain
 from sphinx.locale import __
-from sphinx.roles import XRefRole
+from ..roles import XRefRole
 from sphinx.util import logging
-from sphinx.util.nodes import make_refnode
+from ..util.nodes import make_refnode
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Set
@@ -19,11 +19,11 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node, system_message
 
-    from sphinx.addnodes import pending_xref
-    from sphinx.application import Sphinx
+    from ..addnodes import pending_xref
+    from ..application import Sphinx
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ..util.typing import ExtensionMetadata
 
 
 logger = logging.getLogger(__name__)

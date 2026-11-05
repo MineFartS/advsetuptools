@@ -12,11 +12,11 @@ import babel.dates
 from babel.messages.mofile import write_mo
 from babel.messages.pofile import read_po
 
-from sphinx.errors import SphinxError
+from ..errors import SphinxError
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.osutil import SEP, _last_modified_time
+from ._pathlib import _StrPath
+from .osutil import SEP, _last_modified_time
 
 if TYPE_CHECKING:
     import datetime as dt

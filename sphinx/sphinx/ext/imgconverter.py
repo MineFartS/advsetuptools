@@ -8,16 +8,16 @@ from subprocess import CalledProcessError
 from typing import TYPE_CHECKING
 
 import sphinx
-from sphinx.errors import ExtensionError
+from ..errors import ExtensionError
 from sphinx.locale import __
-from sphinx.transforms.post_transforms.images import ImageConverter
+from ..transforms.post_transforms.images import ImageConverter
 from sphinx.util import logging
 
 if TYPE_CHECKING:
     import os
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

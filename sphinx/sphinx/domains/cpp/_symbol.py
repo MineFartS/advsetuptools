@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sphinx.domains.cpp._ast import (
+from ._ast import (
     ASTDeclaration,
     ASTNestedName,
     ASTNestedNameElement,
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Iterator, Sequence
     from typing import Any, NoReturn
 
-    from sphinx.domains.cpp._ast import (
+    from ._ast import (
         ASTIdentifier,
         ASTOperator,
         ASTTemplateArgs,

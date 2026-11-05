@@ -23,35 +23,35 @@ from docutils import nodes
 
 from sphinx import __display_version__, package_dir
 from sphinx import version_info as sphinx_version
-from sphinx._cli.util.colour import bold
+from ..._cli.util.colour import bold
 from sphinx.builders import Builder
-from sphinx.builders.html._assets import (
+from ._assets import (
     _CascadingStyleSheet,
     _file_checksum,
     _JavaScript,
 )
-from sphinx.builders.html._build_info import BuildInfo
-from sphinx.config import ENUM
+from ._build_info import BuildInfo
+from ...config import ENUM
 from sphinx.domains import Index, IndexEntry
-from sphinx.environment.adapters.asset import ImageAdapter
-from sphinx.environment.adapters.indexentries import IndexEntries
-from sphinx.environment.adapters.toctree import document_toc, global_toctree_for_doc
-from sphinx.errors import ConfigError, ThemeError
-from sphinx.highlighting import PygmentsBridge
+from ...environment.adapters.asset import ImageAdapter
+from ...environment.adapters.indexentries import IndexEntries
+from ...environment.adapters.toctree import document_toc, global_toctree_for_doc
+from ...errors import ConfigError, ThemeError
+from ...highlighting import PygmentsBridge
 from sphinx.locale import _, __
 from sphinx.search import js_index
-from sphinx.theming import HTMLThemeFactory
+from ...theming import HTMLThemeFactory
 from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util._timestamps import _format_rfc3339_microseconds
-from sphinx.util._uri import is_url
-from sphinx.util.display import progress_message, status_iterator
-from sphinx.util.docutils import _get_settings, new_document
-from sphinx.util.fileutil import copy_asset
-from sphinx.util.i18n import format_date
-from sphinx.util.inventory import InventoryFile
-from sphinx.util.matching import DOTFILES, Matcher, patmatch
-from sphinx.util.osutil import (
+from ...util._pathlib import _StrPath
+from ...util._timestamps import _format_rfc3339_microseconds
+from ...util._uri import is_url
+from ...util.display import progress_message, status_iterator
+from ...util.docutils import _get_settings, new_document
+from ...util.fileutil import copy_asset
+from ...util.i18n import format_date
+from ...util.inventory import InventoryFile
+from ...util.matching import DOTFILES, Matcher, patmatch
+from ...util.osutil import (
     SEP,
     _last_modified_time,
     _relative_path,
@@ -59,8 +59,8 @@ from sphinx.util.osutil import (
     ensuredir,
     relative_uri,
 )
-from sphinx.writers.html import HTMLWriter
-from sphinx.writers.html5 import HTML5Translator
+from ...writers.html import HTMLWriter
+from ...writers.html5 import HTML5Translator
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Set
@@ -68,10 +68,10 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
+    from ...application import Sphinx
+    from ...config import Config
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ...util.typing import ExtensionMetadata
 
 #: the filename for the inventory of objects
 INVENTORY_FILENAME = 'objects.inv'

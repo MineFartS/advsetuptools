@@ -15,9 +15,9 @@ from sphinx import addnodes
 from sphinx.domains.std import StandardDomain
 from sphinx.locale import _, __
 from sphinx.util import docname_join, logging, url_re
-from sphinx.util.docutils import SphinxDirective
-from sphinx.util.matching import Matcher, patfilter
-from sphinx.util.nodes import explicit_title_re
+from ..util.docutils import SphinxDirective
+from ..util.matching import Matcher, patfilter
+from ..util.nodes import explicit_title_re
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -25,8 +25,8 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 
 glob_re = re.compile(r'.*[*?\[].*')

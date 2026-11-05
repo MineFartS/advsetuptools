@@ -15,7 +15,7 @@ from docutils.utils import column_width
 
 from sphinx import addnodes
 from sphinx.locale import _, admonitionlabels
-from sphinx.util.docutils import SphinxTranslator
+from ..util.docutils import SphinxTranslator
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Iterator, Sequence
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Text
 
-    from sphinx.builders.text import TextBuilder
+    from ..builders.text import TextBuilder
 
 
 class Cell:

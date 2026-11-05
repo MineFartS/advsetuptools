@@ -17,18 +17,18 @@ from importlib import import_module
 from typing import TYPE_CHECKING
 
 import sphinx
-from sphinx._cli.util.colour import red
+from .._cli.util.colour import red
 from sphinx.builders import Builder
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.inspect import safe_getattr
+from ..util.inspect import safe_getattr
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Iterator, Sequence, Set
     from typing import IO, Any, TextIO
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

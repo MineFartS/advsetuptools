@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     from typing import Any, Final, NoReturn
 
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import Inventory
+    from ...util.typing import Inventory
 
     #: The inventory project URL to which links are resolved.
     #:

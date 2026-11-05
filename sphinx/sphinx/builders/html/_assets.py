@@ -5,7 +5,7 @@ import zlib
 from functools import cache
 from typing import TYPE_CHECKING
 
-from sphinx.errors import ThemeError
+from ...errors import ThemeError
 
 if TYPE_CHECKING:
     from pathlib import Path

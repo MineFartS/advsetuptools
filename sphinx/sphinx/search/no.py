@@ -5,7 +5,7 @@ from __future__ import annotations
 import snowballstemmer
 
 from sphinx.search import SearchLanguage
-from sphinx.search._stopwords.no import NORWEGIAN_STOPWORDS
+from ._stopwords.no import NORWEGIAN_STOPWORDS
 
 
 class SearchNorwegian(SearchLanguage):

@@ -7,16 +7,16 @@ from typing import TYPE_CHECKING
 from sphinx.builders import Builder
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.osutil import _last_modified_time
-from sphinx.writers.text import TextTranslator
+from ..util.osutil import _last_modified_time
+from ..writers.text import TextTranslator
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
 
     from docutils import nodes
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

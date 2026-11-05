@@ -9,7 +9,7 @@ from __future__ import annotations
 import copy
 from typing import TYPE_CHECKING
 
-from sphinx.domains._index import Index, IndexEntry
+from ._index import Index, IndexEntry
 from sphinx.locale import _
 
 if TYPE_CHECKING:
@@ -21,11 +21,11 @@ if TYPE_CHECKING:
     from docutils.parsers.rst import Directive
     from docutils.parsers.rst.states import Inliner
 
-    from sphinx.addnodes import pending_xref
+    from ..addnodes import pending_xref
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.roles import XRefRole
-    from sphinx.util.typing import RoleFunction, TitleGetter
+    from ..roles import XRefRole
+    from ..util.typing import RoleFunction, TitleGetter
 
 __all__ = (
     'Domain',

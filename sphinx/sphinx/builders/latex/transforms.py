@@ -8,7 +8,7 @@ from docutils import nodes
 from docutils.transforms.references import Substitutions
 
 from sphinx import addnodes
-from sphinx.builders.latex.nodes import (
+from .nodes import (
     captioned_literal_block,
     footnotemark,
     footnotetext,
@@ -18,15 +18,15 @@ from sphinx.builders.latex.nodes import (
 from sphinx.locale import __
 from sphinx.transforms import SphinxTransform
 from sphinx.transforms.post_transforms import SphinxPostTransform
-from sphinx.util.nodes import NodeMatcher
+from ...util.nodes import NodeMatcher
 
 if TYPE_CHECKING:
     from typing import Any
 
     from docutils.nodes import Element, Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ...application import Sphinx
+    from ...util.typing import ExtensionMetadata
 
 URI_SCHEMES = ('mailto:', 'http:', 'https:', 'ftp:')
 

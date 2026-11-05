@@ -28,7 +28,7 @@ import sphinx
 from sphinx.locale import __
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx.util import logging, rst
-from sphinx.util.nodes import split_explicit_title
+from ..util.nodes import split_explicit_title
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -37,8 +37,8 @@ if TYPE_CHECKING:
     from docutils.nodes import Node, system_message
     from docutils.parsers.rst.states import Inliner
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata, RoleFunction
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata, RoleFunction
 
 logger = logging.getLogger(__name__)
 

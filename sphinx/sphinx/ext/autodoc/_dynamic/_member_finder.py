@@ -6,19 +6,19 @@ import sys
 from enum import Enum
 from typing import TYPE_CHECKING, Literal, NewType, TypeVar
 
-from sphinx.errors import PycodeError
-from sphinx.events import EventManager
-from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-from sphinx.ext.autodoc._dynamic._loader import _load_object_by_name
-from sphinx.ext.autodoc._dynamic._mock import ismock, undecorate
-from sphinx.ext.autodoc._property_types import _ClassDefProperties, _ModuleProperties
-from sphinx.ext.autodoc._sentinels import ALL, INSTANCE_ATTR, SLOTS_ATTR
-from sphinx.ext.autodoc._shared import LOGGER
+from ....errors import PycodeError
+from ....events import EventManager
+from .._directive_options import _AutoDocumenterOptions
+from ._loader import _load_object_by_name
+from ._mock import ismock, undecorate
+from .._property_types import _ClassDefProperties, _ModuleProperties
+from .._sentinels import ALL, INSTANCE_ATTR, SLOTS_ATTR
+from .._shared import LOGGER
 from sphinx.locale import __
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.util import inspect
-from sphinx.util.docstrings import separate_metadata
-from sphinx.util.inspect import (
+from ....util.docstrings import separate_metadata
+from ....util.inspect import (
     getannotations,
     getdoc,
     getmro,
@@ -28,23 +28,23 @@ from sphinx.util.inspect import (
     safe_getattr,
     unwrap_all,
 )
-from sphinx.util.typing import AnyTypeAliasType
+from ....util.typing import AnyTypeAliasType
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Iterator, Mapping, MutableSet, Sequence, Set
     from typing import Any, Literal
 
     from sphinx.environment import _CurrentDocument
-    from sphinx.events import EventManager
-    from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-    from sphinx.ext.autodoc._property_types import _AutodocObjType, _ItemProperties
-    from sphinx.ext.autodoc._sentinels import (
+    from ....events import EventManager
+    from .._directive_options import _AutoDocumenterOptions
+    from .._property_types import _AutodocObjType, _ItemProperties
+    from .._sentinels import (
         ALL_T,
         EMPTY_T,
         INSTANCE_ATTR_T,
         SLOTS_ATTR_T,
     )
-    from sphinx.ext.autodoc._shared import _AttrGetter, _AutodocConfig
+    from .._shared import _AttrGetter, _AutodocConfig
 
 special_member_re = re.compile(r'^__\S+__$')
 

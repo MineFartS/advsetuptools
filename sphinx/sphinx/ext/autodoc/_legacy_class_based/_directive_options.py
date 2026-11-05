@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from sphinx.ext.autodoc._legacy_class_based._sentinels import ALL, EMPTY, SUPPRESS
+from ._sentinels import ALL, EMPTY, SUPPRESS
 from sphinx.locale import __
 
 

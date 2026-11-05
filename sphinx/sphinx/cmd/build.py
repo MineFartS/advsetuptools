@@ -13,19 +13,19 @@ from typing import TYPE_CHECKING
 import sphinx._cli.util.errors
 import sphinx.locale
 from sphinx import __display_version__
-from sphinx._cli.util.colour import disable_colour, terminal_supports_colour
-from sphinx.application import Sphinx
+from .._cli.util.colour import disable_colour, terminal_supports_colour
+from ..application import Sphinx
 from sphinx.locale import __
-from sphinx.util._io import TeeStripANSI
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.docutils import docutils_namespace, patch_docutils
-from sphinx.util.osutil import ensuredir
+from ..util._io import TeeStripANSI
+from ..util._pathlib import _StrPath
+from ..util.docutils import docutils_namespace, patch_docutils
+from ..util.osutil import ensuredir
 
 if TYPE_CHECKING:
     from collections.abc import Collection, Sequence
     from typing import Any, TextIO
 
-    from sphinx.extension import Extension
+    from ..extension import Extension
 
 
 def handle_exception(

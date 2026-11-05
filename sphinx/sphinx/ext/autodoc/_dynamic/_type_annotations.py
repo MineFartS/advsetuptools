@@ -3,13 +3,13 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from sphinx.util import inspect
-from sphinx.util.typing import stringify_annotation
+from ....util.typing import stringify_annotation
 
 if TYPE_CHECKING:
     from collections.abc import Mapping
     from typing import Any
 
-    from sphinx.util.typing import _StringifyMode
+    from ....util.typing import _StringifyMode
 
 
 def _record_typehints(

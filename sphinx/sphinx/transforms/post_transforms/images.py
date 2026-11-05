@@ -14,16 +14,16 @@ from docutils import nodes
 from sphinx.locale import __
 from sphinx.transforms import SphinxTransform
 from sphinx.util import logging, requests
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.http_date import epoch_to_rfc1123, rfc1123_to_epoch
-from sphinx.util.images import get_image_extension, guess_mimetype, parse_data_uri
-from sphinx.util.osutil import ensuredir
+from ...util._pathlib import _StrPath
+from ...util.http_date import epoch_to_rfc1123, rfc1123_to_epoch
+from ...util.images import get_image_extension, guess_mimetype, parse_data_uri
+from ...util.osutil import ensuredir
 
 if TYPE_CHECKING:
     from typing import Any
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ...application import Sphinx
+    from ...util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

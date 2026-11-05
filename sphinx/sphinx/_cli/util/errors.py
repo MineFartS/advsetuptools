@@ -4,13 +4,13 @@ import re
 import sys
 from typing import TYPE_CHECKING
 
-from sphinx.errors import SphinxError, SphinxParallelError
+from ...errors import SphinxError, SphinxParallelError
 
 if TYPE_CHECKING:
     from collections.abc import Collection
     from typing import Final, Protocol
 
-    from sphinx.extension import Extension
+    from ...extension import Extension
 
     class SupportsWrite(Protocol):
         def write(self, text: str, /) -> int | None: ...
@@ -173,7 +173,7 @@ def handle_exception(
 
     from docutils.utils import SystemMessage
 
-    from sphinx._cli.util.colour import red
+    from .colour import red
     from sphinx.locale import __
 
     if isinstance(exception, BdbQuit):

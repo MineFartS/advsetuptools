@@ -11,10 +11,10 @@ from jinja2 import BaseLoader, FileSystemLoader, TemplateNotFound
 from jinja2.sandbox import SandboxedEnvironment
 from jinja2.utils import open_if_exists, pass_context
 
-from sphinx.application import TemplateBridge
-from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.osutil import _last_modified_time
+from .application import TemplateBridge
+from .util import logging
+from .util._pathlib import _StrPath
+from .util.osutil import _last_modified_time
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator
@@ -22,12 +22,12 @@ if TYPE_CHECKING:
 
     from jinja2.environment import Environment
 
-    from sphinx.builders import Builder
-    from sphinx.environment.adapters.indexentries import (
+    from .builders import Builder
+    from .environment.adapters.indexentries import (
         _RealIndexEntries,
         _RealIndexEntry,
     )
-    from sphinx.theming import Theme
+    from .theming import Theme
 
 
 def _tobool(val: str) -> bool:

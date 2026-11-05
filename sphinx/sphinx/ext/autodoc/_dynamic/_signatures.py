@@ -6,20 +6,20 @@ import sys
 from inspect import Parameter, Signature
 from typing import TYPE_CHECKING, NewType, TypeVar
 
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._dynamic._preserve_defaults import update_default_value
-from sphinx.ext.autodoc._dynamic._type_annotations import _record_typehints
-from sphinx.ext.autodoc._dynamic._type_comments import (
+from ....errors import PycodeError
+from ._preserve_defaults import update_default_value
+from ._type_annotations import _record_typehints
+from ._type_comments import (
     _update_annotations_using_type_comments,
 )
-from sphinx.ext.autodoc._names import py_ext_sig_re
-from sphinx.ext.autodoc._property_types import _AssignStatementProperties
-from sphinx.ext.autodoc._shared import LOGGER
+from .._names import py_ext_sig_re
+from .._property_types import _AssignStatementProperties
+from .._shared import LOGGER
 from sphinx.locale import __
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.util import inspect
-from sphinx.util.docstrings import prepare_docstring
-from sphinx.util.inspect import (
+from ....util.docstrings import prepare_docstring
+from ....util.inspect import (
     _stringify_signature_to_parts,
     evaluate_signature,
     safe_getattr,
@@ -29,10 +29,10 @@ if TYPE_CHECKING:
     from collections.abc import Callable, Mapping
     from typing import Any
 
-    from sphinx.events import EventManager
-    from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-    from sphinx.ext.autodoc._property_types import _ItemProperties
-    from sphinx.ext.autodoc._shared import _AttrGetter, _AutodocConfig
+    from ....events import EventManager
+    from .._directive_options import _AutoDocumenterOptions
+    from .._property_types import _ItemProperties
+    from .._shared import _AttrGetter, _AutodocConfig
 
     type _FormattedSignature = tuple[str, str]
 
@@ -56,7 +56,7 @@ def _format_signatures(
     Let the user process it via the ``autodoc-process-signature`` event.
     """
     if props.obj_type in {'class', 'exception'}:
-        from sphinx.ext.autodoc._property_types import _ClassDefProperties
+        from .._property_types import _ClassDefProperties
 
         assert isinstance(props, _ClassDefProperties)
         if props.doc_as_attr:
@@ -157,7 +157,7 @@ def _format_signatures(
             return signatures
 
         if is_singledispatch:
-            from sphinx.ext.autodoc._property_types import _FunctionDefProperties
+            from .._property_types import _FunctionDefProperties
 
             # append signature of singledispatch'ed functions
             for typ, func in props._obj.registry.items():
@@ -206,7 +206,7 @@ def _format_signatures(
         return signatures
 
     if props.obj_type in {'class', 'exception'}:
-        from sphinx.ext.autodoc._property_types import _ClassDefProperties
+        from .._property_types import _ClassDefProperties
 
         assert isinstance(props, _ClassDefProperties)
         method_name = props._signature_method_name
@@ -267,7 +267,7 @@ def _format_signatures(
             return signatures
 
         if is_singledispatch:
-            from sphinx.ext.autodoc._property_types import _FunctionDefProperties
+            from .._property_types import _FunctionDefProperties
 
             # append signature of singledispatch'ed methods
             for typ, func in meth.dispatcher.registry.items():
@@ -303,7 +303,7 @@ def _format_signatures(
                     props=dispatch_props,
                 )
         if overloaded:
-            from sphinx.ext.autodoc._property_types import _FunctionDefProperties
+            from .._property_types import _FunctionDefProperties
 
             assert isinstance(props, _FunctionDefProperties)
             actual = inspect.signature(
@@ -569,7 +569,7 @@ def _get_object_for_signature(
             except ValueError:
                 continue
             else:
-                from sphinx.ext.autodoc._property_types import _ClassDefProperties
+                from .._property_types import _ClassDefProperties
 
                 assert isinstance(props, _ClassDefProperties)
                 props._signature_method_name = meth_name

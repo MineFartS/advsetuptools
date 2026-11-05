@@ -11,9 +11,9 @@ import inspect
 import types
 from typing import TYPE_CHECKING
 
-from sphinx.ext.autodoc._shared import LOGGER
+from .._shared import LOGGER
 from sphinx.locale import __
-from sphinx.pycode.ast import unparse as ast_unparse
+from ....pycode.ast import unparse as ast_unparse
 
 if TYPE_CHECKING:
     from typing import Any

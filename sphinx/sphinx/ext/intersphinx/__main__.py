@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging as _logging
 import sys
 
-from sphinx.ext.intersphinx._cli import inspect_main
+from ._cli import inspect_main
 
 _logging.basicConfig()
 

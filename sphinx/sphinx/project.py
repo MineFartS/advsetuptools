@@ -7,11 +7,11 @@ import os
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from sphinx.locale import __
-from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.matching import get_matching_files
-from sphinx.util.osutil import path_stabilize
+from .locale import __
+from .util import logging
+from .util._pathlib import _StrPath
+from .util.matching import get_matching_files
+from .util.osutil import path_stabilize
 
 if TYPE_CHECKING:
     from collections.abc import Iterable

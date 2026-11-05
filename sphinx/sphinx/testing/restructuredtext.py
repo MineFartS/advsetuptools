@@ -2,13 +2,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sphinx.parsers import RSTParser
-from sphinx.util.docutils import _parse_str_to_doctree
+from ..parsers import RSTParser
+from ..util.docutils import _parse_str_to_doctree
 
 if TYPE_CHECKING:
     from docutils import nodes
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
 
 
 def parse(app: Sphinx, text: str, docname: str = 'index') -> nodes.document:

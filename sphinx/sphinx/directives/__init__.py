@@ -10,18 +10,18 @@ from docutils.parsers.rst import directives, roles
 
 from sphinx import addnodes
 from sphinx.util import docutils
-from sphinx.util.docfields import DocFieldTransformer
-from sphinx.util.docutils import SphinxDirective
+from ..util.docfields import DocFieldTransformer
+from ..util.docutils import SphinxDirective
 
 if TYPE_CHECKING:
     from typing import ClassVar
 
     from docutils.nodes import Node
 
-    from sphinx.addnodes import desc_signature
-    from sphinx.application import Sphinx
-    from sphinx.util.docfields import Field, TypedField
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..addnodes import desc_signature
+    from ..application import Sphinx
+    from ..util.docfields import Field, TypedField
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 
 # RE to strip backslash escapes

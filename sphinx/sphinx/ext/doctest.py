@@ -19,13 +19,13 @@ from packaging.specifiers import InvalidSpecifier, SpecifierSet
 from packaging.version import Version
 
 import sphinx
-from sphinx._cli.util.colour import bold
+from .._cli.util.colour import bold
 from sphinx.builders import Builder
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.docutils import SphinxDirective
-from sphinx.util.nodes import _is_doctest_block
-from sphinx.util.osutil import relpath
+from ..util.docutils import SphinxDirective
+from ..util.nodes import _is_doctest_block
+from ..util.osutil import relpath
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Set
@@ -33,8 +33,8 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node, TextElement
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 
 logger = logging.getLogger(__name__)

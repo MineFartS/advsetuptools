@@ -16,8 +16,8 @@ from docutils import nodes
 from docutils.nodes import Element
 
 from sphinx import addnodes, package_dir
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.index_entries import split_index_msg
+from ..util._pathlib import _StrPath
+from ..util.index_entries import split_index_msg
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Set
@@ -118,7 +118,7 @@ var Stemmer = function () {
 
 
 # SearchEnglish imported after SearchLanguage is defined due to circular import
-from sphinx.search.en import SearchEnglish  # NoQA: E402
+from .en import SearchEnglish  # NoQA: E402
 
 
 def parse_stop_word(source: str) -> set[str]:

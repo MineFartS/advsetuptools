@@ -8,7 +8,7 @@ from docutils import nodes
 
 from sphinx import addnodes
 from sphinx.domains.std import StandardDomain
-from sphinx.environment.adapters.toctree import note_toctree
+from ..adapters.toctree import note_toctree
 from sphinx.environment.collectors import EnvironmentCollector
 from sphinx.locale import __
 from sphinx.transforms import SphinxContentsFilter
@@ -19,9 +19,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ...util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

@@ -8,13 +8,13 @@ from typing import TYPE_CHECKING, cast
 
 from docutils import nodes
 
-from sphinx.addnodes import pending_xref
-from sphinx.errors import ExtensionError
-from sphinx.ext.intersphinx._shared import LOGGER, InventoryAdapter
+from ...addnodes import pending_xref
+from ...errors import ExtensionError
+from ._shared import LOGGER, InventoryAdapter
 from sphinx.locale import _, __
 from sphinx.transforms.post_transforms import ReferencesResolver
-from sphinx.util.docutils import CustomReSTDispatcher, SphinxRole
-from sphinx.util.osutil import _relative_path
+from ...util.docutils import CustomReSTDispatcher, SphinxRole
+from ...util.osutil import _relative_path
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Sequence, Set
@@ -24,13 +24,13 @@ if TYPE_CHECKING:
     from docutils.nodes import Node, TextElement, system_message
     from docutils.utils import Reporter
 
-    from sphinx.application import Sphinx
+    from ...application import Sphinx
     from sphinx.domains import Domain
-    from sphinx.domains._domains_container import _DomainsContainer
+    from ...domains._domains_container import _DomainsContainer
     from sphinx.environment import BuildEnvironment
-    from sphinx.ext.intersphinx._shared import InventoryName
-    from sphinx.util.inventory import _InventoryItem
-    from sphinx.util.typing import Inventory, RoleFunction
+    from ._shared import InventoryName
+    from ...util.inventory import _InventoryItem
+    from ...util.typing import Inventory, RoleFunction
 
 
 def _create_element_from_result(

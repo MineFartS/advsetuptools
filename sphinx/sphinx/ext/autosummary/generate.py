@@ -31,12 +31,12 @@ from jinja2.sandbox import SandboxedEnvironment
 import sphinx.locale
 from sphinx import __display_version__, package_dir
 from sphinx.builders import Builder
-from sphinx.config import Config
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._dynamic._importer import _import_module
-from sphinx.ext.autodoc._dynamic._member_finder import _filter_enum_dict, unmangle
-from sphinx.ext.autodoc._dynamic._mock import ismock, undecorate
-from sphinx.ext.autodoc._sentinels import INSTANCE_ATTR, SLOTS_ATTR
+from ...config import Config
+from ...errors import PycodeError
+from ..autodoc._dynamic._importer import _import_module
+from ..autodoc._dynamic._member_finder import _filter_enum_dict, unmangle
+from ..autodoc._dynamic._mock import ismock, undecorate
+from ..autodoc._sentinels import INSTANCE_ATTR, SLOTS_ATTR
 from sphinx.ext.autosummary import (
     ImportExceptionGroup,
     _get_documenter,
@@ -45,10 +45,10 @@ from sphinx.ext.autosummary import (
 )
 from sphinx.locale import __
 from sphinx.pycode import ModuleAnalyzer
-from sphinx.registry import SphinxComponentRegistry
+from ...registry import SphinxComponentRegistry
 from sphinx.util import logging, rst
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.inspect import (
+from ...util._pathlib import _StrPath
+from ...util.inspect import (
     getall,
     getannotations,
     getmro,
@@ -56,8 +56,8 @@ from sphinx.util.inspect import (
     isenumclass,
     safe_getattr,
 )
-from sphinx.util.osutil import ensuredir
-from sphinx.util.template import SphinxTemplateLoader
+from ...util.osutil import ensuredir
+from ...util.template import SphinxTemplateLoader
 
 if TYPE_CHECKING:
     import os
@@ -65,9 +65,9 @@ if TYPE_CHECKING:
     from gettext import NullTranslations
     from typing import Any
 
-    from sphinx.application import Sphinx
-    from sphinx.events import EventManager
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
+    from ...application import Sphinx
+    from ...events import EventManager
+    from ..autodoc._property_types import _AutodocObjType
 
 logger = logging.getLogger(__name__)
 

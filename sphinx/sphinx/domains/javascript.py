@@ -12,13 +12,13 @@ from docutils.parsers.rst import directives
 from sphinx import addnodes
 from sphinx.directives import ObjectDescription
 from sphinx.domains import Domain, ObjType
-from sphinx.domains.python._annotations import _pseudo_parse_arglist
+from .python._annotations import _pseudo_parse_arglist
 from sphinx.locale import _, __
-from sphinx.roles import XRefRole
+from ..roles import XRefRole
 from sphinx.util import logging
-from sphinx.util.docfields import Field, GroupedField, TypedField
-from sphinx.util.docutils import SphinxDirective
-from sphinx.util.nodes import make_id, make_refnode
+from ..util.docfields import Field, GroupedField, TypedField
+from ..util.docutils import SphinxDirective
+from ..util.nodes import make_id, make_refnode
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Set
@@ -26,11 +26,11 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node
 
-    from sphinx.addnodes import desc_signature, pending_xref
-    from sphinx.application import Sphinx
+    from ..addnodes import desc_signature, pending_xref
+    from ..application import Sphinx
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 logger = logging.getLogger(__name__)
 

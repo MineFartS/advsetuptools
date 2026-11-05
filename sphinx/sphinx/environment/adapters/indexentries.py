@@ -7,10 +7,10 @@ import unicodedata
 from itertools import groupby
 from typing import TYPE_CHECKING
 
-from sphinx.errors import NoUri
+from ...errors import NoUri
 from sphinx.locale import _, __
 from sphinx.util import logging
-from sphinx.util.index_entries import _split_into
+from ...util.index_entries import _split_into
 
 if TYPE_CHECKING:
     from typing import Literal

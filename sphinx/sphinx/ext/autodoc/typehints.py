@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING, cast
 from docutils import nodes
 
 from sphinx import addnodes
-from sphinx.ext.autodoc._dynamic._type_annotations import _record_typehints
+from ._dynamic._type_annotations import _record_typehints
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -16,9 +16,9 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element
 
-    from sphinx.application import Sphinx
-    from sphinx.ext.autodoc._legacy_class_based._directive_options import Options
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
+    from ...application import Sphinx
+    from ._legacy_class_based._directive_options import Options
+    from ._property_types import _AutodocObjType
 
 
 # Retained: legacy class-based

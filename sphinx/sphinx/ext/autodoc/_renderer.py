@@ -2,13 +2,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sphinx.ext.autodoc._property_types import (
+from ._property_types import (
     _AssignStatementProperties,
     _ClassDefProperties,
     _FunctionDefProperties,
     _TypeStatementProperties,
 )
-from sphinx.ext.autodoc._sentinels import SUPPRESS
+from ._sentinels import SUPPRESS
 from sphinx.locale import _
 
 if TYPE_CHECKING:
@@ -17,8 +17,8 @@ if TYPE_CHECKING:
 
     from docutils.statemachine import StringList
 
-    from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-    from sphinx.ext.autodoc._property_types import _ItemProperties
+    from ._directive_options import _AutoDocumenterOptions
+    from ._property_types import _ItemProperties
 
 
 def _directive_header_lines(

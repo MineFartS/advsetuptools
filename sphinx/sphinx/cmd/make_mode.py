@@ -16,10 +16,10 @@ from contextlib import chdir
 from typing import TYPE_CHECKING
 
 import sphinx
-from sphinx._cli.util.colour import blue, bold, disable_colour, terminal_supports_colour
-from sphinx.cmd.build import build_main
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.osutil import rmtree
+from .._cli.util.colour import blue, bold, disable_colour, terminal_supports_colour
+from .build import build_main
+from ..util._pathlib import _StrPath
+from ..util.osutil import rmtree
 
 if TYPE_CHECKING:
     from collections.abc import Sequence

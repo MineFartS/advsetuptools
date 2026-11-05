@@ -21,21 +21,21 @@ from docutils import nodes
 
 import sphinx
 from sphinx import package_dir
-from sphinx.errors import SphinxError
+from ..errors import SphinxError
 from sphinx.locale import _, __
 from sphinx.util import logging
-from sphinx.util.math import get_node_equation_number, wrap_displaymath
-from sphinx.util.png import read_png_depth, write_png_depth
-from sphinx.util.template import LaTeXRenderer
+from ..util.math import get_node_equation_number, wrap_displaymath
+from ..util.png import read_png_depth, write_png_depth
+from ..util.template import LaTeXRenderer
 
 if TYPE_CHECKING:
     from docutils.nodes import Element
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util._pathlib import _StrPath
-    from sphinx.util.typing import ExtensionMetadata
-    from sphinx.writers.html5 import HTML5Translator
+    from ..application import Sphinx
+    from ..config import Config
+    from ..util._pathlib import _StrPath
+    from ..util.typing import ExtensionMetadata
+    from ..writers.html5 import HTML5Translator
 
 logger = logging.getLogger(__name__)
 

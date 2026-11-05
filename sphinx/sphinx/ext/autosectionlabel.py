@@ -10,13 +10,13 @@ from docutils import nodes
 import sphinx
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.nodes import clean_astext
+from ..util.nodes import clean_astext
 
 if TYPE_CHECKING:
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

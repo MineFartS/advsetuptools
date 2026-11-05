@@ -21,15 +21,15 @@ from typing import TYPE_CHECKING
 from docutils import nodes
 
 import sphinx
-from sphinx.util.docutils import SphinxDirective
+from ..util.docutils import SphinxDirective
 
 if TYPE_CHECKING:
     from typing import ClassVar
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 
 class ifconfig(nodes.Element):

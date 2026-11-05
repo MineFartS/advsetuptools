@@ -10,11 +10,11 @@ from typing import TYPE_CHECKING
 
 import sphinx.locale
 from sphinx import __display_version__
-from sphinx.cmd.quickstart import EXTENSIONS
-from sphinx.ext.apidoc._generate import create_modules_toc_file, recurse_tree
-from sphinx.ext.apidoc._shared import LOGGER, ApidocOptions, _remove_old_files
+from ...cmd.quickstart import EXTENSIONS
+from ._generate import create_modules_toc_file, recurse_tree
+from ._shared import LOGGER, ApidocOptions, _remove_old_files
 from sphinx.locale import __
-from sphinx.util.osutil import ensuredir
+from ...util.osutil import ensuredir
 
 if TYPE_CHECKING:
     from collections.abc import Sequence

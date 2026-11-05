@@ -5,7 +5,7 @@ from __future__ import annotations
 import shutil
 
 import sphinx._cli.util.colour
-from sphinx._cli.util.colour import (  # NoQA: F401
+from .._cli.util.colour import (  # NoQA: F401
     _create_input_mode_colour_func,
     black,
     blink,
@@ -34,7 +34,7 @@ from sphinx._cli.util.colour import (  # NoQA: F401
     white,
     yellow,
 )
-from sphinx._cli.util.errors import strip_escape_sequences
+from .._cli.util.errors import strip_escape_sequences
 
 color_terminal = terminal_supports_colour
 nocolor = disable_colour

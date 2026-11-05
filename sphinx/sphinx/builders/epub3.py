@@ -13,19 +13,19 @@ from typing import TYPE_CHECKING, NamedTuple
 
 from sphinx import package_dir
 from sphinx.builders import _epub_base
-from sphinx.config import ENUM
+from ..config import ENUM
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.fileutil import copy_asset_file
-from sphinx.util.osutil import make_filename
+from ..util.fileutil import copy_asset_file
+from ..util.osutil import make_filename
 
 if TYPE_CHECKING:
     from collections.abc import Set
     from typing import Any
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..config import Config
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

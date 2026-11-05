@@ -8,16 +8,16 @@ from importlib.metadata import entry_points
 from types import MethodType
 from typing import TYPE_CHECKING
 
-from sphinx.domains import ObjType
-from sphinx.domains.std import GenericObject, Target
-from sphinx.errors import ExtensionError, SphinxError, VersionRequirementError
-from sphinx.extension import Extension
-from sphinx.locale import __
-from sphinx.parsers import Parser as SphinxParser
-from sphinx.roles import XRefRole
-from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.logging import prefixed_warnings
+from .domains import ObjType
+from .domains.std import GenericObject, Target
+from .errors import ExtensionError, SphinxError, VersionRequirementError
+from .extension import Extension
+from .locale import __
+from .parsers import Parser as SphinxParser
+from .roles import XRefRole
+from .util import logging
+from .util._pathlib import _StrPath
+from .util.logging import prefixed_warnings
 
 if TYPE_CHECKING:
     import os
@@ -31,21 +31,21 @@ if TYPE_CHECKING:
     from docutils.parsers.rst import Directive
     from docutils.transforms import Transform
 
-    from sphinx import addnodes
-    from sphinx.application import Sphinx
-    from sphinx.builders import Builder
-    from sphinx.config import Config
-    from sphinx.domains import Domain, Index
-    from sphinx.environment import BuildEnvironment
-    from sphinx.ext.autodoc._legacy_class_based._documenters import Documenter
-    from sphinx.util.docfields import Field
-    from sphinx.util.typing import (
+    from . import addnodes
+    from .application import Sphinx
+    from .builders import Builder
+    from .config import Config
+    from .domains import Domain, Index
+    from .environment import BuildEnvironment
+    from .ext.autodoc._legacy_class_based._documenters import Documenter
+    from .util.docfields import Field
+    from .util.typing import (
         ExtensionMetadata,
         RoleFunction,
         TitleGetter,
         _ExtensionSetupFunc,
     )
-    from sphinx.writers.html5 import HTML5Translator
+    from .writers.html5 import HTML5Translator
 
     # visit/depart function
     # the parameters should be (SphinxTranslator, Element)
@@ -594,7 +594,7 @@ class SphinxComponentRegistry:
             app.extensions[extname] = Extension(extname, mod, **metadata)
 
     def get_envversion(self, app: Sphinx) -> Mapping[str, int]:
-        from sphinx.environment import _get_env_version
+        from .environment import _get_env_version
 
         return _get_env_version(app.extensions)
 

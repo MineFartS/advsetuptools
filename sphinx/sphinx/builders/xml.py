@@ -10,13 +10,13 @@ from docutils.writers.docutils_xml import XMLTranslator
 from sphinx.builders import Builder
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.osutil import _last_modified_time
+from ..util.osutil import _last_modified_time
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

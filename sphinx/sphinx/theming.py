@@ -16,22 +16,22 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 from zipfile import ZipFile
 
-from sphinx import package_dir
-from sphinx.config import check_confval_types as _config_post_init
-from sphinx.deprecation import RemovedInSphinx10Warning
-from sphinx.errors import ThemeError
-from sphinx.locale import __
-from sphinx.util import logging
-from sphinx.util._pathlib import _StrPath
-from sphinx.util.osutil import ensuredir
+from . import package_dir
+from .config import check_confval_types as _config_post_init
+from .deprecation import RemovedInSphinx10Warning
+from .errors import ThemeError
+from .locale import __
+from .util import logging
+from .util._pathlib import _StrPath
+from .util.osutil import ensuredir
 
 if TYPE_CHECKING:
     from collections.abc import Callable
     from typing import Any, Required, TypedDict
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.registry import SphinxComponentRegistry
+    from .application import Sphinx
+    from .config import Config
+    from .registry import SphinxComponentRegistry
 
     class _ThemeToml(TypedDict, total=False):
         theme: Required[_ThemeTomlTheme]

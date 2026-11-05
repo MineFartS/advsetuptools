@@ -39,13 +39,13 @@ from types import NoneType
 from typing import TYPE_CHECKING
 
 import sphinx
-from sphinx.ext.intersphinx._cli import inspect_main
-from sphinx.ext.intersphinx._load import (
+from ._cli import inspect_main
+from ._load import (
     fetch_inventory,
     load_mappings,
     validate_intersphinx_mapping,
 )
-from sphinx.ext.intersphinx._resolve import (
+from ._resolve import (
     IntersphinxDispatcher,
     IntersphinxRole,
     IntersphinxRoleResolver,
@@ -56,11 +56,11 @@ from sphinx.ext.intersphinx._resolve import (
     resolve_reference_detect_inventory,
     resolve_reference_in_inventory,
 )
-from sphinx.ext.intersphinx._shared import InventoryAdapter
+from ._shared import InventoryAdapter
 
 if TYPE_CHECKING:
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ...application import Sphinx
+    from ...util.typing import ExtensionMetadata
 
 
 def setup(app: Sphinx) -> ExtensionMetadata:
@@ -103,7 +103,7 @@ def __getattr__(name: str) -> object:
         msg = f'module {__name__!r} has no attribute {name!r}'
         raise AttributeError(msg)
 
-    from sphinx.deprecation import _deprecation_warning
+    from ...deprecation import _deprecation_warning
 
     deprecated_object, canonical_name, remove = _DEPRECATED_OBJECTS[name]
     _deprecation_warning(__name__, name, canonical_name, remove=remove)

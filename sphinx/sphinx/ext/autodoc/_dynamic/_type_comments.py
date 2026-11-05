@@ -10,13 +10,13 @@ from types import ModuleType
 from typing import TYPE_CHECKING, cast
 from weakref import WeakSet
 
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._shared import LOGGER
+from ....errors import PycodeError
+from .._shared import LOGGER
 from sphinx.locale import __
 from sphinx.pycode import ModuleAnalyzer
-from sphinx.pycode.ast import unparse as ast_unparse
+from ....pycode.ast import unparse as ast_unparse
 from sphinx.util import inspect
-from sphinx.util.inspect import safe_getattr
+from ....util.inspect import safe_getattr
 
 if TYPE_CHECKING:
     from collections.abc import Sequence

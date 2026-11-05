@@ -16,11 +16,11 @@ from docutils.utils import normalize_language_tag
 from docutils.utils.smartquotes import smartchars
 
 from sphinx import addnodes
-from sphinx.deprecation import _deprecation_warning
+from ..deprecation import _deprecation_warning
 from sphinx.locale import _, __
 from sphinx.util import logging
-from sphinx.util.i18n import format_date
-from sphinx.util.nodes import (
+from ..util.i18n import format_date
+from ..util.nodes import (
     _is_doctest_block,
     apply_source_workaround,
     is_smartquotable,
@@ -33,11 +33,11 @@ if TYPE_CHECKING:
     from docutils.nodes import Node
     from typing_extensions import TypeIs
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
+    from ..application import Sphinx
+    from ..config import Config
     from sphinx.domains.std import StandardDomain
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ..util.typing import ExtensionMetadata
 
     type _DEFAULT_SUBSTITUTION_NAMES = Literal[
         'version',
@@ -101,7 +101,7 @@ class SphinxTransformer(Transformer):
         else:
             # wrap the target node by document node during transforming
             try:
-                from sphinx.util.docutils import new_document
+                from ..util.docutils import new_document
 
                 document = new_document('')
                 if self.env:

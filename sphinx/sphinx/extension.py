@@ -6,16 +6,16 @@ from typing import TYPE_CHECKING
 
 from packaging.version import InvalidVersion, Version
 
-from sphinx.errors import VersionRequirementError
-from sphinx.locale import __
-from sphinx.util import logging
+from .errors import VersionRequirementError
+from .locale import __
+from .util import logging
 
 if TYPE_CHECKING:
     from typing import Any
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util.typing import ExtensionMetadata
+    from .application import Sphinx
+    from .config import Config
+    from .util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

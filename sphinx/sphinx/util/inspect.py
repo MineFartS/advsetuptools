@@ -19,9 +19,9 @@ from io import StringIO
 from types import ClassMethodDescriptorType, MethodDescriptorType, WrapperDescriptorType
 from typing import TYPE_CHECKING, Any, ForwardRef
 
-from sphinx.pycode.ast import unparse as ast_unparse
+from ..pycode.ast import unparse as ast_unparse
 from sphinx.util import logging
-from sphinx.util.typing import stringify_annotation
+from .typing import stringify_annotation
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator, Sequence
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
 
     from typing_extensions import TypeIs
 
-    from sphinx.util.typing import _StringifyMode
+    from .typing import _StringifyMode
 
     class _SupportsGet(Protocol):
         def __get__(self, instance: Any, owner: type | None = ..., /) -> Any: ...

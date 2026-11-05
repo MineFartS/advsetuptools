@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from sphinx.testing.util import SphinxTestApp, SphinxTestAppWrapperForSkipBuilding
+from .util import SphinxTestApp, SphinxTestAppWrapperForSkipBuilding
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator

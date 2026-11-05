@@ -5,7 +5,7 @@ from __future__ import annotations
 import snowballstemmer
 
 from sphinx.search import SearchLanguage
-from sphinx.search._stopwords.fi import FINNISH_STOPWORDS
+from ._stopwords.fi import FINNISH_STOPWORDS
 
 
 class SearchFinnish(SearchLanguage):

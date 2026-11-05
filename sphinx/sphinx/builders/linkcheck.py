@@ -23,15 +23,15 @@ from requests.exceptions import (
 )
 from requests.exceptions import Timeout as RequestTimeout
 
-from sphinx._cli.util.colour import darkgray, darkgreen, purple, red, turquoise
-from sphinx.builders.dummy import DummyBuilder
-from sphinx.errors import ConfigError
+from .._cli.util.colour import darkgray, darkgreen, purple, red, turquoise
+from .dummy import DummyBuilder
+from ..errors import ConfigError
 from sphinx.locale import __
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx.util import logging, requests
-from sphinx.util._uri import encode_uri
-from sphinx.util.http_date import rfc1123_to_epoch
-from sphinx.util.nodes import NodeMatcher, get_node_line
+from ..util._uri import encode_uri
+from ..util.http_date import rfc1123_to_epoch
+from ..util.nodes import NodeMatcher, get_node_line
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator, Sequence
@@ -39,10 +39,10 @@ if TYPE_CHECKING:
 
     from requests import Response
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.util._pathlib import _StrPath
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..config import Config
+    from ..util._pathlib import _StrPath
+    from ..util.typing import ExtensionMetadata
 
     type _URIProperties = tuple[_Status, str, int]
 

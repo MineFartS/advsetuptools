@@ -5,7 +5,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from sphinx.ext.intersphinx._load import (
+from ._load import (
     _fetch_inventory_data,
     _InvConfig,
     _load_inventory,

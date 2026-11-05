@@ -13,8 +13,8 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from .application import Sphinx
+    from .util.typing import ExtensionMetadata
 
 
 class translatable(nodes.Node):

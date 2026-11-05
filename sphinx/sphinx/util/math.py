@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from docutils import nodes
 
-    from sphinx.writers.html5 import HTML5Translator
+    from ..writers.html5 import HTML5Translator
 
 
 def get_node_equation_number(writer: HTML5Translator, node: nodes.math_block) -> str:

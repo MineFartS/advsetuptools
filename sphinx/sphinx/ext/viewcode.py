@@ -18,9 +18,9 @@ from sphinx.locale import _, __
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx.util import logging
-from sphinx.util.display import status_iterator
-from sphinx.util.nodes import make_refnode
-from sphinx.util.osutil import _last_modified_time
+from ..util.display import status_iterator
+from ..util.nodes import make_refnode
+from ..util.osutil import _last_modified_time
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Set
@@ -28,12 +28,12 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
     from sphinx.builders import Builder
     from sphinx.builders.html import StandaloneHTMLBuilder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util._pathlib import _StrPath
-    from sphinx.util.typing import ExtensionMetadata
+    from ..util._pathlib import _StrPath
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

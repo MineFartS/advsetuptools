@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import dataclasses
 
-from sphinx.ext.autodoc._sentinels import RUNTIME_INSTANCE_ATTRIBUTE, UNINITIALIZED_ATTR
+from ._sentinels import RUNTIME_INSTANCE_ATTRIBUTE, UNINITIALIZED_ATTR
 
 TYPE_CHECKING = False
 if TYPE_CHECKING:
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from pathlib import Path
     from typing import Any, Literal
 
-    from sphinx.ext.autodoc._sentinels import (
+    from ._sentinels import (
         RUNTIME_INSTANCE_ATTRIBUTE_T,
         SLOTS_ATTR_T,
         UNINITIALIZED_ATTR_T,

@@ -5,7 +5,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, NamedTuple
 
-from sphinx.errors import SphinxError
+from ..errors import SphinxError
 
 if TYPE_CHECKING:
     from collections.abc import Iterable

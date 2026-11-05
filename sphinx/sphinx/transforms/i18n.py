@@ -12,15 +12,15 @@ from docutils import nodes
 
 from sphinx import addnodes
 from sphinx.domains.std import make_glossary_term, split_term_classifiers
-from sphinx.errors import ConfigError
+from ..errors import ConfigError
 from sphinx.locale import __
 from sphinx.locale import init as init_locale
 from sphinx.transforms import SphinxTransform
 from sphinx.util import get_filetype, logging
-from sphinx.util.docutils import LoggingReporter
-from sphinx.util.i18n import docname_to_domain
-from sphinx.util.index_entries import split_index_msg
-from sphinx.util.nodes import (
+from ..util.docutils import LoggingReporter
+from ..util.i18n import docname_to_domain
+from ..util.index_entries import split_index_msg
+from ..util.nodes import (
     IMAGE_TYPE_NODES,
     LITERAL_TYPE_NODES,
     NodeMatcher,
@@ -31,12 +31,12 @@ from sphinx.util.nodes import (
 if TYPE_CHECKING:
     from collections.abc import Callable, Sequence
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
+    from ..application import Sphinx
+    from ..config import Config
     from sphinx.environment import BuildEnvironment
-    from sphinx.registry import SphinxComponentRegistry
-    from sphinx.util.docutils import _DocutilsSettings
-    from sphinx.util.typing import ExtensionMetadata
+    from ..registry import SphinxComponentRegistry
+    from ..util.docutils import _DocutilsSettings
+    from ..util.typing import ExtensionMetadata
 
 
 logger = logging.getLogger(__name__)
@@ -634,7 +634,7 @@ class TranslationProgressTotaliser(SphinxTransform):
     default_priority = 25  # MUST happen after Locale
 
     def apply(self, **kwargs: Any) -> None:
-        from sphinx.builders.gettext import MessageCatalogBuilder
+        from ..builders.gettext import MessageCatalogBuilder
 
         if issubclass(self.env._builder_cls, MessageCatalogBuilder):
             return
@@ -657,7 +657,7 @@ class AddTranslationClasses(SphinxTransform):
     default_priority = 950
 
     def apply(self, **kwargs: Any) -> None:
-        from sphinx.builders.gettext import MessageCatalogBuilder
+        from ..builders.gettext import MessageCatalogBuilder
 
         if issubclass(self.env._builder_cls, MessageCatalogBuilder):
             return
@@ -695,7 +695,7 @@ class RemoveTranslatableInline(SphinxTransform):
     default_priority = 999
 
     def apply(self, **kwargs: Any) -> None:
-        from sphinx.builders.gettext import MessageCatalogBuilder
+        from ..builders.gettext import MessageCatalogBuilder
 
         if issubclass(self.env._builder_cls, MessageCatalogBuilder):
             return

@@ -6,18 +6,18 @@ import html
 from typing import TYPE_CHECKING
 
 from sphinx import package_dir
-from sphinx._cli.util.colour import bold
+from .._cli.util.colour import bold
 from sphinx.builders import Builder
 from sphinx.locale import _, __
-from sphinx.theming import HTMLThemeFactory
+from ..theming import HTMLThemeFactory
 from sphinx.util import logging
-from sphinx.util.fileutil import copy_asset_file
+from ..util.fileutil import copy_asset_file
 
 if TYPE_CHECKING:
     from collections.abc import Set
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

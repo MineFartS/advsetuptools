@@ -10,8 +10,8 @@ from importlib.machinery import ModuleSpec
 from types import MethodType, ModuleType
 from typing import TYPE_CHECKING
 
-from sphinx.ext.autodoc._shared import LOGGER
-from sphinx.util.inspect import isboundmethod, safe_getattr
+from .._shared import LOGGER
+from ....util.inspect import isboundmethod, safe_getattr
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Sequence, Set

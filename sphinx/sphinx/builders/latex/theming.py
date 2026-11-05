@@ -5,14 +5,14 @@ from __future__ import annotations
 import configparser
 from typing import TYPE_CHECKING
 
-from sphinx.errors import ThemeError
+from ...errors import ThemeError
 from sphinx.locale import __
 from sphinx.util import logging
 
 if TYPE_CHECKING:
     from pathlib import Path
 
-    from sphinx.config import Config
+    from ...config import Config
 
 logger = logging.getLogger(__name__)
 

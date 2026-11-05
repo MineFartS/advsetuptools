@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from sphinx.ext.autodoc._dynamic._mock import (
+from ._dynamic._mock import (
     MockFinder,  # NoQA: F401
     MockLoader,  # NoQA: F401
     _make_subclass,  # NoQA: F401

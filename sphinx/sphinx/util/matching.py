@@ -8,7 +8,7 @@ import unicodedata
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from sphinx.util.osutil import canon_path
+from .osutil import canon_path
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Iterator

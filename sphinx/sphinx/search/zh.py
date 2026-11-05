@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 import snowballstemmer
 
 from sphinx.search import SearchLanguage
-from sphinx.search._stopwords.en import ENGLISH_STOPWORDS
+from ._stopwords.en import ENGLISH_STOPWORDS
 
 if TYPE_CHECKING:
     from collections.abc import Iterator

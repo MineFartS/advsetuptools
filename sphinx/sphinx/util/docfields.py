@@ -14,7 +14,7 @@ from docutils import nodes
 from sphinx import addnodes
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.nodes import get_node_line
+from .nodes import get_node_line
 
 if TYPE_CHECKING:
     from docutils.nodes import Element, Node
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 
     from sphinx.directives import ObjectDescription
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import TextlikeNode
+    from .typing import TextlikeNode
 
     type _FieldEntry = tuple[str, list[Node]]
     type _FieldTypes = dict[str, list[Node]]

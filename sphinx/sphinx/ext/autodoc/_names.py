@@ -5,14 +5,14 @@ from __future__ import annotations
 import re
 from typing import TYPE_CHECKING
 
-from sphinx.ext.autodoc._shared import LOGGER
+from ._shared import LOGGER
 from sphinx.locale import __
 
 if TYPE_CHECKING:
     from collections.abc import Mapping, Sequence
 
     from sphinx.environment import _CurrentDocument
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
+    from ._property_types import _AutodocObjType
 
 #: extended signature RE: with explicit module name separated by ::
 py_ext_sig_re = re.compile(

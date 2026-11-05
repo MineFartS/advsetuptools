@@ -9,14 +9,14 @@ from typing import TYPE_CHECKING
 
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.osutil import _relative_path, copyfile, ensuredir
+from .osutil import _relative_path, copyfile, ensuredir
 
 if TYPE_CHECKING:
     from collections.abc import Callable
     from typing import Any
 
-    from sphinx.util.template import BaseRenderer
-    from sphinx.util.typing import PathMatcher
+    from .template import BaseRenderer
+    from .typing import PathMatcher
 
 logger = logging.getLogger(__name__)
 
@@ -64,7 +64,7 @@ def copy_asset_file(
 
     if _template_basename(source) and context is not None:
         if renderer is None:
-            from sphinx.util.template import SphinxRenderer
+            from .template import SphinxRenderer
 
             renderer = SphinxRenderer()
 
@@ -131,7 +131,7 @@ def copy_asset(
         return
 
     if renderer is None:
-        from sphinx.util.template import SphinxRenderer
+        from .template import SphinxRenderer
 
         renderer = SphinxRenderer()
 

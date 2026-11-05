@@ -6,12 +6,12 @@ from typing import TYPE_CHECKING, cast
 
 from docutils import nodes
 
-from sphinx.addnodes import pending_xref
+from ..addnodes import pending_xref
 from sphinx.domains import Domain
 from sphinx.locale import __
 from sphinx.transforms import SphinxTransform
 from sphinx.util import logging
-from sphinx.util.nodes import copy_source_info, make_refnode
+from ..util.nodes import copy_source_info, make_refnode
 
 if TYPE_CHECKING:
     from collections.abc import Set
@@ -19,10 +19,10 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from ..util.typing import ExtensionMetadata
 
 
 logger = logging.getLogger(__name__)

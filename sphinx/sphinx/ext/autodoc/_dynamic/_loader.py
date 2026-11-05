@@ -8,19 +8,19 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import TYPE_CHECKING, NewType, TypeVar
 
-from sphinx.ext.autodoc._dynamic._docstrings import (
+from ._docstrings import (
     _docstring_lines_for_props,
     _get_docstring_lines,
 )
-from sphinx.ext.autodoc._dynamic._importer import _import_object
-from sphinx.ext.autodoc._dynamic._mock import ismock
-from sphinx.ext.autodoc._dynamic._signatures import _format_signatures
-from sphinx.ext.autodoc._dynamic._type_comments import (
+from ._importer import _import_object
+from ._mock import ismock
+from ._signatures import _format_signatures
+from ._type_comments import (
     _ensure_annotations_from_type_comments,
     _update_annotations_using_type_comments,
 )
-from sphinx.ext.autodoc._names import _parse_name
-from sphinx.ext.autodoc._property_types import (
+from .._names import _parse_name
+from .._property_types import (
     _AssignStatementProperties,
     _ClassDefProperties,
     _FunctionDefProperties,
@@ -28,27 +28,27 @@ from sphinx.ext.autodoc._property_types import (
     _ModuleProperties,
     _TypeStatementProperties,
 )
-from sphinx.ext.autodoc._sentinels import (
+from .._sentinels import (
     RUNTIME_INSTANCE_ATTRIBUTE,
     SLOTS_ATTR,
     UNINITIALIZED_ATTR,
 )
-from sphinx.ext.autodoc._shared import LOGGER, _get_render_mode
+from .._shared import LOGGER, _get_render_mode
 from sphinx.locale import __
 from sphinx.util import inspect
-from sphinx.util.inspect import safe_getattr
-from sphinx.util.typing import get_type_hints, restify, stringify_annotation
+from ....util.inspect import safe_getattr
+from ....util.typing import get_type_hints, restify, stringify_annotation
 
 if TYPE_CHECKING:
     from collections.abc import Mapping, MutableSet, Sequence
     from typing import Any
 
     from sphinx.environment import _CurrentDocument
-    from sphinx.events import EventManager
-    from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-    from sphinx.ext.autodoc._dynamic._importer import _ImportedObject
-    from sphinx.ext.autodoc._property_types import _AutodocFuncProperty, _AutodocObjType
-    from sphinx.ext.autodoc._shared import _AttrGetter, _AutodocConfig
+    from ....events import EventManager
+    from .._directive_options import _AutoDocumenterOptions
+    from ._importer import _ImportedObject
+    from .._property_types import _AutodocFuncProperty, _AutodocObjType
+    from .._shared import _AttrGetter, _AutodocConfig
 
 
 _hide_value_re = re.compile(r'^:meta \s*hide-value:( +|$)')

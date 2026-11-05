@@ -14,14 +14,14 @@ from importlib.util import decode_source, find_spec, module_from_spec, spec_from
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._dynamic._mock import ismock, mock, undecorate
-from sphinx.ext.autodoc._sentinels import RUNTIME_INSTANCE_ATTRIBUTE, UNINITIALIZED_ATTR
-from sphinx.ext.autodoc._shared import LOGGER
+from ....errors import PycodeError
+from ._mock import ismock, mock, undecorate
+from .._sentinels import RUNTIME_INSTANCE_ATTRIBUTE, UNINITIALIZED_ATTR
+from .._shared import LOGGER
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.util import inspect
-from sphinx.util.inspect import isclass, safe_getattr
-from sphinx.util.typing import get_type_hints
+from ....util.inspect import isclass, safe_getattr
+from ....util.typing import get_type_hints
 
 if TYPE_CHECKING:
     from collections.abc import Mapping, Sequence
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     from types import ModuleType
     from typing import Any, Protocol
 
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
+    from .._property_types import _AutodocObjType
 
     class _AttrGetter(Protocol):
         def __call__(self, obj: Any, name: str, default: Any = ..., /) -> Any: ...

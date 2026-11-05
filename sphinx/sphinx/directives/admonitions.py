@@ -6,15 +6,15 @@ from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 
 from sphinx import addnodes
-from sphinx.util.docutils import SphinxDirective
+from ..util.docutils import SphinxDirective
 
 if TYPE_CHECKING:
     from typing import ClassVar
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata, OptionSpec
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata, OptionSpec
 
 
 def _collapsible_arg(argument: str | None) -> str:

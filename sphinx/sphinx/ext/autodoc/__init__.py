@@ -10,14 +10,14 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 import sphinx
-from sphinx.config import ENUM
-from sphinx.ext.autodoc._directive import AutodocDirective
-from sphinx.ext.autodoc._dynamic._importer import (
+from ...config import ENUM
+from ._directive import AutodocDirective
+from ._dynamic._importer import (
     _import_module as import_module,
 )
-from sphinx.ext.autodoc._dynamic._mock import ismock, mock, undecorate
-from sphinx.ext.autodoc._event_listeners import between, cut_lines
-from sphinx.ext.autodoc._legacy_class_based._directive_options import (
+from ._dynamic._mock import ismock, mock, undecorate
+from ._event_listeners import between, cut_lines
+from ._legacy_class_based._directive_options import (
     Options,
     annotation_option,
     bool_option,
@@ -29,7 +29,7 @@ from sphinx.ext.autodoc._legacy_class_based._directive_options import (
     members_option,
     merge_members_option,
 )
-from sphinx.ext.autodoc._legacy_class_based._documenters import (
+from ._legacy_class_based._documenters import (
     AttributeDocumenter,
     ClassDocumenter,
     ClassLevelDocumenter,
@@ -56,7 +56,7 @@ from sphinx.ext.autodoc._legacy_class_based._documenters import (
     py_ext_sig_re,
     special_member_re,
 )
-from sphinx.ext.autodoc._legacy_class_based._sentinels import (
+from ._legacy_class_based._sentinels import (
     ALL,
     EMPTY,
     INSTANCEATTR,
@@ -64,14 +64,14 @@ from sphinx.ext.autodoc._legacy_class_based._sentinels import (
     SUPPRESS,
     UNINITIALIZED_ATTR,
 )
-from sphinx.ext.autodoc.importer import get_class_members, import_object
-from sphinx.ext.autodoc.typehints import _merge_typehints
+from .importer import get_class_members, import_object
+from .typehints import _merge_typehints
 
 if TYPE_CHECKING:
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
-    from sphinx.util.typing import ExtensionMetadata
+    from ...application import Sphinx
+    from ...config import Config
+    from ._property_types import _AutodocObjType
+    from ...util.typing import ExtensionMetadata
 
 __all__ = (
     # Useful event listener factories for autodoc-process-docstring
@@ -230,11 +230,11 @@ def _register_directives(app: Sphinx, config: Config) -> None:
             # register the automodule, autoclass, etc. directives
             app.add_directive(f'auto{obj_type}', AutodocDirective)
     else:
-        from sphinx.ext.autodoc.preserve_defaults import update_defvalue
-        from sphinx.ext.autodoc.type_comment import (
+        from .preserve_defaults import update_defvalue
+        from .type_comment import (
             update_annotations_using_type_comments,
         )
-        from sphinx.ext.autodoc.typehints import record_typehints
+        from .typehints import record_typehints
 
         app.add_autodocumenter(ModuleDocumenter)
         app.add_autodocumenter(ClassDocumenter)

@@ -15,7 +15,7 @@ from docutils.nodes import Node
 from sphinx import addnodes
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.parsing import _fresh_title_style_context
+from .parsing import _fresh_title_style_context
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Iterator
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
 
     from sphinx.builders import Builder
     from sphinx.environment import BuildEnvironment
-    from sphinx.util.tags import Tags
+    from .tags import Tags
 
 logger = logging.getLogger(__name__)
 

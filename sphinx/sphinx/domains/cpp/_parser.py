@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from typing import TYPE_CHECKING
 
-from sphinx.domains.cpp._ast import (
+from ._ast import (
     ASTAlignofExpr,
     ASTArray,
     ASTAssignmentExpr,
@@ -89,7 +89,7 @@ from sphinx.domains.cpp._ast import (
     ASTUnion,
     ASTUserDefinedLiteral,
 )
-from sphinx.domains.cpp._ids import (
+from ._ids import (
     _expression_assignment_ops,
     _expression_bin_ops,
     _expression_unary_ops,
@@ -103,7 +103,7 @@ from sphinx.domains.cpp._ids import (
     udl_identifier_re,
 )
 from sphinx.util import logging
-from sphinx.util.cfamily import (
+from ...util.cfamily import (
     ASTAttributeList,
     BaseParser,
     DefinitionError,
@@ -123,7 +123,7 @@ if TYPE_CHECKING:
     from collections.abc import Callable, Sequence
     from typing import Any
 
-    from sphinx.domains.cpp._ast import (
+    from ._ast import (
         ASTDeclarator,
         ASTExpression,
         ASTLiteral,

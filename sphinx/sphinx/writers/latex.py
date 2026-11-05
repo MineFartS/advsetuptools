@@ -16,14 +16,14 @@ from docutils import nodes, writers
 from roman_numerals import RomanNumeral
 
 from sphinx import addnodes, highlighting
-from sphinx.errors import SphinxError
+from ..errors import SphinxError
 from sphinx.locale import _, __, admonitionlabels
 from sphinx.util import logging, texescape
-from sphinx.util.docutils import SphinxTranslator
-from sphinx.util.index_entries import split_index_msg
-from sphinx.util.nodes import clean_astext, get_prev_node
-from sphinx.util.template import LaTeXRenderer
-from sphinx.util.texescape import tex_replace_map
+from ..util.docutils import SphinxTranslator
+from ..util.index_entries import split_index_msg
+from ..util.nodes import clean_astext, get_prev_node
+from ..util.template import LaTeXRenderer
+from ..util.texescape import tex_replace_map
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     from docutils.nodes import Element, Node, Text
 
     from sphinx.builders.latex import LaTeXBuilder
-    from sphinx.builders.latex.theming import Theme
+    from ..builders.latex.theming import Theme
     from sphinx.domains import IndexEntry
 
 
@@ -2548,7 +2548,7 @@ class LaTeXTranslator(SphinxTranslator):
                 self.body.append(r'\label{%s}' % label)
             self.body.append(node.astext())
         else:
-            from sphinx.util.math import wrap_displaymath
+            from ..util.math import wrap_displaymath
 
             self.body.append(
                 wrap_displaymath(node.astext(), label, self.config.math_number_all)
@@ -2574,7 +2574,7 @@ class LaTeXTranslator(SphinxTranslator):
 
 # FIXME: Workaround to avoid circular import
 # See: https://github.com/sphinx-doc/sphinx/issues/5433
-from sphinx.builders.latex.nodes import (  # NoQA: E402  # isort:skip
+from ..builders.latex.nodes import (  # NoQA: E402  # isort:skip
     HYPERLINK_SUPPORT_NODES,
     captioned_literal_block,
     footnotetext,

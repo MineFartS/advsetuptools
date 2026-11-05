@@ -12,18 +12,18 @@ from os import getenv
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal, NamedTuple
 
-from sphinx.errors import ConfigError, ExtensionError
-from sphinx.locale import _, __
-from sphinx.util import logging
+from .errors import ConfigError, ExtensionError
+from .locale import _, __
+from .util import logging
 
 if TYPE_CHECKING:
     import os
     from collections.abc import Collection, Iterable, Iterator, Sequence, Set
 
-    from sphinx.application import Sphinx
-    from sphinx.environment import BuildEnvironment
-    from sphinx.util.tags import Tags
-    from sphinx.util.typing import ExtensionMetadata, _ExtensionSetupFunc
+    from .application import Sphinx
+    from .environment import BuildEnvironment
+    from .util.tags import Tags
+    from .util.typing import ExtensionMetadata, _ExtensionSetupFunc
 
 logger = logging.getLogger(__name__)
 

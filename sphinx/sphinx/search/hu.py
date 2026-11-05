@@ -5,7 +5,7 @@ from __future__ import annotations
 import snowballstemmer
 
 from sphinx.search import SearchLanguage
-from sphinx.search._stopwords.hu import HUNGARIAN_STOPWORDS
+from ._stopwords.hu import HUNGARIAN_STOPWORDS
 
 
 class SearchHungarian(SearchLanguage):

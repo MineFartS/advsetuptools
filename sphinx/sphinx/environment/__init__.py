@@ -12,10 +12,10 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from sphinx import addnodes
-from sphinx.deprecation import RemovedInSphinx11Warning, _deprecation_warning
-from sphinx.domains._domains_container import _DomainsContainer
+from ..deprecation import RemovedInSphinx11Warning, _deprecation_warning
+from ..domains._domains_container import _DomainsContainer
 from sphinx.environment.adapters import toctree as toctree_adapters
-from sphinx.errors import (
+from ..errors import (
     BuildEnvironmentError,
     DocumentError,
     ExtensionError,
@@ -24,14 +24,14 @@ from sphinx.errors import (
 from sphinx.locale import __
 from sphinx.transforms import SphinxTransformer
 from sphinx.util import logging
-from sphinx.util._files import DownloadFiles, FilenameUniqDict
-from sphinx.util._pathlib import _StrPathProperty
-from sphinx.util._serialise import stable_str
-from sphinx.util._timestamps import _format_rfc3339_microseconds
-from sphinx.util.docutils import LoggingReporter
-from sphinx.util.i18n import CatalogRepository, docname_to_domain
-from sphinx.util.nodes import is_translatable
-from sphinx.util.osutil import _last_modified_time, _relative_path
+from ..util._files import DownloadFiles, FilenameUniqDict
+from ..util._pathlib import _StrPathProperty
+from ..util._serialise import stable_str
+from ..util._timestamps import _format_rfc3339_microseconds
+from ..util.docutils import LoggingReporter
+from ..util.i18n import CatalogRepository, docname_to_domain
+from ..util.nodes import is_translatable
+from ..util.osutil import _last_modified_time, _relative_path
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable, Iterator, Mapping, Set
@@ -41,18 +41,18 @@ if TYPE_CHECKING:
     from docutils.nodes import Node
     from docutils.parsers import Parser
 
-    from sphinx.application import Sphinx
+    from ..application import Sphinx
     from sphinx.builders import Builder
-    from sphinx.config import Config
+    from ..config import Config
     from sphinx.domains import Domain
-    from sphinx.domains.c._symbol import Symbol as CSymbol
-    from sphinx.domains.cpp._symbol import Symbol as CPPSymbol
-    from sphinx.events import EventManager
-    from sphinx.extension import Extension
-    from sphinx.project import Project
-    from sphinx.registry import SphinxComponentRegistry
-    from sphinx.util._pathlib import _StrPath
-    from sphinx.util.tags import Tags
+    from ..domains.c._symbol import Symbol as CSymbol
+    from ..domains.cpp._symbol import Symbol as CPPSymbol
+    from ..events import EventManager
+    from ..extension import Extension
+    from ..project import Project
+    from ..registry import SphinxComponentRegistry
+    from ..util._pathlib import _StrPath
+    from ..util.tags import Tags
 
 logger = logging.getLogger(__name__)
 

@@ -13,9 +13,9 @@ from docutils import nodes, writers
 from sphinx import __display_version__, addnodes
 from sphinx.locale import _, __, admonitionlabels
 from sphinx.util import logging
-from sphinx.util.docutils import SphinxTranslator
-from sphinx.util.i18n import format_date
-from sphinx.writers.latex import collected_footnote
+from ..util.docutils import SphinxTranslator
+from ..util.i18n import format_date
+from .latex import collected_footnote
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Iterator
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Element, Node, Text
 
-    from sphinx.builders.texinfo import TexinfoBuilder
+    from ..builders.texinfo import TexinfoBuilder
     from sphinx.domains import IndexEntry
 
 

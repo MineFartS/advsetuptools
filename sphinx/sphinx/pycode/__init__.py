@@ -6,9 +6,9 @@ import tokenize
 from importlib import import_module
 from typing import TYPE_CHECKING
 
-from sphinx.errors import PycodeError
-from sphinx.pycode.parser import Parser
-from sphinx.util._pathlib import _StrPath
+from ..errors import PycodeError
+from .parser import Parser
+from ..util._pathlib import _StrPath
 
 if TYPE_CHECKING:
     import os

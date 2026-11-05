@@ -5,14 +5,14 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from sphinx.locale import __
-from sphinx.util._serialise import stable_hash
+from ...util._serialise import stable_hash
 
 if TYPE_CHECKING:
     from collections.abc import Set
     from pathlib import Path
 
-    from sphinx.config import Config, _ConfigRebuild
-    from sphinx.util.tags import Tags
+    from ...config import Config, _ConfigRebuild
+    from ...util.tags import Tags
 
 
 class BuildInfo:

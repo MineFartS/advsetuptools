@@ -5,27 +5,27 @@ from typing import TYPE_CHECKING
 
 from docutils.statemachine import StringList
 
-from sphinx.errors import PycodeError
-from sphinx.ext.autodoc._dynamic._loader import _load_object_by_name
-from sphinx.ext.autodoc._dynamic._member_finder import _gather_members
-from sphinx.ext.autodoc._dynamic._mock import ismock
-from sphinx.ext.autodoc._renderer import _add_content, _directive_header_lines
-from sphinx.ext.autodoc._sentinels import ALL
-from sphinx.ext.autodoc._shared import LOGGER, _get_render_mode
+from ...errors import PycodeError
+from ._dynamic._loader import _load_object_by_name
+from ._dynamic._member_finder import _gather_members
+from ._dynamic._mock import ismock
+from ._renderer import _add_content, _directive_header_lines
+from ._sentinels import ALL
+from ._shared import LOGGER, _get_render_mode
 from sphinx.locale import _, __
 from sphinx.pycode import ModuleAnalyzer
 from sphinx.util import inspect
-from sphinx.util.typing import restify, stringify_annotation
+from ...util.typing import restify, stringify_annotation
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Mapping, MutableSet
 
     from sphinx.environment import _CurrentDocument
-    from sphinx.events import EventManager
-    from sphinx.ext.autodoc._directive_options import _AutoDocumenterOptions
-    from sphinx.ext.autodoc._property_types import _AutodocObjType, _ItemProperties
-    from sphinx.ext.autodoc._shared import _AttrGetter, _AutodocConfig
-    from sphinx.util.typing import _RestifyMode
+    from ...events import EventManager
+    from ._directive_options import _AutoDocumenterOptions
+    from ._property_types import _AutodocObjType, _ItemProperties
+    from ._shared import _AttrGetter, _AutodocConfig
+    from ...util.typing import _RestifyMode
 
 
 def _auto_document_object(
@@ -324,7 +324,7 @@ def _body_alias_lines(
 ) -> Iterator[str]:
     """Add content from docstrings, attribute documentation and user."""
     if props.obj_type in {'data', 'attribute'}:
-        from sphinx.ext.autodoc._property_types import _AssignStatementProperties
+        from ._property_types import _AssignStatementProperties
 
         assert isinstance(props, _AssignStatementProperties)
 
@@ -337,7 +337,7 @@ def _body_alias_lines(
         return
 
     if props.obj_type in {'class', 'exception'}:
-        from sphinx.ext.autodoc._property_types import _ClassDefProperties
+        from ._property_types import _ClassDefProperties
 
         assert isinstance(props, _ClassDefProperties)
 

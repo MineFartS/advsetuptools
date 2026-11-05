@@ -7,14 +7,14 @@ from typing import TYPE_CHECKING
 
 from docutils import nodes
 
-from sphinx._cli.util.colour import darkgreen
+from .._cli.util.colour import darkgreen
 from sphinx.builders.html import StandaloneHTMLBuilder
-from sphinx.deprecation import RemovedInSphinx10Warning
-from sphinx.environment.adapters.toctree import global_toctree_for_doc
+from ..deprecation import RemovedInSphinx10Warning
+from ..environment.adapters.toctree import global_toctree_for_doc
 from sphinx.locale import __
 from sphinx.util import logging
-from sphinx.util.display import progress_message
-from sphinx.util.nodes import inline_all_toctrees
+from ..util.display import progress_message
+from ..util.nodes import inline_all_toctrees
 
 if TYPE_CHECKING:
     from collections.abc import Set
@@ -22,8 +22,8 @@ if TYPE_CHECKING:
 
     from docutils.nodes import Node
 
-    from sphinx.application import Sphinx
-    from sphinx.util.typing import ExtensionMetadata
+    from ..application import Sphinx
+    from ..util.typing import ExtensionMetadata
 
 logger = logging.getLogger(__name__)
 

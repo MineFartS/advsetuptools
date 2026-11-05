@@ -4,11 +4,11 @@ from typing import TYPE_CHECKING
 
 from docutils import nodes
 
-from sphinx.ext.autodoc._directive_options import _process_documenter_options
-from sphinx.ext.autodoc._generate import _auto_document_object
-from sphinx.ext.autodoc._shared import LOGGER, _AutodocAttrGetter, _AutodocConfig
-from sphinx.util.docutils import SphinxDirective, switch_source_input
-from sphinx.util.parsing import nested_parse_to_nodes
+from ._directive_options import _process_documenter_options
+from ._generate import _auto_document_object
+from ._shared import LOGGER, _AutodocAttrGetter, _AutodocConfig
+from ...util.docutils import SphinxDirective, switch_source_input
+from ...util.parsing import nested_parse_to_nodes
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from docutils.parsers.rst.states import RSTState
     from docutils.statemachine import StringList
 
-    from sphinx.ext.autodoc._property_types import _AutodocObjType
+    from ._property_types import _AutodocObjType
 
 
 class DummyOptionSpec(dict[str, 'Callable[[str], str]']):  # NoQA: FURB189

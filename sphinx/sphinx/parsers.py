@@ -10,17 +10,17 @@ from docutils.parsers.rst import states
 from docutils.statemachine import StringList
 from docutils.transforms.universal import SmartQuotes
 
-from sphinx.deprecation import _deprecation_warning
-from sphinx.util.rst import _append_epilogue, _prepend_prologue
+from .deprecation import _deprecation_warning
+from .util.rst import _append_epilogue, _prepend_prologue
 
 if TYPE_CHECKING:
     from docutils import nodes
     from docutils.transforms import Transform
 
-    from sphinx.application import Sphinx
-    from sphinx.config import Config
-    from sphinx.environment import BuildEnvironment
-    from sphinx.util.typing import ExtensionMetadata
+    from .application import Sphinx
+    from .config import Config
+    from .environment import BuildEnvironment
+    from .util.typing import ExtensionMetadata
 
 
 class Parser(docutils.parsers.Parser):
