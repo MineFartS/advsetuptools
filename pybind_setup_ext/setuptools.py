@@ -14,17 +14,16 @@ class build(_build):
 
     def initialize_options(self) -> None:
         super().initialize_options()
-        if FORCE:
             
-            name = self.distribution.get_name()
+        name = self.distribution.get_name()
 
-            for d in ("build", "dist", "_build", "_api", f"{name}.egg-info"):
-                rmtree(d, True)
-            
-            if is_pkg_installed(name):
-                shell.pip("uninstall", "-y", name)
+        for d in ("build", "dist", "_build", "_api", f"{name}.egg-info"):
+            rmtree(d, True)
+        
+        if is_pkg_installed(name):
+            shell.pip("uninstall", "-y", name)
 
-            shell.pip("cache", "purge")
+        shell.pip("cache", "purge")
     
     def run(self) -> None:
         super().run()
