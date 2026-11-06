@@ -7,6 +7,7 @@ __all__ = [
 
 from mypy.stubdoc import FunctionSig
 from mypy import stubgenc as _stubgenc
+from contextlib import chdir
 from os import environ
 
 from mypy.stubutil import (
@@ -38,7 +39,8 @@ def generate_stubs(
 
     environ["STUBGEN"] = "1"
     try:
-        _generate_stubs(options)
+        with chdir(output_dir):
+            _generate_stubs(options)
     finally:
         environ.pop("STUBGEN", None)
         _stubgenc.InspectionStubGenerator = _InspectionStubGenerator
