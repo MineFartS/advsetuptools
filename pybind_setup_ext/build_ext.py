@@ -10,7 +10,6 @@ from mypy.stubgen import (main as _generate_stubs)
 from setuptools.extension import Extension
 from mypy import stubgenc as _stubgenc
 from mypy.stubdoc import FunctionSig
-from contextlib import chdir
 from os import environ
 
 from mypy.stubutil import (
@@ -48,11 +47,10 @@ class build_ext(__build_ext):
 
         environ["STUBGEN"] = "1"
         try:
-            with chdir(output_dir):
-                _generate_stubs([
-                    '--output', output_dir,
-                    '--module', module,
-                ])
+            _generate_stubs([
+                '--output', output_dir,
+                '--module', module,
+            ])
         finally:
             environ.pop("STUBGEN", None)
             _stubgenc.InspectionStubGenerator = _InspectionStubGenerator
