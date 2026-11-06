@@ -1,6 +1,5 @@
 from .utils import at_path, is_pkg_installed, shell
 from .git import update_submodule
-from .utils import at_path, FORCE
 from .setuptools import setup
 from .cpp_ext import cpp_ext
 from .sphinx import Sphinx
@@ -15,7 +14,7 @@ from .cpp_ext import (
 __all__ = [
     "at_path",
     "is_pkg_installed",
-
+    "shell",
     "update_submodule",
     "at_path",
     "FORCE",

@@ -1,4 +1,8 @@
-from subprocess import check_call
+from .utils import shell
+
+__all__ = [
+    "update_submodule",
+]
 
 def update_submodule(
     name: str|None = None,
@@ -8,12 +12,11 @@ def update_submodule(
     recurse: bool = True,
 ) -> None:
     
-    args = ['git', 'submodule', 'update', '--init']
-
+    args: list[str] = []
     if recurse: args += ['--recursive']
     if remote: args += ['--remote']
     if force:  args += ['--force']
     if name:   args += [name]
 
-    check_call(args)
+    shell.git('submodule', 'update', '--init', *args)
 

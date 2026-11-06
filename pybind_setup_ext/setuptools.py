@@ -3,9 +3,7 @@ from .utils import is_pkg_installed, shell
 from setuptools import (setup as _setup)
 from .build_ext import build_ext
 from .cpp_ext import cpp_ext
-from subprocess import run
 from .sphinx import Sphinx
-from sys import executable
 from shutil import rmtree
 
 __all__ = [
@@ -13,13 +11,6 @@ __all__ = [
 ]
 
 class build(_build):
-
-    @staticmethod
-    def _pip(*args:str) -> None:
-        run(
-            [executable, "-m", "pip", *args],
-            check = True,
-        )
 
     def initialize_options(self) -> None:
         super().initialize_options()
@@ -31,9 +22,9 @@ class build(_build):
                 rmtree(d, True)
             
             if is_pkg_installed(name):
-                self._pip("uninstall", "-y", name)
+                shell.pip("uninstall", "-y", name)
 
-            self._pip("cache", "purge")
+            shell.pip("cache", "purge")
     
     def run(self) -> None:
         super().run()

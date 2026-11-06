@@ -2,17 +2,12 @@ from sphinx.application import Sphinx as _Sphinx
 from ghp_import import ghp_import
 from datetime import datetime
 from pathlib import Path
+from .utils import shell
 import tomllib as toml
 
 __all__ = [
-    "shell", "Sphinx",
+    "Sphinx",
 ]
-
-def shell(*args:str) -> None:
-    from sphinx.cmd.quickstart import main
-    result = main(args)
-    if result != 0:
-        raise RuntimeError(f'{result=}')
 
 class Sphinx(_Sphinx):
 
@@ -32,7 +27,7 @@ class Sphinx(_Sphinx):
 
         args += "--no-sep", '.'
 
-        shell(*args)
+        shell.sphinx(*args)
 
         #==============================================
         # Git Ignore
