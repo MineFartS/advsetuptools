@@ -39,6 +39,8 @@ class build_ext(__build_ext):
             _generate_stubs([
                 '--output', output_dir,
                 '--module', module,
+                '--inspect-mode',
+                '--include-private',
             ])
         finally:
             environ.pop("STUBGEN", None)
