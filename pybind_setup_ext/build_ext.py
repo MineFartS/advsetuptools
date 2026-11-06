@@ -6,6 +6,8 @@ from setuptools.extension import Extension
 from mypy import (stubgenc as _stubgenc)
 from mypy.stubgen import parse_options
 from mypy.stubdoc import FunctionSig
+from importlib import import_module
+from inspect import signature
 from .utils import at_path
 from os import environ
 
@@ -50,6 +52,15 @@ class build_ext(__build_ext):
             _stubgenc.InspectionStubGenerator = _ISG
 
 class ISG(_ISG):
+
+    def __init__(self, *args, **kwargs) -> None:
+        
+        bargs = signature(_ISG.__init__).bind(*args, **kwargs).arguments
+        del bargs['self']
+
+        bargs['module'] = import_module(bargs['module_name'])
+
+        super().__init__(**bargs)
 
     def get_default_function_sig(self, func: object, ctx: FunctionContext) -> FunctionSig:
         
