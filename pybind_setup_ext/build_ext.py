@@ -11,9 +11,9 @@ class build_ext(__build_ext):
         
         super().run()
 
-        for ext in self.extensions:
+        names = [e.name for e in self.extensions]
 
-            generate_stubs(self.build_lib, [ext.name])
+        generate_stubs(self.build_lib, names)
 
-            generate_stubs('.', [ext.name])
+        generate_stubs('.', names)
 
