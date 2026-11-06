@@ -8,7 +8,7 @@ __all__ = [
 
 @contextmanager
 def at_path(path:str):
-    with patch.dict(sys.path):
+    with patch.object(sys, "path", sys.path.copy()):
         sys.path.insert(0, path)
         with chdir(path):
             yield
