@@ -5,9 +5,8 @@ import sys
 
 __all__ = [
     "at_path",
-    "FORCE",
     "is_pkg_installed",
-
+    "shell",
 ]
 
 @contextmanager
@@ -16,8 +15,6 @@ def at_path(path:str):
         sys.path.insert(0, path)
         with chdir(path):
             yield
-
-FORCE = any(flag in sys.argv for flag in ("-f", "--force"))
 
 def is_pkg_installed(name:str) -> bool:
     try:
