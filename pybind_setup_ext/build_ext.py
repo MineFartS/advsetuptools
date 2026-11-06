@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 __all__ = [
-    "generate_stubs",
     "build_ext",
     "InspectionStubGenerator",
 ]
 
 from setuptools.command.build_ext import build_ext as __build_ext
+from mypy.stubgen import (main as _generate_stubs)
 from setuptools.extension import Extension
 from mypy import stubgenc as _stubgenc
 from mypy.stubdoc import FunctionSig
@@ -22,33 +22,6 @@ from mypy.stubgenc import (
     InspectionStubGenerator as _InspectionStubGenerator
 )
 
-from mypy.stubgen import (
-    parse_options,
-    generate_stubs as _generate_stubs,
-)
-
-
-def generate_stubs(
-    output_dir: str, 
-    modules: list[str]
-) -> None:
-    """Main entry point for the program."""
-
-    _stubgenc.InspectionStubGenerator = InspectionStubGenerator
-
-    options = parse_options([
-        '--output', output_dir,
-    ])
-    options.modules = modules
-
-    environ["STUBGEN"] = "1"
-    try:
-        with chdir(output_dir):
-            _generate_stubs(options)
-    finally:
-        environ.pop("STUBGEN", None)
-        _stubgenc.InspectionStubGenerator = _InspectionStubGenerator
-
 
 class build_ext(__build_ext):
 
@@ -59,11 +32,30 @@ class build_ext(__build_ext):
         
         super().run()
 
-        names = [e.name for e in self.extensions]
+        for ext in self.extensions:
 
-        generate_stubs(self.build_lib, names)
+            self.generate_stubs(self.build_lib, ext.name)
 
-        generate_stubs('.', names)
+            self.generate_stubs('.', ext.name)
+
+    @staticmethod
+    def generate_stubs(
+        output_dir: str, 
+        module: str
+    ) -> None:
+
+        _stubgenc.InspectionStubGenerator = InspectionStubGenerator
+
+        environ["STUBGEN"] = "1"
+        try:
+            with chdir(output_dir):
+                _generate_stubs([
+                    '--output', output_dir,
+                    '--module', module,
+                ])
+        finally:
+            environ.pop("STUBGEN", None)
+            _stubgenc.InspectionStubGenerator = _InspectionStubGenerator
 
 
 class InspectionStubGenerator(_InspectionStubGenerator):
