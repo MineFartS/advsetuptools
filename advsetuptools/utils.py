@@ -8,7 +8,6 @@ import sys
 __all__ = [
     "at_path",
     "is_pkg_installed",
-    "shell",
 ]
 
 @contextmanager

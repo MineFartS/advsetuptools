@@ -3,6 +3,7 @@ from .git import update_submodule
 from .setuptools import setup
 from .cpp_ext import cpp_ext
 from .sphinx import Sphinx
+from .utils import at_path
 
 from .cpp_ext import (
     _extra_compile_args as extra_compile_args,
@@ -17,7 +18,6 @@ __all__ = [
     "shell",
     "update_submodule",
     "at_path",
-    "FORCE",
     "setup",
     "cpp_ext",
     "Sphinx",
