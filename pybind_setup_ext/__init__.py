@@ -1,4 +1,3 @@
-
 from .git import update_submodule
 from .build_ext import build_ext
 from .cpp_ext import cpp_ext
@@ -18,10 +17,17 @@ __all__ = [
     "extra_link_args"
 ]
 
-def setup(*ext_modules:cpp_ext) -> None:
-    st.setup(
+def setup(*ext_modules:cpp_ext):
+    
+    dist = st.setup(
         cmdclass = {'build_ext': build_ext},
         ext_modules = list(filter(None, ext_modules)),
+        script_args = [],
     )
+    
+    dist.run_command('build_ext')
+    
     Sphinx('.', True).build()
+
+    return dist
 
