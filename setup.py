@@ -8,7 +8,7 @@ def embed(name:str) -> str:
 
 setup(
     install_requires = [
-        "setuptools>=74.1",
+        "setuptools==84.2.1",
         "ghp-import",
         "mypy==2.4.1",
         "sphinx==9.1.1",
