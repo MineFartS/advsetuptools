@@ -1,10 +1,12 @@
 from setuptools.command.build_ext import (build_ext as __build_ext)
+from mypy.stubgen import (generate_stubs as _generate_stubs)
 from mypy.stubgenc import (InspectionStubGenerator as _ISG)
 from mypy.stubutil import ClassInfo, FunctionContext
-from mypy.stubgen import (main as _generate_stubs)
 from setuptools.extension import Extension
 from mypy import (stubgenc as _stubgenc)
+from mypy.stubgen import parse_options
 from mypy.stubdoc import FunctionSig
+from .utils import patch_sys_path
 from os import environ
 
 __all__ = [
@@ -36,12 +38,13 @@ class build_ext(__build_ext):
 
         environ["STUBGEN"] = "1"
         try:
-            _generate_stubs([
-                '--output', output_dir,
-                '--module', module,
-                '--inspect-mode',
-                '--include-private',
-            ])
+            with patch_sys_path(output_dir):
+                _generate_stubs(parse_options([
+                    '--output', output_dir,
+                    '--module', module,
+                    '--inspect-mode',
+                    '--include-private',
+                ]))
         finally:
             environ.pop("STUBGEN", None)
             _stubgenc.InspectionStubGenerator = _ISG
