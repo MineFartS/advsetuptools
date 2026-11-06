@@ -6,7 +6,7 @@ from setuptools.extension import Extension
 from mypy import (stubgenc as _stubgenc)
 from mypy.stubgen import parse_options
 from mypy.stubdoc import FunctionSig
-from .utils import patch_sys_path
+from .utils import at_path
 from os import environ
 
 __all__ = [
@@ -38,7 +38,7 @@ class build_ext(__build_ext):
 
         environ["STUBGEN"] = "1"
         try:
-            with patch_sys_path(output_dir):
+            with at_path(output_dir):
                 _generate_stubs(parse_options([
                     '--output', output_dir,
                     '--module', module,
