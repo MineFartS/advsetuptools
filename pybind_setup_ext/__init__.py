@@ -1,8 +1,7 @@
 from .git import update_submodule
-from .build_ext import build_ext
+from .setuptools import setup
 from .cpp_ext import cpp_ext
 from .sphinx import Sphinx
-import setuptools as st
 
 from .cpp_ext import (
     _extra_compile_args as extra_compile_args,
@@ -12,22 +11,13 @@ from .cpp_ext import (
 )
 
 __all__ = [
-    "cpp_ext", "setup", "update_submodule", 
-    "extra_compile_args", "extra_objects", "include_dirs",
-    "extra_link_args"
+    "update_submodule",
+    "setup",
+    "cpp_ext",
+    "Sphinx",
+    "extra_compile_args",
+    "extra_objects",
+    "include_dirs",
+    "extra_link_args",
 ]
-
-def setup(*ext_modules:cpp_ext):
-    
-    dist = st.setup(
-        cmdclass = {'build_ext': build_ext},
-        ext_modules = list(filter(None, ext_modules)),
-        script_args = [],
-    )
-    
-    dist.run_command('build_ext')
-    
-    Sphinx('.', True).build()
-
-    return dist
 
