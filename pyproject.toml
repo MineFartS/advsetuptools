@@ -11,7 +11,8 @@ dependencies = [
     "ghp-import==2.1.0",
     "mypy==2.4.1",
     "sphinx==9.1.1",
-    "sphinx-autodoc2 @ git+https://github.com/MineFartS/sphinx-autodoc2",
+    "sphinx-autodoc2; python_version <= '3.13'",
+    "sphinx-autodoc2 @ git+https://github.com/MineFartS/sphinx-autodoc2 ; python_version >= '3.14'",
 ]
 
 [tool.setuptools.package-data]
