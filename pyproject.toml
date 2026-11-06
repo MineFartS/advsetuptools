@@ -6,11 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "pybind-setup-ext"
 version = "v0"
 requires-python = ">=3.12"
-dynamic = ["dependencies"]
-
-[tool.setuptools.packages.find]
-include = ["pybind_setup_ext*"]
-exclude = ["sphinx*"]
+dependencies = [
+    "setuptools==84.2.1",
+    "ghp-import==2.1.0",
+    "mypy==2.4.1",
+    "sphinx==9.1.1",
+    "sphinx-autodoc2 @ git+https://github.com/MineFartS/sphinx-autodoc2",
+]
 
 [tool.setuptools.package-data]
 "pybind_setup_ext" = ["include/**/*"]
