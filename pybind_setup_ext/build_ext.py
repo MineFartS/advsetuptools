@@ -1,22 +1,15 @@
-from __future__ import annotations
+from setuptools.command.build_ext import (build_ext as __build_ext)
+from mypy.stubgenc import (InspectionStubGenerator as _ISG)
+from mypy.stubutil import ClassInfo, FunctionContext
+from mypy.stubgen import (main as _generate_stubs)
+from setuptools.extension import Extension
+from mypy import (stubgenc as _stubgenc)
+from mypy.stubdoc import FunctionSig
+from os import environ
 
 __all__ = [
     "build_ext",
 ]
-
-from setuptools.command.build_ext import build_ext as __build_ext
-from mypy.stubgenc import (InspectionStubGenerator as _ISG)
-from mypy.stubgen import (main as _generate_stubs)
-from setuptools.extension import Extension
-from mypy import stubgenc as _stubgenc
-from mypy.stubdoc import FunctionSig
-from os import environ
-
-from mypy.stubutil import (
-    ClassInfo,
-    FunctionContext,
-)
-
 
 class build_ext(__build_ext):
 
@@ -50,7 +43,6 @@ class build_ext(__build_ext):
         finally:
             environ.pop("STUBGEN", None)
             _stubgenc.InspectionStubGenerator = _ISG
-
 
 class ISG(_ISG):
 
@@ -115,5 +107,4 @@ class ISG(_ISG):
         ):
             self.import_tracker.add_import_from("functools", [("cached_property", None)])
             ro_properties[-1] = ro_properties[-1].replace("@property", "@cached_property")
-
 
