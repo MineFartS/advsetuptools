@@ -2,10 +2,10 @@ from __future__ import annotations
 
 __all__ = [
     "build_ext",
-    "InspectionStubGenerator",
 ]
 
 from setuptools.command.build_ext import build_ext as __build_ext
+from mypy.stubgenc import (InspectionStubGenerator as _ISG)
 from mypy.stubgen import (main as _generate_stubs)
 from setuptools.extension import Extension
 from mypy import stubgenc as _stubgenc
@@ -15,10 +15,6 @@ from os import environ
 from mypy.stubutil import (
     ClassInfo,
     FunctionContext,
-)
-
-from mypy.stubgenc import (
-    InspectionStubGenerator as _InspectionStubGenerator
 )
 
 
@@ -43,7 +39,7 @@ class build_ext(__build_ext):
         module: str
     ) -> None:
 
-        _stubgenc.InspectionStubGenerator = InspectionStubGenerator
+        _stubgenc.InspectionStubGenerator = ISG
 
         environ["STUBGEN"] = "1"
         try:
@@ -53,16 +49,10 @@ class build_ext(__build_ext):
             ])
         finally:
             environ.pop("STUBGEN", None)
-            _stubgenc.InspectionStubGenerator = _InspectionStubGenerator
+            _stubgenc.InspectionStubGenerator = _ISG
 
 
-class InspectionStubGenerator(_InspectionStubGenerator):
-    """Stub generator that does not parse code.
-
-    Generation is performed by inspecting the module's contents, and thus works
-    for highly dynamic modules, pyc files, and C modules (via the CStubGenerator
-    subclass).
-    """
+class ISG(_ISG):
 
     def get_default_function_sig(self, func: object, ctx: FunctionContext) -> FunctionSig:
         
