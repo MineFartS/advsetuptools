@@ -1,3 +1,4 @@
+from .utils import patch_sys_path
 from .git import update_submodule
 from .setuptools import setup
 from .cpp_ext import cpp_ext
@@ -11,6 +12,7 @@ from .cpp_ext import (
 )
 
 __all__ = [
+    "patch_sys_path",
     "update_submodule",
     "setup",
     "cpp_ext",
