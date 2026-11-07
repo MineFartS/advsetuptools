@@ -21,6 +21,6 @@ def setup(*ext_modules:cpp_ext):
             'build': build,
         },
         ext_modules = list(filter(None, ext_modules)),
-        version = 'v' + date.today().isoformat().replace('-', '.'),
+        version = date.today().isoformat().replace('-', '.'),
     )
 

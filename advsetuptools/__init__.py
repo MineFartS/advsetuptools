@@ -1,3 +1,6 @@
+#============================================================================================
+# Exports
+
 from .utils import at_path, is_pkg_installed, shell
 from .git import update_submodule
 from .setuptools import setup
@@ -26,4 +29,13 @@ __all__ = [
     "include_dirs",
     "extra_link_args",
 ]
+
+#============================================================================================
+# Warnings
+
+from warnings import filterwarnings
+
+filterwarnings("ignore", category=UserWarning, message="Normalizing .* to .*")
+
+#============================================================================================
 
